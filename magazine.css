@@ -43,3 +43,27 @@ main{margin:0;padding-bottom:0}.wrap{max-width:1280px;padding:0 52px}.room{paddi
   input, textarea, select { border-radius: var(--radius-control); }
   .chips li, .story-img > span { border-radius: 999px; }
 }
+/* Larger, bold navigation buttons. */
+@media screen {
+  .rail { gap: 10px; padding: 12px 24px; flex-wrap: wrap; }
+  .rail .tile, .rail .tile.txt, .rail .tile.gl, .rail .tile.gl2 {
+    min-width: 70px; height: 52px; padding: 0 19px;
+    border: 1px solid #c3cbbd; border-radius: 12px;
+    background: #e9ede2; color: var(--ink);
+    transition: background .18s, border-color .18s;
+  }
+  .rail .tile b, .rail .tile.txt b, .rail .tile.gl b, .rail .tile.gl2 b {
+    font-size: 19px; font-weight: 700; line-height: 1.2; color: inherit;
+  }
+  .rail .tile:hover { background: #dce5d4; border-color: #809475; }
+  .rail .tile.on { background: #213f35; border-color: #213f35; color: #fff; }
+  .rail .tile.on::after { display: none; }
+  .rail .tile:focus-visible { outline: 3px solid #6b7a45; outline-offset: 3px; }
+}
+@media screen and (max-width: 860px) {
+  .rail { flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding: 10px 18px; }
+  .rail .tile, .rail .tile.txt, .rail .tile.gl, .rail .tile.gl2 {
+    min-width: 62px; height: 48px; padding: 0 15px;
+  }
+  .rail .tile b, .rail .tile.txt b, .rail .tile.gl b, .rail .tile.gl2 b { font-size: 18px; }
+}
