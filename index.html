@@ -1,0 +1,1452 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오작교 프로젝트 — 오늘을 짓는(作) 다리</title>
+<meta name="description" content="오늘을 짓는(作) 다리, 오작교 프로젝트 — 2026. 진로교육 실천사례 연구대회. 오늘의 경험(오)에서 스스로 짓는 진로(作), 사람과의 만남(橋)으로 잇는 관계 기반 진로교육">
+<meta property="og:title" content="오작교 프로젝트 — 오늘을 짓는(作) 다리">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://edunity21.github.io/ojakgyo/">
+<meta name="theme-color" content="#14304f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23c8702a'/%3E%3Ctext x='32' y='45' font-size='36' text-anchor='middle' fill='%23fff' font-family='sans-serif' font-weight='700'%3E%EC%98%A4%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@400;500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&text=%E4%BD%9C%E6%A9%8B&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{
+  --ink:#102d50; --text:#25313f; --muted:#5b6878; --line:#c8d2dd; --line2:#e3e9ef;
+  --wash:#f3f6f9; --paper:#fff; --chap:#245b91;
+  --si:#6835a0; --si-t:#f3edf9; --na:#bc4035; --na-t:#fcf0ee;
+  --beu:#006b78; --beu-t:#e6f3f4; --ro:#227344; --ro-t:#e9f4ec; --hw:#102d50; --hw-t:#e9eef5; --hs:#8a642f; --hs-t:#f5efe3; --hs-l:#e7dac6;
+  --c:var(--ink); --ct:var(--wash);
+  --serif:"Hahmlet","Noto Serif KR",serif;
+  --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --rail:6.2rem; color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--text);font:400 1.0625rem/1.75 var(--sans);word-break:normal;overflow-wrap:break-word}
+p,li,dd,td,th,figcaption,blockquote{text-wrap:pretty}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--chap);text-underline-offset:.18em}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--chap);outline-offset:2px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- app shell ---------- */
+.rail{position:fixed;inset:0 auto 0 0;width:var(--rail);background:#fff;border-right:1px solid var(--line2);
+  display:flex;flex-direction:column;align-items:center;gap:.45rem;padding:1rem 0;z-index:40;overflow-y:auto}
+.rail .brand{font:700 1rem/1.15 var(--serif);color:var(--ink);text-align:center;text-decoration:none;margin-bottom:.6rem}
+.rail .brand small{display:block;font:500 .62rem/1.2 var(--sans);color:var(--muted);margin-top:.2rem}
+.tile{width:4.4rem;height:4.4rem;border-radius:.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-decoration:none;color:var(--muted);border:1px solid transparent;transition:background .2s,color .2s}
+.tile b{font:700 1.65rem/1 var(--serif);color:var(--tc,var(--ink))}
+.tile span{font-size:.66rem;margin-top:.3rem;line-height:1.2;text-align:center}
+.tile.txt b{font:600 .95rem/1.2 var(--sans)}
+.tile:hover{background:var(--wash)}
+.tile.on{background:var(--tc,var(--ink));color:#fff}
+.tile.on b{color:#fff}
+.tile[data-r=si]{--tc:var(--si)}.tile[data-r=na]{--tc:var(--na)}.tile[data-r=beu]{--tc:var(--beu)}
+.tile[data-r=ro]{--tc:var(--ro)}.tile[data-r=hw]{--tc:var(--hs)}
+.rail hr{width:2.6rem;border:0;border-top:1px solid var(--line2);margin:.3rem 0}
+.top{display:none}
+main{margin-left:var(--rail);min-height:100vh}
+.view{display:none}
+.view.on{display:block;animation:vin .35s ease-out}
+@keyframes vin{from{opacity:0;transform:translateY(.5rem)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.view.on{animation:none}}
+.wrap{max-width:66rem;margin:0 auto;padding:0 2rem}
+@media (max-width:860px){
+  :root{--rail:0px}
+  .rail{inset:auto 0 0 0;width:auto;height:4.4rem;flex-direction:row;padding:.35rem .5rem;border-right:0;border-top:1px solid var(--line2);
+    overflow-x:auto;overflow-y:hidden;justify-content:flex-start;gap:.3rem;scrollbar-width:none}
+  .rail::-webkit-scrollbar{display:none}
+  .rail .brand,.rail hr{display:none}
+  .tile{flex:0 0 3.6rem;height:3.6rem}
+  .tile b{font-size:1.3rem}.tile span{font-size:.6rem;margin-top:.15rem}.tile.txt b{font-size:.82rem}
+  .top{display:flex;position:sticky;top:0;z-index:30;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line2);height:3.2rem;align-items:center;justify-content:space-between;padding:0 1.1rem}
+  .top a{font:700 1.1rem/1 var(--serif);color:var(--ink);text-decoration:none}
+  .top span{font-size:.82rem;color:var(--muted)}
+  main{padding-bottom:5rem}
+  .wrap{padding:0 1.1rem}
+  body{font-size:1rem}
+}
+
+/* ---------- shared type ---------- */
+.room{padding-top:2.6rem;padding-bottom:4rem}
+.bh{font:700 clamp(1.3rem,2.6vw,1.7rem)/1.35 var(--serif);color:var(--ink);margin:4rem 0 .5rem}
+.bh small{display:block;font:600 .85rem/1.5 var(--sans);color:var(--c);margin-bottom:.2rem}
+.lede{max-width:44rem;color:var(--text);margin:.4rem 0 1.4rem}
+.note{font-size:.84rem;color:var(--muted)}
+.prose{max-width:44rem}
+p{margin:0 0 1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;list-style:none;padding:0;margin:0}
+.chips li{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:.1rem .6rem;background:#fff}
+.t-si{--c:var(--si);--ct:var(--si-t)}.t-na{--c:var(--na);--ct:var(--na-t)}.t-beu{--c:var(--beu);--ct:var(--beu-t)}
+.t-ro{--c:var(--ro);--ct:var(--ro-t)}.t-hw{--c:var(--hs);--ct:var(--hs-t)}
+
+/* ---------- room head ---------- */
+.rh{display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:start;padding-bottom:1.8rem;border-bottom:1px solid var(--line2)}
+.rh .sq{width:7rem;height:7rem;background:var(--c);color:#fff;border-radius:.4rem;display:grid;place-items:center;font:700 3.8rem/1 var(--serif)}
+.rh .sq.w{font-size:2.3rem}
+.rh .lab{margin:0;color:var(--c);font-weight:600;font-size:.9rem}
+.rh h1{font:700 clamp(1.6rem,3.6vw,2.4rem)/1.3 var(--serif);color:var(--ink);margin:.2rem 0 .7rem}
+.rh .q{font:500 clamp(1.05rem,2vw,1.25rem)/1.55 var(--serif);color:var(--ink);margin:0 0 1rem;padding-left:.9rem;border-left:3px solid var(--c)}
+.rh dl{display:flex;flex-wrap:wrap;gap:.5rem 1.8rem;margin:0;font-size:.88rem}
+.rh dt{color:var(--muted);font-size:.78rem}.rh dd{margin:0;color:var(--ink);font-weight:600}
+.rh dd .v{font-weight:400;color:var(--muted)}
+details.info{margin:1rem 0 0;font-size:.9rem;border:1px solid var(--line2);border-radius:.4rem}
+details.info summary{cursor:pointer;padding:.55rem .9rem;color:var(--ink);font-weight:600}
+details.info dl{display:grid;grid-template-columns:auto 1fr;gap:.35rem 1rem;margin:0;padding:.2rem .9rem .9rem}
+details.info dt{color:var(--c);font-weight:600}details.info dd{margin:0}
+@media (max-width:640px){.rh{grid-template-columns:1fr;gap:.9rem}.rh .sq{width:4.4rem;height:4.4rem;font-size:2.4rem}.rh .sq.w{font-size:1.4rem}}
+
+/* ---------- generic tabs ---------- */
+.seg{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 1rem;padding:0;list-style:none}
+.seg button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.32rem .9rem;font-size:.9rem;cursor:pointer;color:var(--text)}
+.seg button:hover{border-color:var(--c)}
+.seg button.on{background:var(--c);border-color:var(--c);color:#fff}
+.pane{border:1px solid var(--line2);border-radius:.5rem;padding:1.2rem 1.3rem;background:#fff}
+.pane h3{margin:0 0 .5rem;font:700 1.2rem/1.4 var(--serif);color:var(--ink)}
+.pane .meta{font-size:.85rem;color:var(--muted);margin-bottom:.6rem}
+.stepnav{display:flex;justify-content:space-between;margin-top:1rem}
+.stepnav button{border:0;background:var(--wash);border-radius:.35rem;padding:.35rem .8rem;cursor:pointer;font-size:.88rem}
+.stepnav button:hover{background:var(--ct)}
+
+/* ---------- home ---------- */
+.hero{padding:3.2rem 0 2.6rem}
+.kick{margin:0;color:var(--muted);font-size:.92rem}
+.staff{position:relative;height:clamp(14rem,30vw,21rem);margin:1.4rem 0 1rem;
+  background-image:linear-gradient(var(--line),var(--line)),linear-gradient(var(--line),var(--line)),linear-gradient(var(--line),var(--line)),linear-gradient(var(--line),var(--line)),linear-gradient(var(--line),var(--line));
+  background-size:100% 1px;background-repeat:no-repeat;background-position:0 18%,0 34%,0 50%,0 66%,0 82%;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:end}
+.note-g{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;padding:.2rem;border-radius:.4rem;width:max-content;max-width:100%}
+.note-g .gl{font:700 clamp(4.2rem,12vw,10rem)/1 var(--serif);color:var(--c);transition:transform .25s}
+.note-g .gs{font-size:clamp(.78rem,1.5vw,.95rem);color:var(--muted);margin-top:.45rem}
+.note-g .gq{font-size:.82rem;color:var(--c);max-width:100%;line-height:1.45;opacity:0;transition:opacity .2s}
+.note-g:hover .gl,.note-g:focus-visible .gl{transform:translateY(-.4rem)}
+.note-g:hover .gq,.note-g:focus-visible .gq{opacity:1}
+.n1{--c:var(--si)}.n2{--c:var(--na);margin-bottom:8%}.n3{--c:var(--beu);margin-bottom:16%}.n4{--c:var(--ro);margin-bottom:24%}
+@media (prefers-reduced-motion:no-preference){
+  .note-g{opacity:0;animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .n2{animation-delay:.35s}.n3{animation-delay:.7s}.n4{animation-delay:1.05s}
+  @keyframes rise{from{opacity:0;transform:translateY(1.2rem)}to{opacity:1;transform:none}}
+}
+@media (hover:none),(max-width:700px){.note-g .gq{display:none}}
+.note-g .gs{max-width:100%}
+.hero h1{font:700 clamp(1.9rem,4.4vw,3.2rem)/1.25 var(--serif);color:var(--ink);margin:1rem 0 .4rem;letter-spacing:-.02em}
+.hero .sub{margin:0;color:var(--chap);font:500 1.15rem/1.4 var(--serif)}
+.hero .tag{margin:1rem 0 0}
+.bigq{font:700 clamp(1.35rem,3vw,2rem)/1.45 var(--serif);color:var(--ink);max-width:44rem;margin:0 0 1rem}
+.home-sec{padding:3.2rem 0;border-top:1px solid var(--line2)}
+.bars3{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.4rem}
+.bar3{border:1px solid var(--line2);border-top:3px solid var(--c);border-radius:.4rem;padding:1rem;display:flex;flex-direction:column}
+.bar3 .k{font-size:.8rem;color:var(--c);font-weight:600}
+.bar3 .v{font:700 1.15rem/1.4 var(--serif);color:var(--ink);margin:.3rem 0 .6rem}
+.ring{display:flex;align-items:center;gap:.7rem;margin-bottom:.6rem}
+.ring svg{width:3.6rem;height:3.6rem;flex:none}
+.ring p{margin:0;font-size:.8rem;color:var(--muted);line-height:1.45}
+.ring b{display:block;font-size:1.05rem;color:var(--ink)}
+.bar3 .to{margin-top:auto;display:flex;align-items:center;gap:.5rem;text-decoration:none;font-size:.88rem;color:var(--ink);padding-top:.7rem;border-top:1px dashed var(--line)}
+.bar3 .to i{font-style:normal;display:inline-grid;place-items:center;width:1.8rem;height:1.8rem;background:var(--c);color:#fff;border-radius:.25rem;font:700 1rem/1 var(--serif)}
+@media (max-width:900px){.bars3{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.bars3{grid-template-columns:1fr}}
+.proc{margin-top:1.2rem}
+.proc .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:.5rem;overflow:hidden}
+.proc .steps>div{padding:1rem 1.1rem;border-right:1px solid var(--line2)}
+.proc .steps>div:last-child{border-right:0}
+.proc .steps h4{margin:0 0 .4rem;font:700 1.3rem/1.2 var(--serif);color:var(--c)}
+.proc .steps h4 span{font:600 .75rem/1 var(--sans);color:var(--muted);display:block;margin-bottom:.3rem}
+.proc .steps p{font-size:.9rem;margin:0}
+.proc .foot{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.8rem;font-size:.88rem}
+.proc .foot div{background:var(--ct);padding:.6rem .8rem;border-radius:.35rem}
+.proc .foot b{display:block;color:var(--c);font-size:.78rem}
+@media (max-width:760px){.proc .steps{grid-template-columns:1fr 1fr}.proc .steps>div:nth-child(2){border-right:0}.proc .steps>div:nth-child(-n+2){border-bottom:1px solid var(--line2)}.proc .foot{grid-template-columns:1fr}}
+.grow{display:grid;grid-template-columns:1fr 1.1fr;gap:2rem;align-items:center}
+@media (max-width:760px){.grow{grid-template-columns:1fr}}
+.go{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;padding:.5rem 1rem;border-radius:.35rem;font-size:.92rem;font-weight:600}
+.go:hover{background:var(--chap)}
+.go.c{background:var(--c)}
+.go.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+
+/* ---------- media ---------- */
+.strip{display:flex;gap:.6rem;overflow-x:auto;padding-bottom:.6rem;margin:1rem 0;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.strip figure{flex:0 0 auto;width:min(19rem,72vw);margin:0;scroll-snap-align:start}
+.strip.tall figure{width:min(13rem,48vw)}
+.strip figcaption,.grid figcaption{font-size:.8rem;color:var(--muted);margin-top:.3rem;line-height:1.45}
+.zoom{display:block;border-radius:.35rem;overflow:hidden;background:var(--wash);cursor:zoom-in}
+.zoom img{width:100%}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:.7rem;margin:1rem 0}
+.grid figure{margin:0}
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:.45rem;overflow:hidden;cursor:pointer;
+  background:#0d1b2c center/cover no-repeat;padding:0}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.7))}
+.yt .pl,.ifr-lite .pl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:4.2rem;height:4.2rem;border-radius:50%;background:rgba(255,255,255,.92);z-index:1;display:grid;place-items:center}
+.yt .pl::before,.ifr-lite .pl::before{content:"";border-left:1.2rem solid var(--ink);border-top:.75rem solid transparent;border-bottom:.75rem solid transparent;margin-left:.3rem}
+.yt .tt{position:absolute;left:1rem;right:1rem;bottom:.8rem;z-index:1;color:#fff;font-weight:600;text-align:left;font-size:.95rem}
+.yt:hover .pl,.ifr-lite:hover .pl{background:#fff}
+.ytf{width:100%;aspect-ratio:16/9;border:0;border-radius:.45rem;display:block}
+.vid{margin:1rem 0 .4rem}
+.vid+.note{margin-top:.2rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;align-items:start}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+
+/* ---------- platform cards ---------- */
+.plats{display:grid;grid-template-columns:repeat(auto-fill,minmax(15.5rem,1fr));gap:.9rem;margin:1.2rem 0}
+.plat{border:1px solid var(--line);border-radius:.5rem;padding:1rem;display:flex;flex-direction:column;gap:.5rem;background:#fff;position:relative;min-height:12.5rem}
+.plat h4{margin:0;font:700 1.05rem/1.4 var(--serif);color:var(--ink)}
+.plat p{margin:0;font-size:.86rem;color:var(--text)}
+.plat .u{font-size:.76rem;color:var(--chap);word-break:break-all}
+.plat .row{margin-top:auto;display:flex;gap:.4rem;align-items:center}
+.plat .row .go{font-size:.85rem;padding:.35rem .8rem}
+.qrb{border:1px solid var(--line);background:#fff;border-radius:.35rem;padding:.33rem .7rem;font-size:.85rem;cursor:pointer}
+.qrb[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.plat .qrv{display:none;position:absolute;inset:0;background:#fff;border-radius:.5rem;padding:1rem;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;text-align:center}
+.plat.flip .qrv{display:flex}
+.plat .qrv img{width:9.5rem;image-rendering:pixelated}
+.plat .qrv p{font-size:.8rem;color:var(--muted)}
+.plat .tagl{font-size:.74rem;font-weight:600;color:var(--c)}
+
+/* ---------- 詩 ---------- */
+.cal{display:flex;gap:0;overflow-x:auto;border-bottom:2px solid var(--line2);margin:1rem 0 1rem;scrollbar-width:thin}
+.cal button{flex:0 0 auto;border:0;background:none;padding:.5rem .8rem .6rem;cursor:pointer;font-size:.9rem;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.cal button b{display:block;font:700 .95rem/1.3 var(--sans);color:var(--ink)}
+.cal button.on{border-bottom-color:var(--c);color:var(--c)}
+.cal button.on b{color:var(--c)}
+.calp{display:grid;grid-template-columns:1.2fr 1fr;gap:1.2rem}
+.calp dl{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1rem;margin:0;font-size:.93rem}
+.calp dt{color:var(--c);font-weight:600}.calp dd{margin:0}
+@media (max-width:700px){.calp{grid-template-columns:1fr}}
+.days{display:grid;grid-template-columns:repeat(5,1fr);gap:.3rem;margin:1rem 0 .8rem}
+.days button{border:1px solid var(--line);background:#fff;border-radius:.35rem;padding:.4rem .3rem;cursor:pointer;font-size:.8rem;color:var(--muted);text-align:center}
+.days button b{display:block;font:700 1rem/1.3 var(--serif);color:var(--ink)}
+.days button.on{background:var(--c);border-color:var(--c);color:#fff}.days button.on b{color:#fff}
+.eras{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin-bottom:.8rem}
+.eras button{border:1px solid var(--line);background:#fff;border-radius:.4rem;padding:.6rem .7rem;text-align:left;cursor:pointer}
+.eras button b{display:block;font:700 1rem/1.35 var(--serif);color:var(--ink)}
+.eras button span{font-size:.78rem;color:var(--muted)}
+.eras button.on{border-color:var(--c);background:var(--ct)}
+@media (max-width:700px){.eras{grid-template-columns:1fr 1fr}}
+.era-out{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.era-out div{padding:1rem 1.1rem;border-radius:.4rem;background:var(--wash)}
+.era-out div+div{background:var(--ct)}
+.era-out b{display:block;font-size:.78rem;color:var(--c);margin-bottom:.3rem}
+.era-out p{margin:0;font:500 1.05rem/1.55 var(--serif);color:var(--ink)}
+@media (max-width:640px){.era-out{grid-template-columns:1fr}}
+.poem{font:500 1.15rem/2 var(--serif);color:var(--ink);margin:0;padding:0;list-style:none;counter-reset:ln}
+.poem li{display:grid;grid-template-columns:2rem 1fr;align-items:baseline}
+.poem li::before{counter-increment:ln;content:counter(ln);font:500 .78rem/1 var(--sans);color:var(--muted)}
+.poem .slot{display:inline-block;padding:0 .3rem;border:1px dashed var(--c);border-radius:.25rem;color:var(--c);font-size:.95rem;line-height:1.5;margin:0 .1rem}
+.poem .title-line{color:var(--c)}
+.poem small{font:500 .75rem/1 var(--sans);color:var(--c);margin-left:.5rem}
+.swaps{list-style:none;padding:0;margin:0;display:grid;gap:.45rem}
+.swaps li{display:grid;grid-template-columns:2rem 1fr;align-items:center;font-size:.95rem}
+.swaps li::before{content:attr(data-n);font-size:.78rem;color:var(--muted)}
+.swaps span{display:inline-flex;align-items:center;gap:.35rem;margin:0 .6rem .2rem 0}
+.swaps s{color:var(--muted);text-decoration-color:var(--na)}
+.swaps em{font-style:normal;color:var(--c);font-weight:600}
+
+/* ---------- 나 ---------- */
+.rupa-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin-bottom:.8rem}
+.rupa-nav button{border:1px solid var(--line);background:#fff;border-radius:.4rem;padding:.55rem .6rem;cursor:pointer;text-align:left}
+.rupa-nav button b{font:700 1.5rem/1 var(--serif);color:var(--c);margin-right:.4rem}
+.rupa-nav button span{font-size:.8rem;color:var(--muted)}
+.rupa-nav button.on{background:var(--c);border-color:var(--c)}
+.rupa-nav button.on b,.rupa-nav button.on span{color:#fff}
+@media (max-width:640px){.rupa-nav{grid-template-columns:1fr 1fr}}
+.rupa-p{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.rupa-p .ex{background:var(--ct);border-radius:.4rem;padding:1rem 1.1rem}
+.rupa-p .ex b{display:block;font-size:.78rem;color:var(--c);margin-bottom:.4rem}
+.rupa-p .ex blockquote{margin:0;font:500 1.05rem/1.65 var(--serif);color:var(--ink)}
+.rupa-p .ex .tags{font:600 1rem/1.5 var(--sans);color:var(--c)}
+.rupa-p .ex table{width:100%;border-collapse:collapse;font-size:.84rem}
+.rupa-p .ex td{padding:.3rem .2rem;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+.rupa-p .ex td:first-child{color:var(--c);font-weight:600;white-space:nowrap;padding-right:.6rem}
+.lyr-l{font:500 1.05rem/1.7 var(--serif)}
+.lyr-l i{font:600 .75rem/1 var(--sans);font-style:normal;color:var(--c);margin-right:.3rem}
+@media (max-width:700px){.rupa-p{grid-template-columns:1fr}}
+.lyric{display:grid;grid-template-columns:1.25fr 1fr;gap:1.2rem;align-items:start;margin-top:1rem}
+.lv{position:relative;border-radius:.45rem;overflow:hidden;background:#000;aspect-ratio:4/3}
+.lv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
+.lv img.on{opacity:1}
+.lctl{display:flex;align-items:center;gap:.6rem;margin-top:.6rem}
+.lctl button{border:0;background:var(--c);color:#fff;border-radius:.35rem;padding:.35rem .8rem;cursor:pointer;font-size:.88rem;min-width:4.6rem}
+.ltrack{position:relative;flex:1;height:.5rem;background:var(--line2);border-radius:999px;cursor:pointer}
+.ltrack .fill{position:absolute;inset:0 auto 0 0;background:var(--c);border-radius:999px}
+.ltrack .mk{position:absolute;top:50%;width:.7rem;height:.7rem;border-radius:50%;background:#fff;border:2px solid var(--c);transform:translate(-50%,-50%)}
+.lctl .tm{font:500 .85rem/1 var(--sans);color:var(--muted);min-width:3.2rem;text-align:right;font-variant-numeric:tabular-nums}
+pre.json{margin:0;background:#0f2238;color:#d6e2ee;border-radius:.45rem;padding:1rem;font:400 .8rem/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-x:auto}
+pre.json .cur{background:rgba(255,255,255,.14);color:#fff;border-radius:.2rem;display:inline-block;width:100%}
+pre.json .k{color:#9cc7e6}pre.json .s{color:#f2c98b}pre.json .n{color:#b7e3b0}
+@media (max-width:760px){.lyric{grid-template-columns:1fr}}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.2rem}
+.three div{border-top:3px solid var(--c);padding-top:.6rem}
+.three b{display:block;color:var(--ink);margin-bottom:.3rem}
+.three p{font-size:.88rem;margin:0}
+.three .w{font-size:.82rem;color:var(--muted);margin-top:.4rem}
+@media (max-width:700px){.three{grid-template-columns:1fr}}
+
+/* ---------- 브 : prompt lab ---------- */
+.plab{border:1px solid var(--line);border-radius:.6rem;overflow:hidden;margin-top:1rem}
+.lab-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.6rem;padding:.8rem 1rem;background:var(--ct);border-bottom:1px solid var(--line2)}
+.lab-top .seg{margin:0}
+.lab-top p{margin:0;font-size:.85rem;color:var(--c);font-weight:600}
+.cells{display:grid;grid-template-columns:repeat(4,1fr)}
+.cell{padding:1rem;border-right:1px solid var(--line2);display:flex;flex-direction:column;gap:.5rem;min-width:0}
+.cell:last-child{border-right:0}
+.cell h4{margin:0;font:700 1rem/1.4 var(--serif);color:var(--ink)}
+.cell h4 span{color:var(--c);margin-right:.3rem}
+.cell .txt{font-size:.9rem;background:var(--wash);border-radius:.3rem;padding:.55rem .65rem;color:var(--ink);min-height:4.2rem}
+.cell .eff{font-size:.84rem;color:var(--text);border-left:3px solid var(--c);padding-left:.55rem}
+.cell .eff b{display:block;font-size:.74rem;color:var(--c)}
+.cell details{font-size:.84rem}
+.cell details summary{cursor:pointer;color:var(--c);font-weight:600}
+.cell details p{margin:.4rem 0 0;color:var(--text)}
+.plab[data-active=orig] .rev,.plab[data-active=rev] .orig{display:none}
+.plab[data-active=orig] .cell .txt{background:#fbf7ec}
+@media (max-width:960px){.cells{grid-template-columns:1fr 1fr}.cell:nth-child(2){border-right:0}.cell:nth-child(-n+2){border-bottom:1px solid var(--line2)}}
+@media (max-width:560px){.cells{grid-template-columns:1fr}.cell{border-right:0;border-bottom:1px solid var(--line2)}}
+.builder{display:grid;grid-template-columns:1.1fr 1fr;gap:0}
+.bform{padding:1rem 1.1rem;border-right:1px solid var(--line2);display:grid;gap:1rem}
+.bform fieldset{border:0;padding:0;margin:0;display:grid;gap:.45rem}
+.bform legend{font:700 .98rem/1.4 var(--serif);color:var(--ink);margin-bottom:.35rem;padding:0}
+.bform legend span{color:var(--c);margin-right:.3rem}
+.bform label{font-size:.82rem;color:var(--muted);display:grid;gap:.2rem}
+.bform input[type=text],.bform select,.bform textarea{font:inherit;font-size:.9rem;border:1px solid var(--line);border-radius:.3rem;padding:.4rem .55rem;width:100%;background:#fff;color:var(--ink)}
+.bform textarea{min-height:4.5rem;resize:vertical}
+.bform .inl{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-size:.86rem;color:var(--ink)}
+.bform .inl label{display:flex;align-items:center;gap:.3rem;color:var(--ink);font-size:.86rem}
+.bform input[type=range]{width:100%;accent-color:var(--c)}
+.bout{padding:1rem 1.1rem;background:#fbfcfd;display:flex;flex-direction:column;gap:.8rem}
+.bout h4{margin:0;font:700 .98rem/1.4 var(--serif);color:var(--ink)}
+.pbox{background:#0f2238;color:#e6eef6;border-radius:.4rem;padding:.9rem 1rem;font-size:.92rem;line-height:1.75;min-height:9rem}
+.pbox p{margin:0 0 .4rem}
+.pbox p b{color:#9cc7e6;font-weight:600;margin-right:.35rem;font-size:.78rem}
+.copy{align-self:flex-start;border:0;background:var(--c);color:#fff;border-radius:.35rem;padding:.4rem .9rem;cursor:pointer;font-size:.88rem}
+.meter{border:1px solid var(--line2);border-radius:.4rem;padding:.7rem .8rem;background:#fff}
+.meter .lv3{display:grid;grid-template-columns:repeat(3,1fr);gap:.25rem;margin:.4rem 0}
+.meter .lv3 span{text-align:center;font-size:.8rem;padding:.25rem;border-radius:.25rem;background:var(--wash);color:var(--muted)}
+.meter .lv3 span.on{background:var(--c);color:#fff;font-weight:600}
+.meter .why{font-size:.82rem;color:var(--text);margin:0}
+.meter .found{display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.35rem}
+.meter .found span{font-size:.74rem;background:var(--ct);color:var(--c);border-radius:999px;padding:.05rem .5rem}
+@media (max-width:860px){.builder{grid-template-columns:1fr}.bform{border-right:0;border-bottom:1px solid var(--line2)}}
+.ab{display:grid;grid-template-columns:1.3fr 1fr;gap:1.4rem;align-items:start}
+.arr{width:100%;height:auto;display:block}
+.arr .lb{font:600 12px var(--sans);fill:var(--text)}
+.arr .sec{font:600 12px var(--sans);fill:var(--muted)}
+.ab blockquote{margin:0;font:500 1rem/1.7 var(--serif);color:var(--ink);background:var(--ct);border-radius:.4rem;padding:1rem 1.1rem}
+.ab blockquote b{display:block;font:600 .78rem/1.4 var(--sans);color:var(--c);margin-bottom:.35rem}
+@media (max-width:760px){.ab{grid-template-columns:1fr}}
+.map4{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.8rem}
+.map4 th,.map4 td{padding:.55rem .7rem;border-bottom:1px solid var(--line2);text-align:left;vertical-align:top}
+.map4 thead th{background:var(--ct);color:var(--c);font-size:.84rem}
+.map4 td:last-child{color:var(--c);font-weight:600}
+.tw{overflow-x:auto}
+.weights{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3px;margin:1rem 0 1.2rem}
+.weights div{background:var(--wash);padding:.8rem .9rem;min-width:0}
+.weights div:first-child{background:var(--c);color:#fff}
+.weights div:first-child b,.weights div:first-child strong{color:#fff}.weights div:first-child p{color:rgba(255,255,255,.85)}
+.weights strong{display:block;font:700 1.7rem/1.1 var(--serif);color:var(--ink)}
+.weights b{display:block;margin:.3rem 0 .2rem;color:var(--ink);font-size:.92rem}
+.weights p{font-size:.82rem;margin:0;color:var(--muted)}
+@media (max-width:760px){.weights{grid-template-columns:1fr 1fr}}
+.rub{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.rub div{border-radius:.4rem;padding:.8rem .9rem;background:var(--wash);font-size:.9rem}
+.rub div:first-child{background:var(--ct)}
+.rub b{display:block;font:700 1.2rem/1.2 var(--serif);color:var(--c);margin-bottom:.3rem}
+@media (max-width:640px){.rub{grid-template-columns:1fr}}
+
+/* ---------- 로 ---------- */
+.day{position:relative;margin:1.4rem 0 1rem}
+.day .line{position:absolute;left:0;right:0;top:1.15rem;height:2px;background:var(--line)}
+.day .acts{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:.3rem}
+.day button{border:0;background:none;cursor:pointer;text-align:center;padding:0}
+.day button i{display:block;width:1.1rem;height:1.1rem;border-radius:50%;background:#fff;border:3px solid var(--line);margin:.6rem auto .4rem;transition:all .2s}
+.day button b{display:block;font:700 .95rem/1.3 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums}
+.day button span{font-size:.75rem;color:var(--muted)}
+.day button.on i{background:var(--c);border-color:var(--c);transform:scale(1.25)}
+.day button.on b{color:var(--c)}
+.actp{display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:start}
+.actp .no{font:700 2.6rem/1 var(--serif);color:var(--c)}
+.actp h3 small{display:block;font:500 .85rem/1.4 var(--sans);color:var(--muted)}
+.actp .qq{font:500 1.05rem/1.6 var(--serif);color:var(--ink);margin:.5rem 0}
+.actp .num{display:inline-block;background:var(--ct);color:var(--c);border-radius:.3rem;padding:.15rem .6rem;font-weight:600;font-size:.88rem}
+.fields{list-style:none;padding:0;margin:1rem 0;display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.fields a{display:grid;grid-template-columns:auto 1fr;gap:0 .5rem;padding:.75rem .8rem;border:1px solid var(--line2);border-radius:.4rem;text-decoration:none;color:var(--ink);height:100%;transition:border-color .2s,background .2s}
+.fields a:hover{border-color:var(--ro);background:var(--ro-t)}
+.fields .k{font:700 1rem/1.4 var(--serif);color:var(--ro);grid-row:span 2}
+.fields b{font-weight:600;font-size:.92rem;line-height:1.4}
+.fields span{font-size:.8rem;color:var(--muted);line-height:1.45}
+@media (max-width:900px){.fields{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.fields{grid-template-columns:1fr}}
+.calc{display:grid;grid-template-columns:1fr 1.2fr;gap:1.4rem;align-items:center;border:1px solid var(--line2);border-radius:.5rem;padding:1.1rem 1.2rem;margin-top:1rem}
+.calc label{display:grid;gap:.2rem;font-size:.85rem;color:var(--muted);margin-bottom:.6rem}
+.calc input[type=range]{accent-color:var(--c);width:100%}
+.calc output{font-weight:700;color:var(--ink)}
+.cbar{margin:.5rem 0}
+.cbar .t{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.2rem}
+.cbar .t b{color:var(--ink)}
+.cbar .b{height:.9rem;border-radius:.2rem;background:var(--line);transition:width .3s}
+.cbar.p .b{background:var(--c)}
+@media (max-width:700px){.calc{grid-template-columns:1fr}}
+.dil{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.dil div{border-radius:.45rem;background:var(--wash);padding:1rem 1.1rem;font-size:.92rem}
+.dil h4{margin:0 0 .4rem;color:var(--c);font-size:.98rem}
+.dil .fx{margin:.6rem 0 0;padding-top:.6rem;border-top:1px dashed var(--line);color:var(--ink)}
+.dil .fx b{color:var(--c);margin-right:.35rem}
+@media (max-width:700px){.dil{grid-template-columns:1fr}}
+
+/* ---------- 확산 ---------- */
+.tl{position:relative;margin:1.6rem 0 1rem;padding:2.6rem 0 0}
+.tl .ph{display:flex;height:.6rem;border-radius:999px;overflow:hidden;background:var(--line2)}
+.tl .ph span{height:100%}
+.tl .today{position:absolute;top:0;transform:translateX(-50%);text-align:center;font-size:.75rem;font-weight:600;color:var(--na);white-space:nowrap}
+.tl .today::after{content:"";display:block;width:2px;height:2.2rem;background:var(--na);margin:.15rem auto 0}
+.tl .phl{display:flex;margin-top:.4rem;font-size:.76rem;color:var(--muted)}
+.tl .phl span{padding-right:.3rem}
+.ev{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.1rem}
+.ev li{display:grid;grid-template-columns:7.6rem 1fr auto;gap:1rem;align-items:baseline;padding:.6rem 0;border-bottom:1px solid var(--line2)}
+.ev time{font:600 .9rem/1.4 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums}
+.ev p{margin:0;font-size:.92rem}.ev p b{color:var(--ink)}
+.ev .st{font-size:.76rem;font-weight:600;border-radius:.25rem;padding:.05rem .45rem;white-space:nowrap;background:var(--ct);color:var(--c)}
+.ev .st.up{background:var(--na);color:#fff}
+@media (max-width:560px){.ev li{grid-template-columns:1fr auto}.ev time{grid-column:1/-1}}
+.rings{display:grid;grid-template-columns:minmax(14rem,22rem) 1fr;gap:2rem;align-items:center;margin-top:1rem}
+.rbox{position:relative;aspect-ratio:1}
+.rbox button{position:absolute;border-radius:50%;border:2px solid var(--line);background:rgba(255,255,255,.9);cursor:pointer;display:flex;justify-content:center;padding-top:.45rem;font-size:.78rem;font-weight:600;color:var(--muted);transition:all .2s}
+.rbox button:nth-child(1){inset:0}.rbox button:nth-child(2){inset:13%}.rbox button:nth-child(3){inset:26%}.rbox button:nth-child(4){inset:39%;align-items:center;padding:0}
+.rbox button.on{border-color:var(--c);background:var(--ct);color:var(--c)}
+.rbox button:nth-child(4).on{background:var(--c);color:#fff}
+.rpanel h3{margin:0 0 .2rem}
+.rpanel .who{color:var(--muted);font-size:.88rem;margin-bottom:.7rem}
+.rpanel .nums{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.rpanel .nums span{background:var(--c);color:#fff;border-radius:.3rem;padding:.2rem .6rem;font-size:.84rem;font-weight:600}
+@media (max-width:700px){.rings{grid-template-columns:1fr}.rbox{max-width:20rem;margin:0 auto;width:100%}}
+.cfg{display:grid;grid-template-columns:1fr 1.3fr;gap:1.2rem;margin-top:1rem;align-items:start}
+.cfg label{display:grid;gap:.2rem;font-size:.85rem;color:var(--muted);margin-bottom:.6rem}
+.cfg input{font:inherit;font-size:.92rem;border:1px solid var(--line);border-radius:.3rem;padding:.4rem .55rem}
+.cfg pre{margin:0;background:#0f2238;color:#d6e2ee;border-radius:.45rem;padding:1rem;font:400 .82rem/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-x:auto}
+.cfg pre .c{color:#7f97b0}.cfg pre .s{color:#f2c98b}.cfg pre .n{color:#b7e3b0}.cfg pre .hl{background:rgba(242,201,139,.18);border-radius:.15rem}
+.cfg .flow3{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.cfg .flow3 span{font-size:.8rem;background:var(--wash);border-radius:.3rem;padding:.25rem .55rem}
+@media (max-width:760px){.cfg{grid-template-columns:1fr}}
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.cases article{border:1px solid var(--line2);border-radius:.45rem;padding:1rem 1.1rem}
+.cases h4{margin:0 0 .7rem;font:700 1rem/1.4 var(--serif);color:var(--ink)}
+.chain{list-style:none;padding:0;margin:0 0 .8rem;display:grid;gap:.35rem}
+.chain li{font-size:.88rem;padding:.4rem .6rem;border-radius:.3rem;background:var(--wash)}
+.chain li b{color:var(--c);font-size:.76rem;display:block}
+.chain li:last-child{background:var(--ct)}
+@media (max-width:700px){.cases{grid-template-columns:1fr}}
+
+/* ---------- 성과 ---------- */
+.dash{margin-top:1rem}
+.dgrid{display:grid;grid-template-columns:1.25fr 1fr;gap:1.4rem;align-items:start}
+.slope{width:100%;height:auto}
+.slope .ln{transition:opacity .25s,stroke-width .25s}
+.dash[data-active]:not([data-active=all]) .ln{opacity:.15}
+.dash[data-active=ana] .ln.ana,.dash[data-active=self] .ln.self,.dash[data-active=cre] .ln.cre,.dash[data-active=ai] .ln.ai,.dash[data-active=col] .ln.col{opacity:1}
+.dcard{background:var(--hw-t);border-radius:.5rem;padding:1.1rem 1.2rem}
+.dcard h3{margin:0 0 .6rem;font:700 1.2rem/1.4 var(--serif);color:var(--ink)}
+.dcard dl{display:grid;grid-template-columns:auto 1fr;gap:.35rem 1rem;margin:0;font-size:.92rem}
+.dcard dt{color:var(--muted)}.dcard dd{margin:0;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.dcard .d{font:700 2.2rem/1 var(--serif);color:var(--na);margin:.6rem 0 .2rem}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:1.6rem}
+.items h4{margin:0 0 .5rem;font-size:.92rem;color:var(--ink)}
+.items h4 span{font-weight:400;color:var(--muted);font-size:.8rem}
+.it{display:grid;grid-template-columns:1fr 3.2rem;gap:.15rem .6rem;align-items:center;padding:.35rem 0;border-bottom:1px solid var(--line2);transition:opacity .25s}
+.it .n{font-size:.84rem;color:var(--ink)}
+.it .n em{font-style:normal;font-size:.7rem;font-weight:600;color:#fff;background:var(--na);border-radius:.2rem;padding:0 .3rem;margin-left:.3rem}
+.it .n em.top{background:var(--ro)}
+.it .p{font:600 .84rem/1 var(--sans);text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+.it .b{grid-column:1/-1;height:.4rem;background:var(--line2);border-radius:999px;overflow:hidden}
+.it .b i{display:block;height:100%;background:#d8892b;border-radius:999px}
+.items .post .it .b i{background:#2c6fd6}
+.it .m{grid-column:1/-1;font-size:.72rem;color:var(--muted)}
+.dash[data-active]:not([data-active=all]) .it{opacity:.28}
+.dash[data-active=ana] .it[data-d=ana],.dash[data-active=self] .it[data-d=self],.dash[data-active=cre] .it[data-d=cre],.dash[data-active=ai] .it[data-d=ai],.dash[data-active=col] .it[data-d=col]{opacity:1}
+@media (max-width:860px){.dgrid,.items{grid-template-columns:1fr}}
+.kw{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.kw article{border-radius:.5rem;padding:1rem 1.1rem;background:var(--wash);display:flex;flex-direction:column;gap:.5rem}
+.kw h4{margin:0;font-size:.95rem;color:var(--ink)}
+.kw .w{font-size:.82rem;color:var(--muted)}
+.kw blockquote{margin:auto 0 0;font:500 1.02rem/1.6 var(--serif);color:var(--ink)}
+@media (max-width:760px){.kw{grid-template-columns:1fr}}
+.honest{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.honest>div{border:1px solid var(--line2);border-radius:.5rem;padding:1rem 1.1rem}
+.honest blockquote{margin:.3rem 0 .6rem;font:500 1.02rem/1.6 var(--serif);color:var(--ink)}
+.honest b{color:var(--ink)}
+.honest ul{margin:.3rem 0 0;padding-left:1.1rem;font-size:.9rem}
+@media (max-width:760px){.honest{grid-template-columns:1fr}}
+
+/* ---------- archive ---------- */
+.filt{display:flex;flex-wrap:wrap;gap:.35rem;margin:1rem 0;position:sticky;top:0;background:rgba(255,255,255,.95);padding:.6rem 0;z-index:5}
+@media (max-width:860px){.filt{top:3.2rem}}
+.filt button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.3rem .8rem;cursor:pointer;font-size:.86rem}
+.filt button span{color:var(--muted);font-size:.78rem;margin-left:.25rem}
+.filt button.on{background:var(--ink);border-color:var(--ink);color:#fff}.filt button.on span{color:#c5d3e3}
+.arch{columns:4 13rem;column-gap:.7rem}
+.arch figure{break-inside:avoid;margin:0 0 .7rem}
+.arch figcaption{font-size:.76rem;color:var(--muted);margin-top:.25rem;line-height:1.4}
+.archwrap[data-active]:not([data-active=all]) .arch figure{display:none}
+.archwrap[data-active=o] figure[data-t~=o],.archwrap[data-active=j] figure[data-t~=j],.archwrap[data-active=g] figure[data-t~=g]{display:block}
+.calp.one{grid-template-columns:1fr}
+figure{position:relative}
+.qrchip{position:absolute;right:.45rem;top:.45rem;background:var(--ink);color:#fff;font-size:.74rem;font-weight:600;text-decoration:none;padding:.22rem .5rem;border-radius:.3rem}
+.qrchip:hover{background:var(--chap)}
+.plat .qrv svg{width:9.5rem;height:9.5rem}
+
+/* ---------- kit & misc ---------- */
+.refs{list-style:none;padding:0;margin:.6rem 0 0;font-size:.9rem}
+.refs li{padding-left:1.6rem;text-indent:-1.6rem;margin:.4rem 0}
+details.fold{border:1px solid var(--line2);border-radius:.45rem;margin-top:1rem}
+details.fold summary{cursor:pointer;padding:.7rem 1rem;font-weight:600;color:var(--ink)}
+details.fold>div{padding:0 1rem 1rem}
+.pn{display:flex;justify-content:space-between;gap:1rem;margin-top:4rem;padding-top:1.2rem;border-top:1px solid var(--line2)}
+.pn a{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;max-width:48%}
+.pn a span{font-size:.78rem;color:var(--muted)}
+.pn a b{font:700 1.02rem/1.4 var(--serif)}
+.pn a:last-child{text-align:right;margin-left:auto}
+.pn a:hover b{color:var(--chap)}
+footer{margin-left:var(--rail);background:var(--ink);color:#c9d6e4;padding:2rem 0 2.4rem;font-size:.86rem}
+footer b{color:#fff;font-family:var(--serif)}
+footer a{color:#fff}
+@media (max-width:860px){footer{padding-bottom:6rem}}
+
+/* ---------- lightbox ---------- */
+dialog.lb{border:0;padding:0;max-width:96vw;max-height:94vh;background:transparent;overflow:visible}
+dialog.lb::backdrop{background:rgba(10,22,38,.92)}
+.lb-in{display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.lb-in img{max-width:94vw;max-height:84vh;width:auto;border-radius:.2rem;background:#fff}
+.lb-cap{color:#e8eef5;font-size:.9rem;text-align:center;max-width:60rem;margin:0}
+.lb-btn{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.14);color:#fff;border:0;width:3rem;height:3rem;border-radius:50%;font-size:1.4rem;cursor:pointer}
+.lb-btn:hover{background:rgba(255,255,255,.3)}
+.lb-prev{left:1rem}.lb-next{right:1rem}.lb-x{position:fixed;top:1rem;right:1rem;transform:none}
+
+.two>*,.dgrid>*,.grow>*,.ab>*,.lyric>*,.cfg>*,.calp>*{min-width:0}
+h1,h2,h3,.bh,.bigq{text-wrap:balance}
+
+.player{margin:1rem 0 .4rem}
+.ifr-lite{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;border-bottom:3px solid #C9A542;border-radius:.45rem;overflow:hidden;cursor:pointer;
+  background:radial-gradient(circle at 70% 30%,#2b4170,#1B2A4A 60%,#0f1b31);padding:0;color:#fff}
+.ifr-lite .tt{position:absolute;left:1.2rem;right:1.2rem;bottom:1rem;text-align:left;font-size:.92rem;color:#e4e9f2}
+.ifr-lite .tt b{display:block;font:700 1.45rem/1.3 var(--serif);color:#fff;margin-bottom:.2rem}
+iframe.pf{width:100%;height:min(82vh,760px);border:0;border-radius:.45rem;display:block;background:#1B2A4A}
+video.mv{width:100%;border-radius:.45rem;background:#000;display:block;aspect-ratio:16/9}
+@media (max-width:640px){iframe.pf{height:78vh}}
+
+/* ---------- 확산 : report-style header & boxes ---------- */
+.rh2{display:grid;grid-template-columns:7.5rem 1fr;min-height:7.5rem;margin-bottom:.9rem}
+.rh2 .sq{background:var(--hs);color:#fff;display:grid;place-items:center;font:700 2.4rem/1 var(--sans);letter-spacing:-.02em}
+.rh2 .panel{background:var(--hs-t);padding:1.2rem 1.6rem;display:flex;flex-direction:column;justify-content:center;gap:.75rem}
+.rh2 h1{margin:0;font:700 clamp(1.25rem,2.5vw,1.7rem)/1.4 var(--sans);color:var(--hs);letter-spacing:-.01em}
+.rh2 .q{margin:0;color:#555;font-size:1.02rem;line-height:1.6}
+.rh2-meta{display:flex;flex-wrap:wrap;gap:.3rem 1.8rem;margin:0 0 2rem;font-size:.88rem;padding:0 .2rem}
+.rh2-meta div{display:flex;gap:.5rem}.rh2-meta dt{color:var(--muted)}.rh2-meta dd{margin:0;color:var(--hs);font-weight:600}
+.bx2{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;margin:1.2rem 0 1.4rem;align-items:stretch}
+.bx{border:3px solid var(--hs-l);background:#fff;min-width:0}
+.bx>h3{margin:0;background:var(--hs);color:#fff;text-align:center;font:500 1.2rem/1.4 var(--sans);padding:.6rem .8rem}
+.bx>ul{list-style:none;margin:0;padding:1.1rem 1.3rem .4rem}
+.bx>ul>li{margin:0 0 1.1rem}
+.bx>ul>li>b{display:block;font-weight:700;color:#1d1d1d;font-size:1.02rem}
+.bx>ul>li>b::before{content:"▶";margin-right:.55rem;font-size:.9em}
+.bx>ul>li>p{margin:.3rem 0 0 1.55rem;color:#4a4a4a;font-size:.95rem;line-height:1.7}
+.bx .st{display:inline-block;margin-left:.35rem;font-size:.74rem;font-weight:600;padding:.05rem .45rem;border-radius:.2rem;background:var(--hs-t);color:var(--hs);vertical-align:.12em}
+.bx .st.up{background:var(--hs);color:#fff}
+.bxb{padding:1rem 1.2rem 1.1rem}
+@media (max-width:760px){.bx2{grid-template-columns:1fr}.rh2{grid-template-columns:4.6rem 1fr;min-height:0}.rh2 .sq{font-size:1.45rem}.rh2 .panel{padding:1rem 1.1rem}}
+
+.t-hw .chain li{background:#faf6ef}
+.t-hw .chain li:last-child{background:var(--hs-t)}
+
+/* ================= BRIDGE-AI ================= */
+.t-b1{--c:#2563a8;--ct:#eaf1f9;--cl:#bed3ea;--cx:#1d4f88}
+.t-b2{--c:#1f8a70;--ct:#e7f4ef;--cl:#b9ded4;--cx:#17695a}
+.t-b3{--c:#c2761a;--ct:#fbf1e3;--cl:#ebd5b4;--cx:#93560c}
+.t-b4{--c:#7a4fa3;--ct:#f3edf9;--cl:#d8c7e8;--cx:#5f3b84}
+.t-nv{--c:#14304f;--ct:#ebf0f6;--cl:#c8d2dd;--cx:#14304f}
+.tile[data-r=b1]{--tc:#2563a8}.tile[data-r=b2]{--tc:#1f8a70}.tile[data-r=b3]{--tc:#c2761a}.tile[data-r=b4]{--tc:#7a4fa3}
+.tile[data-r=plan],.tile[data-r=gen]{--tc:#14304f}
+.tile.num b{font:700 1.55rem/1 var(--serif)}
+.rail .brand{font:700 .92rem/1.15 var(--sans);letter-spacing:-.01em}
+/* report-style room header */
+.rh3{display:grid;grid-template-columns:7.5rem 1fr;min-height:7.5rem;margin-bottom:.9rem}
+.rh3 .sq{background:var(--c);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;text-align:center;padding:.4rem}
+.rh3 .sq small{font:600 .72rem/1.2 var(--sans);opacity:.9;letter-spacing:.02em}
+.rh3 .sq b{font:700 2.4rem/1 var(--serif)}
+.rh3 .sq i{font:600 .95rem/1.1 var(--sans);font-style:normal}
+.rh3 .panel{background:var(--ct);padding:1.2rem 1.6rem;display:flex;flex-direction:column;justify-content:center;gap:.7rem}
+.rh3 h1{margin:0;font:700 clamp(1.25rem,2.5vw,1.7rem)/1.4 var(--sans);color:var(--cx);letter-spacing:-.01em}
+.rh3 .q{margin:0;color:#4d4d4d;font-size:1.02rem;line-height:1.6}
+.rh3-meta{display:flex;flex-wrap:wrap;gap:.3rem 1.8rem;margin:0 0 2rem;font-size:.88rem;padding:0 .2rem}
+.rh3-meta div{display:flex;gap:.5rem}.rh3-meta dt{color:var(--muted)}.rh3-meta dd{margin:0;color:var(--cx);font-weight:600}
+@media (max-width:760px){.rh3{grid-template-columns:4.8rem 1fr;min-height:0}.rh3 .sq b{font-size:1.6rem}.rh3 .sq i{font-size:.75rem}.rh3 .panel{padding:1rem 1.1rem}}
+/* report-style boxes */
+.bx2{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;margin:1.2rem 0 1.4rem;align-items:stretch}
+.bx3{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;margin:1.2rem 0 1.4rem;align-items:stretch}
+.bx{border:3px solid var(--cl);background:#fff;min-width:0}
+.bx>h3{margin:0;background:var(--c);color:#fff;text-align:center;font:500 1.15rem/1.4 var(--sans);padding:.6rem .8rem}
+.bx>ul{list-style:none;margin:0;padding:1.1rem 1.3rem .4rem}
+.bx>ul>li{margin:0 0 1.1rem}
+.bx>ul>li>b{display:block;font-weight:700;color:#1d1d1d;font-size:1.02rem}
+.bx>ul>li>b::before{content:"\25B6";margin-right:.55rem;font-size:.85em}
+.bx>ul>li>p{margin:.3rem 0 0 1.5rem;color:#4a4a4a;font-size:.95rem;line-height:1.7}
+.bx .st{display:inline-block;margin-left:.35rem;font-size:.74rem;font-weight:600;padding:.05rem .45rem;border-radius:.2rem;background:var(--ct);color:var(--cx);vertical-align:.12em}
+.bx .st.up{background:var(--c);color:#fff}
+.bxb{padding:1rem 1.2rem 1.1rem}
+.bxb p{font-size:.95rem}
+@media (max-width:860px){.bx3{grid-template-columns:1fr}}
+@media (max-width:760px){.bx2{grid-template-columns:1fr}}
+.chain li{background:#f6f7f8}
+/* hero bridges */
+.bridges{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:1.6rem 0 .4rem;position:relative}
+.bridges::after{content:"";position:absolute;left:0;right:0;top:calc(var(--archh) - .2rem);height:1.4rem;background:linear-gradient(180deg,#dbe8f3,#eef4f9);z-index:-1;border-radius:.2rem}
+.bridges{--archh:clamp(5.5rem,13vw,9.5rem)}
+.br{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text)}
+.br svg{width:100%;height:var(--archh);display:block;overflow:visible}
+.br svg .arch,.br svg .hg{stroke:var(--c);fill:none;stroke-linecap:round}
+.br svg .arch{stroke-width:6}.br svg .hg{stroke-width:2.2;opacity:.7}
+.br svg .deck{stroke:#14304f;stroke-width:5}
+.br .no{margin-top:1.6rem;font:700 clamp(1.6rem,3.4vw,2.4rem)/1 var(--serif);color:var(--c)}
+.br .vb{font:700 clamp(1rem,2vw,1.3rem)/1.3 var(--sans);color:var(--cx);margin-top:.3rem}
+.br .bar{font-size:.8rem;color:var(--muted);margin-top:.15rem;text-align:center}
+.br:hover .arch{stroke-width:8}
+.br:hover .vb{text-decoration:underline;text-underline-offset:.2em}
+@media (prefers-reduced-motion:no-preference){
+  .br svg .arch{stroke-dasharray:420;stroke-dashoffset:420;animation:draw 1s ease-out forwards}
+  .br svg .hg{opacity:0;animation:fadein .4s ease-out forwards}
+  .br:nth-child(1) .arch{animation-delay:.1s}.br:nth-child(2) .arch{animation-delay:.45s}.br:nth-child(3) .arch{animation-delay:.8s}.br:nth-child(4) .arch{animation-delay:1.15s}
+  .br:nth-child(1) .hg{animation-delay:.9s}.br:nth-child(2) .hg{animation-delay:1.25s}.br:nth-child(3) .hg{animation-delay:1.6s}.br:nth-child(4) .hg{animation-delay:1.95s}
+  @keyframes draw{to{stroke-dashoffset:0}} @keyframes fadein{to{opacity:.7}}
+}
+@media (max-width:640px){.br .bar{display:none}}
+.hero2 h1{font:700 clamp(1.7rem,4vw,2.9rem)/1.3 var(--sans);color:var(--ink);margin:1.6rem 0 .5rem;letter-spacing:-.02em}
+.hero2 h1 em{font-style:normal;color:#2563a8}
+.hero2 .sub{margin:0;color:var(--chap);font:600 1.1rem/1.5 var(--sans)}
+.hero2 .tag{margin:.9rem 0 0;color:var(--text)}
+.bars4{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-top:1.4rem}
+.bars4 .bar3 .sol{font-size:.86rem;margin:.2rem 0 .6rem;color:var(--text)}
+@media (max-width:900px){.bars4{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.bars4{grid-template-columns:1fr}}
+.comp{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1rem 0 1.2rem}
+.comp div{border-top:3px solid var(--ink);background:var(--wash);padding:.8rem 1rem}
+.comp b{display:block;color:var(--ink);margin-bottom:.3rem}
+.comp ul{margin:0;padding-left:1rem;font-size:.9rem}
+@media (max-width:700px){.comp{grid-template-columns:1fr}}
+.flow4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:1.2rem 0;counter-reset:f}
+.flow4 div{position:relative;padding:.9rem 1rem .9rem 1.1rem;background:var(--ct);border-left:4px solid var(--c)}
+.flow4 div+div{margin-left:.4rem}
+.flow4 b{display:block;font:700 1.2rem/1.2 var(--serif);color:var(--cx)}
+.flow4 span{font-size:.86rem;color:var(--text)}
+@media (max-width:760px){.flow4{grid-template-columns:1fr 1fr;gap:.4rem}.flow4 div+div{margin-left:0}}
+.bchip{display:inline-block;font:700 .78rem/1 var(--sans);color:#fff;background:var(--c);padding:.25rem .45rem;border-radius:.2rem;margin:0 .15rem .15rem 0;white-space:nowrap}
+.hyp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem}
+.hyp>div{padding:1rem 1.1rem;border-radius:.4rem;background:var(--wash)}
+.hyp>div:nth-child(2){background:#eef3f8}
+.hyp>div:nth-child(3){background:#fdf3ef}
+.hyp b{display:block;font-size:.78rem;color:var(--chap);margin-bottom:.35rem}
+.hyp>div:nth-child(3) b{color:#bc4035}
+.hyp p{margin:0;font:500 1.02rem/1.6 var(--serif);color:var(--ink)}
+.hyp .go{margin-top:.6rem;font-size:.82rem;padding:.3rem .7rem}
+@media (max-width:760px){.hyp{grid-template-columns:1fr}}
+.cycle{display:grid;grid-template-columns:minmax(14rem,20rem) 1fr;gap:1.6rem;align-items:center;margin-top:1rem}
+.cwheel{position:relative;aspect-ratio:1}
+.cwheel svg{position:absolute;inset:0;width:100%;height:100%}
+.cwheel button{position:absolute;width:30%;transform:translate(-50%,-50%);border:2px solid var(--cl);background:#fff;border-radius:.4rem;padding:.35rem .3rem;font-size:.72rem;line-height:1.3;cursor:pointer;color:var(--text)}
+.cwheel button.on{background:var(--c);border-color:var(--c);color:#fff}
+.cwheel .hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;font:700 .9rem/1.35 var(--sans);color:var(--cx)}
+.cpanel h3{margin:0 0 .3rem}.cpanel .from{font-size:.85rem;color:var(--muted)}
+.cpanel .arrow{display:grid;grid-template-columns:1fr auto 1fr;gap:.6rem;align-items:center;margin-top:.8rem}
+.cpanel .arrow div{background:var(--ct);border-radius:.35rem;padding:.7rem .8rem;font-size:.92rem}
+.cpanel .arrow div b{display:block;font-size:.74rem;color:var(--cx);margin-bottom:.2rem}
+.cpanel .arrow i{font-style:normal;color:var(--c);font-size:1.4rem}
+@media (max-width:760px){.cycle{grid-template-columns:1fr}.cwheel{max-width:20rem;margin:0 auto;width:100%}}
+.levels .lv-p{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.levels .lv-p>div{border-radius:.4rem;padding:1rem 1.1rem;background:var(--wash)}
+.levels .lv-p>div+div{background:var(--ct)}
+.levels .lv-p b{display:block;font-size:.8rem;color:var(--cx);margin-bottom:.4rem}
+.levels .lv-p ul{margin:0;padding-left:1.1rem}
+.levels .lv-p .out{margin:.6rem 0 0;font-weight:600;color:var(--ink)}
+@media (max-width:700px){.levels .lv-p{grid-template-columns:1fr}}
+.obst{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:1rem 0}
+.obst div{display:grid;grid-template-columns:auto 1fr;gap:.2rem .7rem;padding:.8rem 1rem;border:1px solid var(--line2);border-radius:.4rem}
+.obst i{font-style:normal;font:700 1.3rem/1 var(--serif);color:#bc4035;grid-row:span 2}
+.obst b{color:var(--ink)}.obst span{font-size:.88rem;color:var(--text)}
+@media (max-width:700px){.obst{grid-template-columns:1fr}}
+.tstat{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.6rem}
+.tstat th,.tstat td{padding:.5rem .6rem;border-bottom:1px solid var(--line2);text-align:left}
+.tstat thead th{background:var(--wash);color:var(--ink);font-size:.82rem}
+.tstat td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tstat tr.hi td{background:#fdf3ef}
+
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin:1.4rem 0 1.8rem;counter-reset:cd}
+.cards4 article{border:1px solid var(--line);border-top:4px solid var(--c);border-radius:.3rem;padding:.9rem 1rem;display:flex;flex-direction:column}
+.cards4 h5{margin:0 0 .6rem;font:700 1.05rem/1.4 var(--serif);color:var(--ink)}
+.cards4 h5 span{color:var(--c);margin-right:.35rem}
+.cards4 .src{font-size:.9rem;color:var(--ink);background:var(--ct);padding:.5rem .6rem;border-radius:.25rem;margin:0 0 .6rem}
+.cards4 .exp{font-size:.88rem;color:var(--text);margin:0 0 .8rem}
+.cards4 .ev{margin-top:auto;font-size:.82rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:.5rem}
+@media (max-width:900px){.cards4{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.cards4{grid-template-columns:1fr}}
+
+
+.br .no em{font-style:normal}
+.rh3-meta dt{white-space:nowrap}
+@media (max-width:640px){.br .no em{display:none}.br .no{margin-top:1.1rem}.br .vb{font-size:.9rem}}
+.hero2 h1 em{white-space:nowrap}
+
+/* ================= 오작교 ================= */
+.t-o{--c:#c8702a;--ct:#fbf0e6;--cl:#eccfb3;--cx:#8f4c15}
+.t-j{--c:#2c6aa0;--ct:#e8f0f8;--cl:#bcd2e8;--cx:#1f4f7a}
+.t-g{--c:#2b8a6e;--ct:#e6f4ef;--cl:#b6dccd;--cx:#1d6650}
+.t-n{--c:#5a4a9e;--ct:#efecf8;--cl:#cfc6e8;--cx:#43367a}
+.tile[data-r=o]{--tc:#c8702a}.tile[data-r=j]{--tc:#2c6aa0}.tile[data-r=g]{--tc:#2b8a6e}.tile[data-r=n]{--tc:#5a4a9e}
+.tile.gl b{font:700 1.6rem/1 var(--serif)}
+.tile.gl2 b{font:700 1.15rem/1 var(--sans)}
+.han{font-family:"Hahmlet","Noto Serif KR",serif}
+/* hero: building the bridge */
+.ojak{display:grid;grid-template-columns:auto 1fr auto 1fr auto 1fr auto;align-items:center;margin:2rem 0 1rem}
+.og{display:flex;flex-direction:column;align-items:center;text-decoration:none;gap:.4rem}
+.og b{display:grid;place-items:center;width:clamp(4.6rem,11vw,8rem);height:clamp(4.6rem,11vw,8rem);background:var(--c);color:#fff;border-radius:.35rem;
+  font:700 clamp(2.4rem,6.4vw,4.6rem)/1 "Hahmlet","Noto Serif KR",serif;transition:transform .25s}
+.og.wd b{font:700 clamp(1.3rem,3.2vw,2.3rem)/1 var(--sans)}
+.og span{font:600 clamp(.85rem,1.6vw,1.05rem)/1.3 var(--sans);color:var(--cx)}
+.og small{font-size:.75rem;color:var(--muted)}
+.og:hover b{transform:translateY(-.3rem)}
+.deck{height:6px;background:#14304f;border-radius:3px;margin:0 .4rem;align-self:center;transform-origin:left center;position:relative;top:-1.2rem}
+.deck.dash{background:repeating-linear-gradient(90deg,#14304f 0 10px,transparent 10px 18px)}
+@media (prefers-reduced-motion:no-preference){
+  .og{opacity:0;animation:pop .5s ease-out forwards}.deck{transform:scaleX(0);animation:grow .5s ease-out forwards}
+  .ojak>:nth-child(1){animation-delay:.1s}.ojak>:nth-child(2){animation-delay:.5s}.ojak>:nth-child(3){animation-delay:.9s}
+  .ojak>:nth-child(4){animation-delay:1.3s}.ojak>:nth-child(5){animation-delay:1.7s}.ojak>:nth-child(6){animation-delay:2.1s}.ojak>:nth-child(7){animation-delay:2.5s}
+  @keyframes pop{from{opacity:0;transform:translateY(.8rem)}to{opacity:1;transform:none}} @keyframes grow{to{transform:scaleX(1)}}
+}
+@media (max-width:640px){.og small{display:none}.deck{margin:0 .15rem;height:4px;top:-1rem}}
+.hero3 h1{font:700 clamp(1.8rem,4.4vw,3.1rem)/1.3 var(--sans);color:var(--ink);margin:1.4rem 0 .5rem;letter-spacing:-.02em}
+.hero3 h1 .han{color:#2c6aa0}
+.hero3 .sub{margin:0;color:var(--text);font-size:1.05rem;max-width:46rem}
+/* broken bridges */
+.breaks{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1.2rem}
+.brk{border:1px solid var(--line2);border-top:4px solid var(--c);border-radius:.4rem;padding:1rem;display:flex;flex-direction:column;gap:.5rem}
+.brk .gapv{display:flex;align-items:center;gap:.4rem;font:700 1rem/1.3 var(--sans);color:var(--ink)}
+.brk .gapv i{flex:1;height:4px;background:repeating-linear-gradient(90deg,var(--c) 0 40%,transparent 40% 60%,var(--c) 60% 100%);border-radius:2px}
+.brk .k{font-size:.78rem;color:var(--cx);font-weight:600}
+.brk p{margin:0;font-size:.9rem}
+.brk .need{background:var(--ct);border-radius:.3rem;padding:.5rem .6rem}
+.brk .to{margin-top:auto;display:flex;align-items:center;gap:.5rem;text-decoration:none;font-size:.9rem;color:var(--ink);padding-top:.6rem;border-top:1px dashed var(--line)}
+.brk .to i{font-style:normal;display:inline-grid;place-items:center;min-width:1.9rem;height:1.9rem;padding:0 .3rem;background:var(--c);color:#fff;border-radius:.25rem;font:700 1rem/1 "Hahmlet","Noto Serif KR",serif}
+@media (max-width:860px){.breaks{grid-template-columns:1fr}}
+/* name explainer */
+.names{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.names button{display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;align-items:center;text-align:left;border:2px solid var(--cl);background:#fff;border-radius:.45rem;padding:.7rem .9rem;cursor:pointer}
+.names button b{grid-row:span 2;display:grid;place-items:center;width:3.2rem;height:3.2rem;border-radius:.3rem;background:var(--c);color:#fff;font:700 1.8rem/1 "Hahmlet","Noto Serif KR",serif}
+.names button span{font:700 1.05rem/1.3 var(--sans);color:var(--cx)}
+.names button small{font-size:.8rem;color:var(--muted)}
+.names button.on{background:var(--ct);border-color:var(--c)}
+.namep{margin-top:.8rem;display:grid;grid-template-columns:1.4fr 1fr;gap:1rem;padding:1.1rem 1.2rem;background:var(--ct);border-radius:.45rem}
+.namep p{margin:0}.namep b{display:block;font-size:.78rem;color:var(--cx);margin-bottom:.3rem}
+@media (max-width:700px){.names{grid-template-columns:1fr}.namep{grid-template-columns:1fr}}
+/* gap meter */
+.gapm{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;margin:1.2rem 0}
+.gapm>div{border-radius:.45rem;padding:1rem 1.2rem;text-align:center}
+.gapm .a{background:var(--ct)}.gapm .b{background:#fdf0ee}
+.gapm strong{display:block;font:700 clamp(2rem,5vw,3rem)/1 var(--serif)}
+.gapm .a strong{color:var(--cx)}.gapm .b strong{color:#bc4035}
+.gapm span{display:block;font-weight:600;color:var(--ink);margin-top:.4rem}
+.gapm small{font-size:.82rem;color:var(--muted)}
+.gapm i{font-style:normal;font:700 1rem/1.3 var(--sans);color:#bc4035;text-align:center}
+@media (max-width:640px){.gapm{grid-template-columns:1fr}}
+/* fields grid buttons */
+.fgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:.4rem}
+.fgrid button{border:1px solid var(--line);background:#fff;border-radius:.4rem;padding:.55rem .5rem;cursor:pointer;text-align:left;font-size:.82rem;color:var(--muted)}
+.fgrid button b{display:block;font-size:.95rem;color:var(--ink)}
+.fgrid button.on{background:var(--c);border-color:var(--c);color:#fff}.fgrid button.on b{color:#fff}
+@media (max-width:860px){.fgrid{grid-template-columns:repeat(2,1fr)}}
+.fpan{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.8rem}
+.fpan>div{background:var(--ct);border-radius:.4rem;padding:.8rem 1rem}
+.fpan b{display:block;font-size:.78rem;color:var(--cx);margin-bottom:.25rem}
+@media (max-width:640px){.fpan{grid-template-columns:1fr}}
+/* steps (차시) */
+.chasi{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:.45rem;overflow:hidden}
+.chasi>div{padding:.9rem 1rem;border-right:1px solid var(--line2);position:relative}
+.chasi>div:last-child{border-right:0;background:var(--ct)}
+.chasi i{font-style:normal;font:700 1.4rem/1 var(--serif);color:var(--c)}
+.chasi h4{margin:.3rem 0 .4rem;font-size:1rem;color:var(--ink)}
+.chasi p{margin:0;font-size:.88rem}
+.chasi .out{margin-top:.5rem;font-size:.78rem;color:var(--cx);font-weight:600}
+@media (max-width:760px){.chasi{grid-template-columns:1fr 1fr}.chasi>div:nth-child(2){border-right:0}.chasi>div:nth-child(-n+2){border-bottom:1px solid var(--line2)}}
+.stat4{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}
+.stat4 div{border-radius:.4rem;background:var(--ct);padding:.9rem 1rem}
+.stat4 strong{display:block;font:700 1.8rem/1 var(--serif);color:var(--cx)}
+.stat4 span{font-size:.84rem;color:var(--text)}
+@media (max-width:700px){.stat4{grid-template-columns:1fr 1fr}}
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1rem 0}
+.voices blockquote{margin:0;padding:.9rem 1rem;background:#fff;border:1px solid var(--line2);border-left:4px solid var(--c);border-radius:.3rem;font:500 .98rem/1.6 var(--serif);color:var(--ink)}
+@media (max-width:760px){.voices{grid-template-columns:1fr}}
+/* bars (survey) */
+.sbar{display:grid;grid-template-columns:minmax(10rem,16rem) 1fr 3.4rem;gap:.3rem .8rem;align-items:center;padding:.35rem 0;border-bottom:1px solid var(--line2);font-size:.88rem}
+.sbar .l{color:var(--ink)}.sbar .v{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.sbar .t{height:.9rem;background:var(--line2);border-radius:.2rem;overflow:hidden;display:flex}
+.sbar .t i{display:block;height:100%}
+.sbar.hl .l{font-weight:700;color:#bc4035}
+.sbar .t .p5{background:var(--cx)}.sbar .t .p4{background:var(--c)}.sbar .t .p3{background:#d7dee6}.sbar .t .p2{background:#e9b8b0}.sbar .t .p1{background:#bc4035}
+.legend{display:flex;flex-wrap:wrap;gap:.3rem 1rem;font-size:.78rem;color:var(--muted);margin:.5rem 0}
+.legend i{display:inline-block;width:.8rem;height:.8rem;border-radius:.15rem;margin-right:.3rem;vertical-align:-.1rem}
+@media (max-width:640px){.sbar{grid-template-columns:1fr 3.4rem}.sbar .t{grid-column:1/-1;grid-row:2}}
+/* dumbbell */
+.db{margin:1rem 0}
+.dbr{display:grid;grid-template-columns:minmax(9rem,13rem) 1fr;gap:.8rem;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--line2)}
+.dbr .l{font-size:.9rem;color:var(--ink);font-weight:600}
+.dbt{position:relative;height:2.2rem}
+.dbt .ax{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line2)}
+.dbt .seg{position:absolute;top:50%;height:4px;margin-top:-2px;background:#e3b3aa}
+.dbt .dot{position:absolute;top:50%;width:.9rem;height:.9rem;margin:-.45rem 0 0 -.45rem;border-radius:50%}
+.dbt .dot.k{background:#14304f}.dbt .dot.c{background:#bc4035}
+.dbt .lb{position:absolute;top:-.1rem;font-size:.72rem;font-weight:600;transform:translateX(-50%);white-space:nowrap}
+.dbt .lb.k{color:#14304f}.dbt .lb.c{color:#bc4035;top:auto;bottom:-.2rem}
+.dbscale{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin-left:calc(min(13rem,30%) + .8rem)}
+@media (max-width:640px){.dbr{grid-template-columns:1fr}.dbscale{margin-left:0}}
+/* tools */
+.tool{border:1px solid var(--line);border-radius:.5rem;padding:1.1rem 1.2rem;margin:1rem 0;background:#fff}
+.tool h4{margin:0 0 .6rem;color:var(--ink)}
+.tool label{display:grid;gap:.2rem;font-size:.85rem;color:var(--muted);margin-bottom:.6rem}
+.tool input[type=date],.tool input[type=text],.tool textarea{font:inherit;font-size:.92rem;border:1px solid var(--line);border-radius:.3rem;padding:.4rem .55rem;width:100%;color:var(--ink)}
+.tool input[type=range]{width:100%;accent-color:var(--c)}
+.tbar{display:flex;height:2rem;border-radius:.3rem;overflow:hidden;margin:.6rem 0;font-size:.78rem;font-weight:600;color:#fff}
+.tbar span{display:grid;place-items:center;transition:flex .2s;min-width:0;overflow:hidden;white-space:nowrap}
+.tbar .s1{background:#8a97a8}.tbar .s2{background:var(--c)}.tbar .s3{background:var(--cx)}
+.win{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.6rem}
+.win div{background:var(--ct);border-radius:.35rem;padding:.6rem .8rem;font-size:.88rem}
+.win b{display:block;font-size:.78rem;color:var(--cx)}
+@media (max-width:640px){.win{grid-template-columns:1fr}}
+.sched-filter{margin-bottom:.6rem}
+.sch li[hidden]{display:none}
+/* printable sheets */
+.sheet{border:1px solid var(--line);border-radius:.5rem;padding:1.2rem 1.3rem;margin:1rem 0 1.6rem;background:#fff}
+.sheet h3{margin:0 0 .3rem;font:700 1.15rem/1.4 var(--sans);color:var(--ink)}
+.sheet .use{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.sheet table{width:100%;border-collapse:collapse;font-size:.88rem;margin:.5rem 0}
+.sheet th,.sheet td{border:1px solid #9aa7b4;padding:.45rem .55rem;text-align:left;vertical-align:top}
+.sheet th{background:var(--ct);color:var(--cx);font-weight:600;width:28%}
+.sheet td.w{height:3.2rem}
+.sheet textarea{width:100%;min-height:2.6rem;border:0;font:inherit;font-size:.88rem;resize:vertical;background:transparent}
+.sheet .bar{display:flex;gap:.4rem;justify-content:flex-end}
+.pbtn{border:1px solid var(--line);background:#fff;border-radius:.3rem;padding:.3rem .7rem;font-size:.84rem;cursor:pointer}
+.pbtn:hover{border-color:var(--c)}
+@media print{
+  body.printing *{visibility:hidden}
+  body.printing .sheet.pr, body.printing .sheet.pr *{visibility:visible}
+  body.printing .sheet.pr{position:absolute;left:0;top:0;width:100%;border:0;margin:0;padding:0}
+  body.printing .sheet.pr .bar{display:none}
+  .rail,.top,footer{display:none}
+}
+.map4 td:last-child{color:var(--text);font-weight:400}
+
+.dbt{height:3.2rem}
+.dbt .lb{transform:none}
+.dbt .lb.k{top:.05rem;margin-left:.6rem}
+.dbt .lb.c{top:auto;bottom:.05rem;transform:translateX(-100%);margin-left:-.6rem}
+
+.dbr .mv{display:none;font-weight:400;font-size:.8rem;color:var(--muted)}
+@media (max-width:640px){.dbt .lb{display:none}.dbr .mv{display:block}.dbt{height:1.6rem}}
+
+.schw[data-active=o] .sch li:not([data-k=o]),.schw[data-active=j] .sch li:not([data-k=j]),.schw[data-active=g] .sch li:not([data-k=g]),.schw[data-active=n] .sch li:not([data-k=n]){display:none}
+.ev .st.plan{background:#fff;border:1px dashed var(--line);color:var(--muted)}
+.ev li .bchip{vertical-align:.1em}
+
+</style>
+<link rel="stylesheet" href="magazine.css">
+</head>
+<body>
+<a class="mag-skip" href="#main-content" onclick="document.getElementById('main-content').focus();return false;">본문 바로가기</a>
+<header class="masthead"><a href="#home" class="mast-brand">오작교<span>OJAKGYO JOURNAL</span></a><p>오늘의 경험이 내일의 나에게.</p><a href="#arch" class="mast-archive">우리의 기록 ↗</a></header>
+<nav class="rail" aria-label="오작교 메뉴"><a class="brand" href="#home">오작교<small>오늘을 짓는 다리</small></a><a class="tile txt" data-r="home" href="#home"><b>홈</b></a><a class="tile txt" data-r="plan" href="#plan"><b>설계</b><span>연구 설계</span></a><hr><a class="tile gl" data-r="o" href="#o"><b>오</b><span>오늘</span></a><a class="tile gl" data-r="j" href="#j"><b class="han">作</b><span>짓다</span></a><a class="tile gl" data-r="g" href="#g"><b class="han">橋</b><span>다리</span></a><a class="tile gl2" data-r="n" href="#n"><b>다음</b><span>다음 다리</span></a><hr><a class="tile txt" data-r="data" href="#data"><b>결과</b><span>실천 결과</span></a><a class="tile txt" data-r="gen" href="#gen"><b>일반화</b><span>결론 · 제언</span></a><a class="tile txt" data-r="arch" href="#arch"><b>기록</b><span>사진</span></a><a class="tile txt" data-r="kit" href="#kit"><b>자료실</b><span>양식 인쇄</span></a></nav>
+<header class="top"><a href="#home">오작교 프로젝트</a><span id="toptitle"></span></header>
+<main id="main-content" tabindex="-1">
+<!-- ===================== HOME ===================== -->
+<section class="view" id="v-home" data-title="홈">
+<div class="wrap">
+  <div class="issue-line"><span>CAREER &amp; CONNECTION</span><span>2026 · 오작교 프로젝트</span><span>ISSUE 01</span></div>
+  <section class="mag-cover" aria-labelledby="cover-title">
+    <div class="cover-copy"><p class="eyebrow">작은 경험, 새로운 가능성</p><h1 id="cover-title">오늘을 짓고,<br>내일로 <em>건너다.</em></h1><p class="cover-deck">나를 발견하는 순간부터<br>세상과 만나는 한 걸음까지.</p><p class="cover-desc">오늘의 경험과 작은 실천이 쌓여 나의 진로가 됩니다. 질문과 기록, 사람과의 만남으로 이어 가는 오작교의 이야기.</p><a class="cover-cta" href="#o">첫 번째 이야기 읽기 <span>↗</span></a><div class="cover-bottom"><span>오늘을 짓는(作) 다리</span><span>오 · 作 · 橋</span></div></div>
+    <figure class="cover-photo"><img src="img/i04.jpg" alt="함께 둘러앉아 진로 체험 활동에 참여하는 학생들" fetchpriority="high"><div class="photo-label">THE MOMENTS<br>WE GROW.</div><figcaption><span>FIELD NOTES / 진로 체험의 현장</span><span>오작교 프로젝트</span></figcaption></figure>
+  </section>
+  <section class="mag-stories" aria-labelledby="stories-title"><div class="section-label"><h2 id="stories-title">세 글자, 세 개의 이야기</h2><span>EXPLORE THE CHAPTERS ↓</span></div><div class="story-grid">
+    <a class="story" href="#o"><div class="story-img"><img src="img/i09.jpg" alt="직접 만들어 보며 흥미를 발견하는 체험" loading="lazy"><span>01 / 오늘</span></div><div class="story-heading"><h3>오늘의 나를 만나다</h3><span>↗</span></div><p>해 본 일 속에서 발견하는 나의 흥미와 강점.</p><span class="story-tag">SELF DISCOVERY · 오</span></a>
+    <a class="story" href="#j"><div class="story-img"><img src="img/i22.jpg" alt="활동지를 쓰며 자신의 진로를 설계하는 학생" loading="lazy"><span>02 / 짓다</span></div><div class="story-heading"><h3>나의 진로를 짓다</h3><span>↗</span></div><p>상상하고 선택하며, 나만의 설계도를 그리는 시간.</p><span class="story-tag">DESIGN MY FUTURE · 作</span></a>
+    <a class="story" href="#g"><div class="story-img"><img src="img/i07.jpg" alt="직업인과 함께하는 멘토링 현장" loading="lazy"><span>03 / 다리</span></div><div class="story-heading"><h3>사람과 세상을 잇다</h3><span>↗</span></div><p>한 번의 질문, 한 사람과의 만남이 놓아 주는 다리.</p><span class="story-tag">PEOPLE & CONNECTION · 橋</span></a>
+  </div></section>
+  <aside class="editor-note"><span>EDITOR’S NOTE<br>이 기록을 시작하며</span><p>진로는 먼 미래에 한 번 정하는 답이 아니라,<br><strong>오늘의 경험 속에서 조금씩 지어지는 것.</strong></p><a href="#plan" aria-label="연구 설계 읽기">↗</a></aside>
+  <section class="home-sec">
+    <p class="bigq">하루의 체험은 끝났다. 그 경험은 학생의 진로 어디에 남았는가?</p>
+    <p class="lede">본교는 학년별 심리검사, 교내·지역 직업체험, 진로캠프, 직업인 멘토링, 진로상담을 운영해 왔다. 그러나 활동이 많다고 경험이 쌓이는 것은 아니다. 연구자는 이미 운영하는 활동 사이에서 세 개의 끊긴 다리를 보았다.</p>
+    <div class="breaks"><article class="brk t-o"><span class="k">끊긴 다리 ①</span><p class="gapv">경험<i></i>나</p><p>체험은 즐거웠지만 무엇에 끌렸는지 말로 남지 않는다</p><p class="need"><b style="font-size:.78rem;color:var(--cx)">놓아야 할 다리</b><br>해 본 일을 나의 흥미·강점의 근거로 바꾸는 기록</p><a class="to" href="#o"><i>오</i>실천과제 오 오늘</a></article><article class="brk t-j"><span class="k">끊긴 다리 ②</span><p class="gapv">정보<i></i>설계</p><p>직업 정보를 받는 데서 멈추고 스스로 설계해 보는 경험이 적다</p><p class="need"><b style="font-size:.78rem;color:var(--cx)">놓아야 할 다리</b><br>직업과 학과를 직접 짓고 선택의 이유를 세우는 활동</p><a class="to" href="#j"><i>作</i>실천과제 작(作) 짓다</a></article><article class="brk t-g"><span class="k">끊긴 다리 ③</span><p class="gapv">만남<i></i>질문</p><p>직업인과의 만남이 듣는 시간에 머물기 쉽다</p><p class="need"><b style="font-size:.78rem;color:var(--cx)">놓아야 할 다리</b><br>묻고, 해 보고, 나누는 만남</p><a class="to" href="#g"><i>橋</i>실천과제 교(橋) 다리</a></article></div>
+    <p class="note" style="margin-top:.8rem">끊긴 다리를 잇는 방법은 새로운 행사를 더하는 것이 아니라, 이미 운영하는 활동 사이에 질문과 기록과 만남을 놓는 것이다.</p>
+  </section>
+
+  <section class="home-sec">
+    <h2 class="bh" style="margin-top:0">세 글자에 담은 세 관점</h2>
+    <p class="lede">글자를 고르면 이 연구에서의 뜻과 학생에게 남는 것이 나옵니다.</p>
+    <div data-tabs>
+      <div class="names" role="tablist"><button class="t-o" data-tab="n1"><b>오</b><span>오 — 오늘</span><small></small></button><button class="t-j" data-tab="n2"><b>作</b><span>작 — 짓다</span><small>(作)</small></button><button class="t-g" data-tab="n3"><b>橋</b><span>교 — 다리</span><small>(橋)</small></button></div>
+      <div data-panel="n1" class="namep t-o"><div><b>이 연구에서의 뜻</b><p>진로는 먼 미래가 아니라 오늘의 경험과 작은 실천에서 시작된다는 관점. 학생은 오늘 해 본 일에서 흥미와 강점의 근거를 찾고, 활동 뒤 오늘 할 한 걸음을 정한다.</p></div><div><b>학생에게 남는 것(산출물)</b><p>검사 결과지 · 체험 사진 / 오늘의 한 걸음</p></div></div><div data-panel="n2" class="namep t-j"><div><b>이 연구에서의 뜻</b><p>학생을 진로 정보를 받는 사람이 아니라 선택의 이유를 세워 자신의 진로를 짓는 주체로 보는 관점. 새 직업을 창직하고 학과에서 과목까지 설계한다.</p></div><div><b>학생에게 남는 것(산출물)</b><p>창직 활동지 / 학과·과목 설계 책자</p></div></div><div data-panel="n3" class="namep t-g"><div><b>이 연구에서의 뜻</b><p>교사·또래·직업인과의 만남이 오늘의 경험을 미래의 진로로 잇는다는 관점. 학생과 사람을 잇는 ‘만남의 다리’이자 현재와 미래를 잇는 ‘꿈의 다리’이다.</p></div><div><b>학생에게 남는 것(산출물)</b><p>멘토 질문 · 소감문 / 발표 기록</p></div></div><p class="note" style="margin-top:.8rem"><b>오작교</b> 세 글자를 활동마다 되풀이하는 동안 학생의 오늘이 내일의 선택으로 이어지는 관계 기반 진로교육 모형. 한 번의 행사가 아니라 이어진 기록을 성과로 본다.</p>
+    </div>
+  </section>
+
+  <section class="home-sec">
+    <h2 class="bh" style="margin-top:0">어떤 활동이 들어와도, 묻고 → 해 보고 → 짓고 → 잇는다</h2>
+    <p class="lede">세 개의 실천과제는 따로 떨어진 행사가 아니라 하나의 공통 절차를 공유한다. 이 반복이 ‘오작교’의 실체다. 과제를 고르면 단계마다 학생이 하는 일이 바뀝니다.</p>
+    <div data-tabs class="proc">
+      <div class="seg" role="tablist"><button class="t-o" data-tab="p1">오 오늘의 나를 만나다</button><button class="t-j" data-tab="p2">작 나의 진로를 짓다</button><button class="t-g" data-tab="p3">교 사람과 세상에 다리를 놓다</button></div>
+      <div data-panel="p1" class="t-o"><div class="steps"><div><h4><span>① 묻다</span>“오늘 나는 무엇에 끌리는가?”</h4></div><div><h4><span>② 해 보다</span>학년별 심리검사 / 교내 체험 10개 분야 중 2종목 / 공방 제작 · 드론 · 메타버스</h4></div><div><h4><span>③ 짓다</span>더 몰입한 체험과 그 이유 기록 / 검사 결과와 비교</h4></div><div><h4><span>④ 잇다</span>진로수업 소감 나눔 / 오늘의 한 걸음</h4></div></div><div class="foot"><div><b>함께한 사람</b>담임·진로 교사 · 분야별 체험 강사 · 지역 공방 · 체험센터</div><div><b>남는 증거(산출물)</b>검사 결과지 · 수요조사 · 체험 사진 67장 · 설문 245명</div><div><b>기르는 역량</b>자기이해 UP · 직업세계 이해 UP</div></div></div><div data-panel="p2" class="t-j"><div class="steps"><div><h4><span>① 묻다</span>“내가 짓고 싶은 진로의 설계도는?”</h4></div><div><h4><span>② 해 보다</span>직무 카드 · 퀴즈 · 액션 네트워크(2학년)계열·학과 탐색 · 학과사전 미션(3학년)</h4></div><div><h4><span>③ 짓다</span>미래직업 창직 · 나만의 대학교 / 고교학점제 과목 설계</h4></div><div><h4><span>④ 잇다</span>모둠 발표·토론 / 활동지 공유</h4></div></div><div class="foot"><div><b>함께한 사람</b>캠프 강사 · 담임교사, 모둠 친구</div><div><b>남는 증거(산출물)</b>창직 활동지 · 과목 설계 책자 · 캠프 사진 32장 · 설문 505명</div><div><b>기르는 역량</b>진로 설계 UP · 의사결정 UP</div></div></div><div data-panel="p3" class="t-g"><div class="steps"><div><h4><span>① 묻다</span>“누구에게 무엇을 물어 다음 걸음을 이을까?”</h4></div><div><h4><span>② 해 보다</span>희망한 두 분야의 직업인 멘토링, 직업인의 설명과 실습</h4></div><div><h4><span>③ 짓다</span>두 직업에서 배운 점과 나의 진로를 잇는 소감문</h4></div><div><h4><span>④ 잇다</span>사전 질문 전달 · 다음 날 소감문, 2~4주 뒤 확인</h4></div></div><div class="foot"><div><b>함께한 사람</b>직업인 강사 10명, 담임·진로 교사 · 또래</div><div><b>남는 증거(산출물)</b>소감문 양식 · 멘토링 사진 40장 · 만족도 설문(509~520명)</div><div><b>기르는 역량</b>관계·소통 UP · 탐색 동기 UP</div></div></div>
+    </div>
+    <p class="note">다음 다리 : 설문 3종·소감 분석 → 공통 활동 기록지 · 활동 전 질문 카드 · 설명·실습·질문 시간 기준 → 2학기·다음 학년도 운영</p>
+  </section>
+
+  <section class="home-sec">
+    <h2 class="bh" style="margin-top:0">해 본 경험이 곧바로 진로의 의미가 되지는 않았다</h2>
+    <div class="gapm t-o">
+      <div class="a"><strong>약 78%</strong><span>해 본 경험</span><small>활동의 다양성 · 적극적 참여</small></div>
+      <i>그러나 →</i>
+      <div class="b"><strong>약 57%</strong><span>진로로 이어진 경험</span><small>자신의 진로를 생각할 기회</small></div>
+    </div>
+    <p class="lede">1학년 245명의 응답이다. 이 간극이 실천과제 ② 작과 ③ 교, 그리고 ‘다음 다리’를 놓게 한 출발점이다.</p>
+    <a class="go" href="#data">실천 결과 보기</a>
+  </section>
+  <nav class="pn"><span></span><a href="#plan"><span>다음</span><b>연구 설계</b></a></nav>
+</div>
+</section>
+
+<!-- ===================== PLAN ===================== -->
+<section class="view t-nv" id="v-plan" data-title="연구 설계">
+<div class="wrap room">
+  <header class="rh3"><div class="sq"><small>연구</small><b>Ⅱ</b><i>설계</i></div><div class="panel">
+    <h1>이론적 배경 및 연구 설계</h1>
+    <p class="q">연구계획서의 오작교 5단계를 골격으로 삼아 무엇을 확인할지 먼저 정한 뒤, 학교의 연간 일정 위에 활동을 배치하였다.</p>
+  </div></header>
+
+  <h2 class="bh"><small>연구 문제 및 확인 방법</small>세 개의 질문과 확인 방법</h2>
+  <div data-tabs class="pane">
+    <div class="seg" role="tablist"><button data-tab="q1">연구 문제 ①</button><button data-tab="q2">연구 문제 ②</button><button data-tab="q3">연구 문제 ③</button></div>
+    <div data-panel="q1" class="hyp" style="grid-template-columns:1fr 1fr"><div><b>연구 문제 ①</b><p>오늘 해 본 경험(오), 스스로 지은 설계(작), 사람과의 만남(교)을 학교의 연간 일정 위에서 어떻게 이을 수 있는가?</p></div><div><b>확인 방법 ①</b><p>운영계획·결과보고서와 사진 141장으로 활동의 배치와 실행 여부를 확인한다.</p></div></div><div data-panel="q2" class="hyp" style="grid-template-columns:1fr 1fr"><div><b>연구 문제 ②</b><p>오작교 활동에서 학생은 어떤 자기이해·탐색·설계 경험을 말하는가?</p></div><div><b>확인 방법 ②</b><p>캠프(2학년 247명·3학년 258명), 1학년 자유학기제(245명), 직업인 멘토링 설문과 수록 소감을 분석한다.</p></div></div><div data-panel="q3" class="hyp" style="grid-template-columns:1fr 1fr"><div><b>연구 문제 ③</b><p>오작교가 한 번의 행사로 끝나지 않으려면 무엇을 보완해야 하는가?</p></div><div><b>확인 방법 ③</b><p>자료의 정합성 점검과 현장 문제 사례로 기록 도구와 운영 기준을 도출한다.</p></div></div>
+  </div>
+
+  <h2 class="bh"><small>이론적 배경</small>세 글자는 진로교육 이론의 세 관점과 맞닿아 있다</h2>
+  <p class="lede">이론은 활동을 고르고 질문을 정하는 틀로 쓰였고, 실제 성과는 학교의 활동자료로 확인하였다.</p>
+  <div data-tabs class="pane">
+    <div class="seg" role="tablist"><button class="t-o" data-tab="th1">오 · 계획된 우연 · 경험학습</button><button class="t-j" data-tab="th2">작 · 생애설계</button><button class="t-g" data-tab="th3">교 · 관계적 일 · 사회인지진로</button></div>
+    <div data-panel="th1" class="levels t-o"><div class="lv-p"><div><b>이론</b><p style="margin:0 0 .5rem;font-weight:600">계획된 우연 이론 (Mitchell 등, 1999) 경험학습 이론(Kolb, 1984)</p><p style="margin:0">호기심과 융통성으로 우연을 기회로 바꾸고, 경험–성찰–개념화–실험이 순환할 때 배운다</p></div><div><b>오작교 적용 포인트</b><ul><li>체험 뒤 ‘더 몰입한 쪽과 이유’ 기록</li><li>활동 후 한 걸음, 2~4주 뒤 확인</li></ul></div></div></div><div data-panel="th2" class="levels t-j"><div class="lv-p"><div><b>이론</b><p style="margin:0 0 .5rem;font-weight:600">생애설계 관점 (Savickas 등, 2009)</p><p style="margin:0">진로는 개인이 경험과 이야기로 구성해 가는 것이며, 의도를 세우는 과정이 중요하다</p></div><div><b>오작교 적용 포인트</b><ul><li>창직, 학과·과목 설계를 직접 짓기</li><li>‘왜 골랐는가’를 문장으로 남기기</li></ul></div></div></div><div data-panel="th3" class="levels t-g"><div class="lv-p"><div><b>이론</b><p style="margin:0 0 .5rem;font-weight:600">관계적 일 이론 (Blustein, 2011) 사회인지진로이론(Lent 등, 1994)</p><p style="margin:0">일과 진로는 관계 속에서 형성되고, 관찰·격려·직접 수행이 자기효능감을 키운다</p></div><div><b>오작교 적용 포인트</b><ul><li>직업인에게 묻는 사전 질문</li><li>설명·실습·질문 시간 배분</li><li>또래와 소감 나누기</li></ul></div></div></div>
+  </div>
+
+  <h2 class="bh"><small>오작교의 도구와 원리</small>오작교 5단계 · 세 가지 실천 원리 · 활동 기록지</h2>
+  <div class="bx3"><section class="bx"><h3>오작교 5단계</h3><div class="bxb"><p>자기이해·또래 연결 → 직업세계 탐색·멘토 만남 → 자기주도 진로 프로젝트 → 진로비전 공유 → 평가·환류·다음 다리</p><p class="note" style="margin:0">왜 만들었나 — 흩어진 행사를 연구계획서의 한 줄 여정 위에 놓으려고</p></div></section><section class="bx"><h3>세 가지 실천 원리</h3><div class="bxb"><p>선택의 이유를 남긴다(作) · 만남을 질문으로 잇는다(橋) · 활동 후 하나의 행동을 정한다(오늘)</p><p class="note" style="margin:0">왜 만들었나 — 어떤 활동이든 같은 질문으로 마무리하도록</p></div></section><section class="bx"><h3>오작교 활동 기록지</h3><div class="bxb"><p>활동 전 질문 · 활동 중 발견 · 활동 후 선택 이유 · 오늘의 한 걸음 · 2~4주 뒤 확인</p><p class="note" style="margin:0">왜 만들었나 — 행사마다 흩어진 기록을 한 학생의 기록으로 잇기 위해(부록 1)</p></div></section></div>
+
+  <h2 class="bh"><small>연구 설계</small>준비·진단 → 실행 → 평가·환류</h2>
+  <p class="lede">아래 막대의 빨간 표시는 이 페이지를 여는 오늘 날짜입니다.</p>
+  <div class="tl" id="tl">
+    <div class="today" id="today">오늘</div>
+    <div class="ph"><span style="flex:3;background:#eccfb3"></span><span style="flex:3;background:#2c6aa0"></span><span style="flex:3;background:#5a4a9e"></span><span style="flex:3;background:#e3e9ef"></span></div>
+    <div class="phl"><span style="flex:3">① 준비 · 진단 (3.~5.)</span><span style="flex:3">② 실행 (6.~8.)</span><span style="flex:3">③ 평가 · 환류 (7.~9.)</span><span style="flex:3">2학기 이후</span></div>
+  </div>
+  <div class="bx3"><section class="bx"><h3>① 준비 · 진단</h3><div class="bxb"><p class="note" style="margin:0 0 .5rem">2026. 3.~5. <span class="st">완료</span></p><ul style="margin:0;padding-left:1.1rem;font-size:.92rem"><li>학년별 표준화 심리검사(3.18)</li><li>진로활동 수요조사 · 1학기 상담</li><li>진로교육 운영계획 · 특색사업 수립</li><li>1학년 체험 사전 안내·안전교육 계획(5.18~26)</li></ul></div></section><section class="bx"><h3>② 실행</h3><div class="bxb"><p class="note" style="margin:0 0 .5rem">2026. 6.~8. <span class="st">완료</span></p><ul style="margin:0;padding-left:1.1rem;font-size:.92rem"><li>교내 진로직업체험(6.4, 1학년)</li><li>체험처 사전답사(6.12)</li><li>지역 공방·체험센터(7.1~2)</li><li>학년별 진로캠프(7.7)</li><li>직업인 멘토링(8.26, 2·3학년)</li></ul></div></section><section class="bx"><h3>③ 평가 · 환류</h3><div class="bxb"><p class="note" style="margin:0 0 .5rem">2026. 7.~9. <span class="st up">진행</span></p><ul style="margin:0;padding-left:1.1rem;font-size:.92rem"><li>자유학기제 만족도 조사(7.15~16)</li><li>캠프·멘토링 설문 분석</li><li>수록 소감 범주 분석</li><li>기록지·질문 카드·후속 운영(안)</li></ul></div></section></div>
+
+  <h2 class="bh"><small>2026 오작교 운영 일정</small>어느 다리를 잇는 활동인가</h2>
+  <p class="lede">다리를 고르면 그 다리를 잇는 활동만 보입니다. 상태는 실행 자료로 확인한 ‘실시’, 운영계획만 확인된 ‘계획’, 10월 1일 이후의 ‘예정’입니다.</p>
+  <div data-tabs data-active="all" class="schw">
+    <div class="seg sched-filter" role="tablist"><button data-tab="all">전체</button><button class="t-o" data-tab="o">오</button><button class="t-j" data-tab="j">작</button><button class="t-g" data-tab="g">교</button><button class="t-n" data-tab="n">다음</button></div>
+    <ul class="ev sch"><li data-k="o"><time>3. 18.</time><p><span class="bchip t-o">오</span> <b>학년별 표준화 심리검사</b> — 1~3학년<br><span class="note">근거 : 실시 계획 · 수정 공문</span></p><span class="st">실시</span></li><li data-k="o"><time>1학기</time><p><span class="bchip t-o">오</span> <b>진로활동 수요조사</b> — 전교생<br><span class="note">근거 : 설문 문항</span></p><span class="st">실시</span></li><li data-k="o"><time>3~7월</time><p><span class="bchip t-o">오</span> <b>진로진학상담 118건</b> — 희망 학생<br><span class="note">근거 : 상담표</span></p><span class="st">실시</span></li><li data-k="g"><time>4. 29.</time><p><span class="bchip t-g">橋</span> <b>○○ 문화역사 체험(6개 주제 코스)</b> — 1학년<br><span class="note">근거 : 수정 운영계획</span></p><span class="st plan">계획</span></li><li data-k="g"><time>4. 30.</time><p><span class="bchip t-g">橋</span> <b>미디어 문화 체험(9개 교과 연계)</b> — 1학년<br><span class="note">근거 : 수정 운영계획</span></p><span class="st plan">계획</span></li><li data-k="o"><time>5. 18.~26.</time><p><span class="bchip t-o">오</span> <b>직업체험 사전 안내 · 안전교육</b> — 1학년<br><span class="note">근거 : 운영계획</span></p><span class="st plan">계획</span></li><li data-k="o"><time>6. 4.</time><p><span class="bchip t-o">오</span> <b>찾아오는 진로직업체험(10개 분야)</b> — 1학년<br><span class="note">근거 : 결과보고서 · 사진</span></p><span class="st">실시</span></li><li data-k="o"><time>6. 12.</time><p><span class="bchip t-o">오</span> <b>지역 체험처 사전답사</b> — 교사<br><span class="note">근거 : 답사 결과보고서</span></p><span class="st">실시</span></li><li data-k="o"><time>7. 1.~2.</time><p><span class="bchip t-o">오</span> <b>찾아가는 진로탐색(공방 · 체험센터)</b> — 1학년<br><span class="note">근거 : 정산 보고 · 사진</span></p><span class="st">실시</span></li><li data-k="j"><time>7. 7.</time><p><span class="bchip t-j">作</span> <b>학년별 진로캠프(4차시)</b> — 2·3학년<br><span class="note">근거 : 결과보고서 · 설문</span></p><span class="st">실시</span></li><li data-k="g"><time>7. 7.</time><p><span class="bchip t-g">橋</span> <b>교과 연계 북콘서트</b> — 1학년<br><span class="note">근거 : 운영계획</span></p><span class="st plan">계획</span></li><li data-k="n"><time>7. 15.~16.</time><p><span class="bchip t-n">다음</span> <b>자유학기제 운영 만족도 조사</b> — 1학년<br><span class="note">근거 : 결과 공문</span></p><span class="st">실시</span></li><li data-k="g"><time>8. 26.</time><p><span class="bchip t-g">橋</span> <b>직업인 진로멘토링(10개 직업군)</b> — 2·3학년<br><span class="note">근거 : 결과보고서 · 설문</span></p><span class="st">실시</span></li><li data-k="g"><time>8. 28.</time><p><span class="bchip t-g">橋</span> <b>학교로 찾아가는 진로탐색 강연</b> — 1학년<br><span class="note">근거 : 신청서 · 사진</span></p><span class="st">실시</span></li><li data-k="g"><time>10.13.~11.6.</time><p><span class="bchip t-g">橋</span> <b>2학기 독서진흥 프로그램</b> — 전교생<br><span class="note">근거 : 운영계획</span></p><span class="st up">예정</span></li><li data-k="o"><time>12.10.(희망)</time><p><span class="bchip t-o">오</span> <b>내일(Job)을 만나는 교실</b> — 3학년<br><span class="note">근거 : 사전 수요조사</span></p><span class="st up">예정</span></li></ul>
+  </div>
+
+  <h2 class="bh"><small>자료 수집과 분석</small>무엇으로 확인했는가</h2>
+  <div class="tw"><table class="map4"><thead><tr><th>자료</th><th>대상 · 규모</th><th>분석 방법</th></tr></thead><tbody><tr><td>학교 실천자료</td><td>운영계획 · 결과보고서 · 설문 결과표 등 15건</td><td>계획·실행·반응을 구분해 활동의 배치와 실행 확인</td></tr><tr><td>7월 진로캠프 설문</td><td>2학년 247명 · 3학년 258명, 6문항 5점 척도</td><td>빈도 합계 검산 후 긍정응답률과 5점 평균 산출</td></tr><tr><td>1학년 자유학기제 설문</td><td>재적 267명 중 245명(91.8%), 8문항</td><td>운영·만족 6문항과 진로 의미 2문항 비교</td></tr><tr><td>직업인 멘토링 설문</td><td>표기 519명(문항별 합계 509~520명), 7문항</td><td>문항별 빈도 합계를 분모로 한 참고치</td></tr><tr><td>학생 소감</td><td>캠프 결과보고서 수록 서술</td><td>자기이해·탐색·설계·동기·정서 범주로 정리</td></tr></tbody></table></div>
+  <nav class="pn"><a href="#home"><span>이전</span><b>홈</b></a><a href="#o"><span>다음</span><b>오 오늘의 나를 만나다</b></a></nav>
+</div>
+</section>
+
+<!-- ===================== 오 ===================== -->
+<section class="view t-o" id="v-o" data-title="오 오늘의 나를 만나다">
+<div class="wrap room">
+  <header class="rh3"><div class="sq" aria-hidden="true"><small>실천과제 ①</small><b>오</b><i>오늘</i></div><div class="panel">
+    <h1>오늘의 나를 만나다 — 해 보면서 알게 되는 나</h1>
+    <p class="q">핵심 질문 : “오늘 나는 무엇에 끌리는가?”</p>
+  </div></header>
+  <dl class="rh3-meta"><div><dt>진로교육 영역</dt><dd>자아이해와 사회적 역량 개발 · 일과 직업세계 이해</dd></div><div><dt>남는 증거</dt><dd>검사 결과지, 결과보고서, 사진 67장, 설문 245명</dd></div></dl>
+
+  <h2 class="bh"><small>가. 3월 18일</small>학년마다 다른 ‘나’의 지도를 펼치다</h2>
+  <p class="lede">3월 18일, 전 학년이 같은 날 표준화 심리검사를 치렀다. 검사는 진로를 정해 주는 판정이 아니라, 이후의 체험과 캠프에서 ‘정말 그런가?’를 확인할 출발점으로 삼았다. 수요조사에서 학생이 밝힌 희망 분야는 8월 멘토링에서 희망한 두 분야의 직업인을 배정하는 계획으로 이어졌다. 학년을 고르면 검사와 이어 묻는 질문이 나옵니다.</p>
+  <div data-tabs class="pane">
+    <div class="seg" role="tablist"><button data-tab="y1">1학년</button><button data-tab="y2">2학년</button><button data-tab="y3">3학년</button></div>
+    <div data-panel="y1" class="rupa-p"><div><h3>학습종합검사(WISE)</h3><p class="meta">1학년 · 3.18. 2교시</p></div><div class="ex"><b>오작교에서 이어 묻는 질문</b><blockquote>“나는 어떤 방식으로 배울 때 몰입하는가?”</blockquote><p class="note" style="margin:.5rem 0 0">→ 6월 체험에서 확인</p></div></div><div data-panel="y2" class="rupa-p"><div><h3>성격강점검사(CST-A)</h3><p class="meta">2학년 · 3.18. 1교시</p></div><div class="ex"><b>오작교에서 이어 묻는 질문</b><blockquote>“나의 강점은 어떤 일에서 드러나는가?”</blockquote><p class="note" style="margin:.5rem 0 0">→ 7월 직무 카드 탐색에서 확인</p></div></div><div data-panel="y3" class="rupa-p"><div><h3>CATA 적성검사 · Holland 진로검사</h3><p class="meta">3학년 · 3.18. 1~2교시</p></div><div class="ex"><b>오작교에서 이어 묻는 질문</b><blockquote>“나의 흥미 유형은 어떤 학과로 이어지는가?”</blockquote><p class="note" style="margin:.5rem 0 0">→ 7월 학과 탐색에서 확인</p></div></div>
+  </div>
+
+  <h2 class="bh"><small>나. 6월 4일</small>교실이 일터가 되다</h2>
+  <p class="lede">찾아오는 진로직업체험은 10개 분야로 꾸렸고, 학생 한 명이 두 분야를 두 시간씩 직접 해 보도록 짰다. 폴리스 라인이 쳐진 교실에서 제복을 입고, 가운을 입고 도구를 잡고, 향을 고르고, 초콜릿을 빚었다. 분야를 누르면 1차시와 2차시에 하는 일이 나옵니다.</p>
+  <div data-tabs data-active="f1">
+    <div class="fgrid" role="tablist"><button data-tab="f1"><b>의사 · 약사 · 수의사 · 간호사</b>메디컬</button><button data-tab="f2"><b>경찰 · 과학수사대</b>공무원</button><button data-tab="f3"><b>조향사</b>뷰티</button><button data-tab="f4"><b>쇼콜라티에</b>요식</button><button data-tab="f5"><b>토탈공예</b>감성디자인</button><button data-tab="f6"><b>조종사 · 승무원</b>항공</button><button data-tab="f7"><b>마술사</b>연예</button><button data-tab="f8"><b>건축 · 실내디자이너</b>건축</button><button data-tab="f9"><b>제과제빵사</b>요식</button><button data-tab="f10"><b>메타버스</b>4차산업</button></div>
+    <div data-panel="f1" class="fpan"><div><b>1차시 — 알아보기</b>히포크라테스 선서, 의료 직업의 영역</div><div><b>2차시 — 직접 해 보기</b>진료 체험 · 처방전 작성</div></div><div data-panel="f2" class="fpan"><div><b>1차시 — 알아보기</b>경찰 · 과학수사 · 119구조대 이해</div><div><b>2차시 — 직접 해 보기</b>범죄 상황극 · 지문 채취</div></div><div data-panel="f3" class="fpan"><div><b>1차시 — 알아보기</b>향의 종류와 조향사의 일</div><div><b>2차시 — 직접 해 보기</b>향수 만들기</div></div><div data-panel="f4" class="fpan"><div><b>1차시 — 알아보기</b>도구 소개와 사용법</div><div><b>2차시 — 직접 해 보기</b>수제 몰드 초콜릿</div></div><div data-panel="f5" class="fpan"><div><b>1차시 — 알아보기</b>공예 분야와 자격</div><div><b>2차시 — 직접 해 보기</b>비누 · 감성조명 만들기</div></div><div data-panel="f6" class="fpan"><div><b>1차시 — 알아보기</b>항공 직업과 관련 학과</div><div><b>2차시 — 직접 해 보기</b>T50 훈련기 조립 · 승무원 체험</div></div><div data-panel="f7" class="fpan"><div><b>1차시 — 알아보기</b>마술 도구와 공연의 원리</div><div><b>2차시 — 직접 해 보기</b>마술 체험 · 발표</div></div><div data-panel="f8" class="fpan"><div><b>1차시 — 알아보기</b>공간을 만드는 직업 탐색</div><div><b>2차시 — 직접 해 보기</b>미니어처 가구 · 실내 디자인</div></div><div data-panel="f9" class="fpan"><div><b>1차시 — 알아보기</b>도구와 재료 알아보기</div><div><b>2차시 — 직접 해 보기</b>머핀 만들기</div></div><div data-panel="f10" class="fpan"><div><b>1차시 — 알아보기</b>메타버스 기술과 콘텐츠</div><div><b>2차시 — 직접 해 보기</b>VR 콘텐츠 만들기</div></div>
+  </div>
+  <div class="tw" style="margin-top:1.2rem"><table class="map4"><thead><tr><th>단계</th><th>시기</th><th>학생이 하는 일</th></tr></thead><tbody><tr><td>사전 안내</td><td>5.18~26(계획)</td><td>체험 분야 안내와 사전 안전교육</td></tr><tr><td>당일 안전교육</td><td>6.4 조회</td><td>이동 동선과 유의 사항 확인</td></tr><tr><td>체험 ①</td><td>2시간</td><td>첫 분야의 도구와 일을 직접 해 보기</td></tr><tr><td>체험 ②</td><td>2시간</td><td>두 번째 분야를 해 보며 첫 분야와 견주기</td></tr><tr><td>소감 나눔</td><td>6.8~12 진로수업(계획)</td><td>체험 소감 나누기</td></tr></tbody></table></div>
+  <div class="strip"><figure><a class="zoom" href="img/i06.jpg"><img src="img/i06.jpg" width="1020" height="744" loading="lazy" decoding="async" alt="경찰·과학수사 현장 체험"></a><figcaption>경찰·과학수사 현장 체험</figcaption></figure><figure><a class="zoom" href="img/i07.jpg"><img src="img/i07.jpg" width="960" height="701" loading="lazy" decoding="async" alt="가운을 입고 만나는 의료"></a><figcaption>가운을 입고 만나는 의료</figcaption></figure><figure><a class="zoom" href="img/i08.jpg"><img src="img/i08.jpg" width="766" height="559" loading="lazy" decoding="async" alt="향을 고르고 섞는 조향"></a><figcaption>향을 고르고 섞는 조향</figcaption></figure><figure><a class="zoom" href="img/i09.jpg"><img src="img/i09.jpg" width="1020" height="744" loading="lazy" decoding="async" alt="초콜릿을 빚는 쇼콜라티에"></a><figcaption>초콜릿을 빚는 쇼콜라티에</figcaption></figure><figure><a class="zoom" href="img/i10.jpg"><img src="img/i10.jpg" width="960" height="701" loading="lazy" decoding="async" alt="노트북으로 만나는 디지털"></a><figcaption>노트북으로 만나는 디지털</figcaption></figure><figure><a class="zoom" href="img/i11.jpg"><img src="img/i11.jpg" width="960" height="701" loading="lazy" decoding="async" alt="항공기 배경 앞 항공 체험"></a><figcaption>항공기 배경 앞 항공 체험</figcaption></figure><figure><a class="zoom" href="img/i12.jpg"><img src="img/i12.jpg" width="1000" height="730" loading="lazy" decoding="async" alt="모둠 책상 위의 제작 체험"></a><figcaption>모둠 책상 위의 제작 체험</figcaption></figure><figure><a class="zoom" href="img/i13.jpg"><img src="img/i13.jpg" width="1000" height="730" loading="lazy" decoding="async" alt="틀에 재료를 채워 만들기"></a><figcaption>틀에 재료를 채워 만들기</figcaption></figure><figure><a class="zoom" href="img/i14.jpg"><img src="img/i14.jpg" width="1600" height="1168" loading="lazy" decoding="async" alt="손으로 해 보는 교실"></a><figcaption>손으로 해 보는 교실</figcaption></figure></div>
+  <p class="prose">대부분은 학생이 모둠 책상에서 재료와 도구를 직접 다루는 장면이다. 설명을 듣는 체험이 아니라 손으로 해 보는 체험이었다. 다만 체험 뒤 소감 나눔의 개별 기록은 남지 않아, ‘해 본 일’을 ‘나를 아는 근거’로 바꾸는 기록이 다음 과제로 남았다.</p>
+
+  <h2 class="bh"><small>다. 7월 1~2일</small>우리 동네가 교과서가 되다</h2>
+  <p class="lede">1학년은 지역 문화의 거리 공방과 미래진로직업체험센터를 번갈아 찾았다. 공방에서는 손으로 물건을 만드는 사람의 일을, 체험센터에서는 드론, 3D 프린팅, VR, 크리에이터, 로봇코딩, 메타버스를 만났다. 교사는 6월 12일에 그 길을 먼저 걸으며 이동 시간과 동선, 체험 공간을 확인하였다.</p>
+  <div class="bx2"><section class="bx"><h3>문화의 거리 공방 10곳</h3><div class="bxb"><ul class="chips"><li>우드아로마 디퓨저</li><li>캘리그라피 아크릴무드등</li><li>아로마발포 세라믹</li><li>간식접시</li><li>은팔찌</li><li>타일도마</li><li>글라스아트 썬캐처</li><li>가죽카드지갑</li><li>나만의 향수</li><li>민화탁상시계</li></ul></div></section><section class="bx"><h3>미래진로직업 체험센터</h3><div class="bxb"><ul class="chips"><li>드론축구</li><li>드론촬영</li><li>3D 프린팅</li><li>VR</li><li>크리에이터</li><li>로봇코딩</li><li>메타버스</li></ul></div></section></div>
+  <div class="tw"><table class="map4"><thead><tr><th>교과</th><th>교과 연계 지도 내용(운영계획)</th><th>교과</th><th>교과 연계 지도 내용(운영계획)</th></tr></thead><tbody><tr><td>국어</td><td>생성형 AI 기술의 장단점 글쓰기</td><td>미술</td><td>지역 문화예술 현장 경험</td></tr><tr><td>영어</td><td>영어로 알아보는 미래 직업</td><td>정보</td><td>디지털 기술과 나의 진로 설계</td></tr><tr><td>과학</td><td>4차 산업혁명과 미래 직업 탐색</td><td>도덕</td><td>공동체 예절과 직업 윤리</td></tr><tr><td>사회</td><td>○○의 사회 · 문화 살펴보기</td><td>수학</td><td>원목 트레이 넓이 구하기</td></tr><tr><td>기술·가정</td><td>자립 실습, 기술 혁신과 문제 해결</td><td>진로와 직업</td><td>적성에 맞는 진로 · 직업 탐색</td></tr></tbody></table></div>
+  <div class="strip"><figure><a class="zoom" href="img/i15.jpg"><img src="img/i15.jpg" width="1004" height="733" loading="lazy" decoding="async" alt="6. 12 사전답사: 공방 거리"></a><figcaption>6. 12 사전답사: 공방 거리</figcaption></figure><figure><a class="zoom" href="img/i16.jpg"><img src="img/i16.jpg" width="738" height="539" loading="lazy" decoding="async" alt="6. 12 사전답사: 드론 공간"></a><figcaption>6. 12 사전답사: 드론 공간</figcaption></figure><figure><a class="zoom" href="img/i17.jpg"><img src="img/i17.jpg" width="990" height="722" loading="lazy" decoding="async" alt="공방의 작업 공간"></a><figcaption>공방의 작업 공간</figcaption></figure><figure><a class="zoom" href="img/i18.jpg"><img src="img/i18.jpg" width="382" height="279" loading="lazy" decoding="async" alt="7. 1~2 지역 체험처에서"></a><figcaption>7. 1~2 지역 체험처에서</figcaption></figure><figure><a class="zoom" href="img/i19.jpg"><img src="img/i19.jpg" width="385" height="281" loading="lazy" decoding="async" alt="손으로 만드는 제작 체험"></a><figcaption>손으로 만드는 제작 체험</figcaption></figure><figure><a class="zoom" href="img/i20.jpg"><img src="img/i20.jpg" width="343" height="250" loading="lazy" decoding="async" alt="7. 1 메타버스 체험"></a><figcaption>7. 1 메타버스 체험</figcaption></figure></div>
+  <div class="gapm">
+    <div class="a"><strong>약 78%</strong><span>해 본 경험</span><small>활동의 다양성 · 적극적 참여</small></div>
+    <i>그러나 →</i>
+    <div class="b"><strong>약 57%</strong><span>진로로 이어진 경험</span><small>자신의 진로를 생각할 기회</small></div>
+  </div>
+  <p class="prose">체험 뒤 1학년 245명의 응답에서 ‘버스 안전·청결’은 약 83%, ‘활동의 다양성’과 ‘적극적 참여’는 각각 약 78%였다. 그러나 ‘자신의 진로탐색에 도움’은 약 60%, ‘진로를 생각할 기회’는 약 57%에 머물렀다.</p>
+  <nav class="pn"><a href="#plan"><span>이전</span><b>연구 설계</b></a><a href="#j"><span>다음</span><b>작 나의 진로를 짓다</b></a></nav>
+</div>
+</section>
+
+<!-- ===================== 작 ===================== -->
+<section class="view t-j" id="v-j" data-title="작 나의 진로를 짓다">
+<div class="wrap room">
+  <header class="rh3"><div class="sq" aria-hidden="true"><small>실천과제 ②</small><b class="han">作</b><i>짓다</i></div><div class="panel">
+    <h1>나의 진로를 짓다 — 카드에서 직업으로, 학과에서 시간표로</h1>
+    <p class="q">핵심 질문 : “내가 짓고 싶은 진로의 설계도는?”</p>
+  </div></header>
+  <dl class="rh3-meta"><div><dt>진로교육 영역</dt><dd>진로 탐색 · 진로 디자인과 준비</dd></div><div><dt>남는 증거</dt><dd>창직 활동지, 과목 설계 책자, 사진 32장, 설문 505명</dd></div></dl>
+
+  <h2 class="bh"><small>7월 7일 학년별 진로캠프 4차시</small>학년을 골라 네 차시를 따라가 보세요</h2>
+  <div data-tabs>
+    <div class="seg" role="tablist"><button data-tab="c2">2학년 — 직무 카드에서 세상에 없던 직업까지</button><button data-tab="c3">3학년 — 관심 학과에서 고등학교 시간표까지</button></div>
+    <div data-panel="c2">
+      <p class="lede">2학년 교실에는 직무 카드 보드가 펼쳐졌다. 네 명 안팎의 모둠이 카드를 고르고, 퀴즈로 직무를 익히고, 액터·장소 카드로 ‘누가, 어디서, 무엇을 필요로 하는가’를 이어 붙였다. 마지막 차시에는 관심 직무와 사람들의 요구를 엮어 세상에 없던 직업을 그림과 글로 지었다.</p>
+      <div class="chasi"><div><i>1</i><h4>액션카드 탐색</h4><p>직무 카드를 고르며 끌리는 일과 그 이유 찾기</p><p class="out">남는 것 : 고른 카드</p></div><div><i>2</i><h4>액션카드 퀴즈</h4><p>카드에 담긴 직무 정보를 퀴즈로 확인하기</p><p class="out">남는 것 : 직무 이해</p></div><div><i>3</i><h4>액션 네트워크</h4><p>액터·장소 카드로 사람들의 요구와 직업의 생성·확산 잇기</p><p class="out">남는 것 : 직업 네트워크</p></div><div><i>4</i><h4>미래직업 창직</h4><p>관심 직무와 요구를 엮어 새 직업을 그림·글로 표현하기</p><p class="out">남는 것 : 창직 활동지</p></div></div>
+      <div class="strip"><figure><a class="zoom" href="img/i21.jpg"><img src="img/i21.jpg" width="477" height="348" loading="lazy" decoding="async" alt="직무 카드로 모둠 탐색"></a><figcaption>직무 카드로 모둠 탐색</figcaption></figure><figure><a class="zoom" href="img/i22.jpg"><img src="img/i22.jpg" width="477" height="348" loading="lazy" decoding="async" alt="카드를 보며 활동지 작성"></a><figcaption>카드를 보며 활동지 작성</figcaption></figure><figure><a class="zoom" href="img/i23.jpg"><img src="img/i23.jpg" width="477" height="348" loading="lazy" decoding="async" alt="내가 지은 직업 소개"></a><figcaption>내가 지은 직업 소개</figcaption></figure><figure><a class="zoom" href="img/i24.jpg"><img src="img/i24.jpg" width="477" height="348" loading="lazy" decoding="async" alt="카드 보드 위의 작전 회의"></a><figcaption>카드 보드 위의 작전 회의</figcaption></figure><figure><a class="zoom" href="img/i25.jpg"><img src="img/i25.jpg" width="477" height="348" loading="lazy" decoding="async" alt="고른 카드를 맞대어 보다"></a><figcaption>고른 카드를 맞대어 보다</figcaption></figure><figure><a class="zoom" href="img/i26.jpg"><img src="img/i26.jpg" width="477" height="348" loading="lazy" decoding="async" alt="직무 카드를 읽고 고르다"></a><figcaption>직무 카드를 읽고 고르다</figcaption></figure></div>
+    </div>
+    <div data-panel="c3">
+      <p class="lede">같은 날 3학년은 계열과 학과를 둘러보고, 학과사전 미션을 풀어 ‘나만의 대학교’를 세웠다. 이어 희망 학과에 이르는 고교학점제 과목을 직접 짜 보았다. 진로가 먼 미래의 직업명에서 내년의 시간표로 가까워진 시간이었다.</p>
+      <div class="chasi"><div><i>1</i><h4>계열·학과 탐색</h4><p>관심 계열과 학과의 공부 내용 알아보기</p><p class="out">남는 것 : 관심 학과</p></div><div><i>2</i><h4>학과사전 미션 · 나만의 대학교</h4><p>학과 정보를 찾아 미션을 풀고 대학을 꾸리기</p><p class="out">남는 것 : 미션 기록</p></div><div><i>3</i><h4>선택과목 소개</h4><p>고등학교 선택과목의 종류와 성격 알기</p><p class="out">남는 것 : 과목 목록</p></div><div><i>4</i><h4>고교학점제 과목 설계</h4><p>희망 학과로 이어지는 과목 선택 계획 짜기</p><p class="out">남는 것 : 과목 설계 책자</p></div></div>
+      <div class="strip"><figure><a class="zoom" href="img/i27.jpg"><img src="img/i27.jpg" width="477" height="348" loading="lazy" decoding="async" alt="활동 책자에 설계를 적다"></a><figcaption>활동 책자에 설계를 적다</figcaption></figure><figure><a class="zoom" href="img/i28.jpg"><img src="img/i28.jpg" width="477" height="348" loading="lazy" decoding="async" alt="작성한 내용을 나누다"></a><figcaption>작성한 내용을 나누다</figcaption></figure><figure><a class="zoom" href="img/i29.jpg"><img src="img/i29.jpg" width="477" height="348" loading="lazy" decoding="async" alt="모둠 결과를 발표하다"></a><figcaption>모둠 결과를 발표하다</figcaption></figure><figure><a class="zoom" href="img/i30.jpg"><img src="img/i30.jpg" width="477" height="348" loading="lazy" decoding="async" alt="학과를 찾아 적어 내려가다"></a><figcaption>학과를 찾아 적어 내려가다</figcaption></figure><figure><a class="zoom" href="img/i31.jpg"><img src="img/i31.jpg" width="477" height="348" loading="lazy" decoding="async" alt="모둠이 함께 살피는 책자"></a><figcaption>모둠이 함께 살피는 책자</figcaption></figure><figure><a class="zoom" href="img/i32.jpg"><img src="img/i32.jpg" width="477" height="348" loading="lazy" decoding="async" alt="교실 가득한 설계의 시간"></a><figcaption>교실 가득한 설계의 시간</figcaption></figure></div>
+    </div>
+  </div>
+
+  <h2 class="bh"><small>학생의 목소리</small>지은 사람의 말</h2>
+  <div class="voices">
+    <blockquote>“수업 덕에 내 강점이 무엇인지 다시 확인할 수 있었다.”</blockquote>
+    <blockquote>“고교학점제 선택 과목도 직접 설계해 보면서”</blockquote>
+    <blockquote>“오늘부로 관심이 생긴 직업에 대해 더 진지하게 생각해볼 것 같다.”</blockquote>
+  </div>
+  <div class="stat4">
+    <div><strong>98.0%</strong><span>2학년 전반적 만족</span></div><div><strong>95.3%</strong><span>3학년 전반적 만족</span></div>
+    <div><strong>95.1%</strong><span>2학년 진로 선택 도움</span></div><div><strong>93.0%</strong><span>3학년 진로 선택 도움</span></div>
+  </div>
+
+  <h2 class="bh"><small>부록 3 · 직접 써 보기</small>나의 진로를 짓는 설계서</h2>
+  <p class="lede">7월 캠프의 창직 활동지와 과목 설계 책자를 이어 쓰는 양식이다. ‘이유’ 칸에는 정답이 아니라 경험의 근거를 쓴다. 칸에 직접 적은 뒤 인쇄할 수 있습니다.</p>
+  <section class="sheet t-j"><div class="bar"><button class="pbtn" type="button" data-clear>지우기</button><button class="pbtn" type="button" data-print>이 양식 인쇄</button></div><h3>나의 진로를 짓는 설계서</h3><h4 style="margin:1rem 0 .3rem;font-size:.95rem;color:var(--cx)">A 2학년 — 직무 카드에서 새 직업 짓기(창직 설계)</h4><table><tr><th>설계 칸</th><th>나의 설계</th></tr><tr><th>내가 고른 직무 카드 3장</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>누가(액터) · 어디서(장소)<br>무엇을 필요로 하는가</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>새 직업의 이름과 하는 일</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>필요한 역량과 나의 강점</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>이 직업을 지은 이유<br>(나의 경험 근거)</th><td><textarea aria-label="기록 칸"></textarea></td></tr></table><h4 style="margin:1rem 0 .3rem;font-size:.95rem;color:var(--cx)">B 3학년 — 관심 학과에서 고등학교 과목까지(학업 설계)</h4><table><tr><th>설계 칸</th><th>나의 설계</th></tr><tr><th>관심 계열 · 학과(1~2개)</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>그 학과에서 배우는 것</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>고등학교에서 들을 과목<br>(공통 · 일반 · 진로 · 융합)</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>확인한 자료와 날짜<br>(학과 사전 · 고교 편제표 등)</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>이 학과를 고른 이유와<br>더 물어볼 사람</th><td><textarea aria-label="기록 칸"></textarea></td></tr></table><p class="note" style="margin:.4rem 0">※ 7월 캠프의 창직 활동지와 과목 설계 책자를 이어 쓰는 양식이다. ‘이유’ 칸에는 정답이 아니라</p><p class="note" style="margin:.4rem 0">경험의 근거를 쓰고, 2학기 진로 수업에서 다시 고쳐 쓴다.</p></section>
+  <nav class="pn"><a href="#o"><span>이전</span><b>오 오늘의 나를 만나다</b></a><a href="#g"><span>다음</span><b>교 사람과 세상에 다리를 놓다</b></a></nav>
+</div>
+</section>
+
+<!-- ===================== 교 ===================== -->
+<section class="view t-g" id="v-g" data-title="교 사람과 세상에 다리를 놓다">
+<div class="wrap room">
+  <header class="rh3"><div class="sq" aria-hidden="true"><small>실천과제 ③</small><b class="han">橋</b><i>다리</i></div><div class="panel">
+    <h1>사람과 세상에 다리를 놓다 — 듣는 만남에서 묻는 만남으로</h1>
+    <p class="q">핵심 질문 : “누구에게 무엇을 물어 다음 걸음을 이을까?”</p>
+  </div></header>
+  <dl class="rh3-meta"><div><dt>진로교육 영역</dt><dd>일과 직업세계 이해 · 진로 탐색</dd></div><div><dt>남는 증거</dt><dd>소감문 양식, 사진 40장, 만족도 설문(509~520명)</dd></div></dl>
+
+  <h2 class="bh"><small>가. 8월 26일</small>내가 고른 두 사람을 만나다</h2>
+  <p class="lede">2·3학년은 10개 분야 가운데 자신이 희망한 두 분야의 직업인을 만났다. 강사 10명이 학년별 2차시를 맡았고, 다음 날에는 두 직업에서 배운 점과 자신의 진로를 잇는 소감문을 쓰도록 계획하였다.</p>
+  <div class="flow4">
+    <div class="t-g"><b>희망 분야 선택</b><span>10개 분야 중 두 분야 신청</span></div>
+    <div class="t-g"><b>멘토링 2차시</b><span>직업인의 설명과 실습</span></div>
+    <div class="t-g"><b>소감문</b><span>배운 점 + 나의 진로 (계획·양식)</span></div>
+    <div class="t-g"><b>만족도 조사</b><span>7문항과 개선 의견</span></div>
+  </div>
+  <p class="lede">직업군을 누르면 멘토링 내용과 알아보는 역량이 나옵니다.</p>
+  <div data-tabs data-active="m1">
+    <div class="fgrid" role="tablist"><button data-tab="m1"><b>AI 인공지능</b>디지털 역량</button><button data-tab="m2"><b>K-pop 댄스</b>표현력 · 협업</button><button data-tab="m3"><b>게임개발자</b>논리적 사고 · 창의력</button><button data-tab="m4"><b>레진공예가</b>색채 감각 · 디자인</button><button data-tab="m5"><b>마술사</b>소통 · 표현력 · 집중력</button><button data-tab="m6"><b>바리스타</b>고객 서비스</button><button data-tab="m7"><b>쇼콜라티에</b>섬세함 · 디자인</button><button data-tab="m8"><b>파티시에</b>제품 개발 · 위생</button><button data-tab="m9"><b>퍼스널컬러전문가</b>색채 분석 · 상담</button><button data-tab="m10"><b>퍼퓸디자이너</b>후각 감각 · 기획력</button></div>
+    <div data-panel="m1" class="fpan"><div><b>멘토링 내용</b>생활과 산업 속 AI 사례, 개발자 · 데이터 전문가의 역할</div><div><b>알아보는 역량</b>디지털 역량</div></div><div data-panel="m2" class="fpan"><div><b>멘토링 내용</b>K-POP 산업 구조, 댄서 · 안무가의 활동 분야</div><div><b>알아보는 역량</b>표현력 · 협업</div></div><div data-panel="m3" class="fpan"><div><b>멘토링 내용</b>기획부터 출시까지의 제작 과정과 관련 직무</div><div><b>알아보는 역량</b>논리적 사고 · 창의력</div></div><div data-panel="m4" class="fpan"><div><b>멘토링 내용</b>레진공예의 활용 분야와 공예 창업</div><div><b>알아보는 역량</b>색채 감각 · 디자인</div></div><div data-panel="m5" class="fpan"><div><b>멘토링 내용</b>공연 준비 과정과 공연 콘텐츠 제작</div><div><b>알아보는 역량</b>소통 · 표현력 · 집중력</div></div><div data-panel="m6" class="fpan"><div><b>멘토링 내용</b>원두와 커피 제조, 매장 운영과 외식 산업</div><div><b>알아보는 역량</b>고객 서비스</div></div><div data-panel="m7" class="fpan"><div><b>멘토링 내용</b>초콜릿 원료와 제조 과정, 제품 개발</div><div><b>알아보는 역량</b>섬세함 · 디자인</div></div><div data-panel="m8" class="fpan"><div><b>멘토링 내용</b>제과 · 제빵 분야와 위생 관리, 디저트 산업</div><div><b>알아보는 역량</b>제품 개발 · 위생</div></div><div data-panel="m9" class="fpan"><div><b>멘토링 내용</b>피부톤 · 머리색에 맞는 색 분석과 상담</div><div><b>알아보는 역량</b>색채 분석 · 상담</div></div><div data-panel="m10" class="fpan"><div><b>멘토링 내용</b>향의 종류와 조합, 향수 제품 기획</div><div><b>알아보는 역량</b>후각 감각 · 기획력</div></div>
+  </div>
+  <div class="strip"><figure><a class="zoom" href="img/i33.jpg"><img src="img/i33.jpg" width="1484" height="1083" loading="lazy" decoding="async" alt="화면으로 직업을 소개하는 강사"></a><figcaption>화면으로 직업을 소개하는 강사</figcaption></figure><figure><a class="zoom" href="img/i34.jpg"><img src="img/i34.jpg" width="1575" height="1149" loading="lazy" decoding="async" alt="학생 곁으로 다가간 설명"></a><figcaption>학생 곁으로 다가간 설명</figcaption></figure><figure><a class="zoom" href="img/i35.jpg"><img src="img/i35.jpg" width="1575" height="1149" loading="lazy" decoding="async" alt="발표 자료로 만나는 직업"></a><figcaption>발표 자료로 만나는 직업</figcaption></figure><figure><a class="zoom" href="img/i36.jpg"><img src="img/i36.jpg" width="1575" height="1149" loading="lazy" decoding="async" alt="직업인의 이야기에 귀 기울이다"></a><figcaption>직업인의 이야기에 귀 기울이다</figcaption></figure><figure><a class="zoom" href="img/i37.jpg"><img src="img/i37.jpg" width="1575" height="1149" loading="lazy" decoding="async" alt="손으로 직접 해 보는 순간"></a><figcaption>손으로 직접 해 보는 순간</figcaption></figure><figure><a class="zoom" href="img/i38.jpg"><img src="img/i38.jpg" width="1182" height="863" loading="lazy" decoding="async" alt="학생 메모지가 모인 게시물"></a><figcaption>학생 메모지가 모인 게시물</figcaption></figure></div>
+
+  <h2 class="bh"><small>나. 학생이 요청한 다리</small>듣는 시간보다 해 보는 시간</h2>
+  <p class="lede">‘강사의 친절한 안내’는 79.0%, ‘다양한 매체 활용’은 77.4%로 높았지만, ‘흥미를 가지고 참여’는 61.8%, ‘진로설계 도움’은 60.6%였다. 사진 40장도 대부분 앉아서 설명을 듣는 장면이었다. 학생들은 좋은 강사를 넘어, 직접 묻고 해 보는 만남을 원했다.</p>
+  <div class="legend"><span><i style="background:var(--cx)"></i>매우 그렇다(5)</span><span><i style="background:var(--c)"></i>그렇다(4)</span><span><i style="background:#d7dee6"></i>보통(3)</span><span><i style="background:#e9b8b0"></i>그렇지 않다(2)</span><span><i style="background:#bc4035"></i>전혀(1)</span></div><div class="sbar hl"><span class="l">진로설계에 도움이 된다</span><span class="t"><i class="p5" style="width:28.8%"></i><i class="p4" style="width:31.7%"></i><i class="p3" style="width:30.2%"></i><i class="p2" style="width:6.9%"></i><i class="p1" style="width:2.3%"></i></span><span class="v">60.6%</span></div><div class="sbar"><span class="l">강사가 친절하게 안내했다</span><span class="t"><i class="p5" style="width:39.3%"></i><i class="p4" style="width:39.7%"></i><i class="p3" style="width:18.7%"></i><i class="p2" style="width:1.3%"></i><i class="p1" style="width:1.0%"></i></span><span class="v">79.0%</span></div><div class="sbar"><span class="l">PPT 등 다양한 매체를 활용했다</span><span class="t"><i class="p5" style="width:38.9%"></i><i class="p4" style="width:38.5%"></i><i class="p3" style="width:20.0%"></i><i class="p2" style="width:2.0%"></i><i class="p1" style="width:0.6%"></i></span><span class="v">77.4%</span></div><div class="sbar"><span class="l">강의 내용에 만족한다</span><span class="t"><i class="p5" style="width:37.5%"></i><i class="p4" style="width:33.2%"></i><i class="p3" style="width:23.0%"></i><i class="p2" style="width:4.6%"></i><i class="p1" style="width:1.7%"></i></span><span class="v">70.7%</span></div><div class="sbar"><span class="l">강사의 직업 전문성에 만족한다</span><span class="t"><i class="p5" style="width:35.5%"></i><i class="p4" style="width:37.0%"></i><i class="p3" style="width:24.5%"></i><i class="p2" style="width:2.1%"></i><i class="p1" style="width:1.0%"></i></span><span class="v">72.4%</span></div><div class="sbar hl"><span class="l">흥미를 가지고 참여했다</span><span class="t"><i class="p5" style="width:33.4%"></i><i class="p4" style="width:28.4%"></i><i class="p3" style="width:30.1%"></i><i class="p2" style="width:6.6%"></i><i class="p1" style="width:1.5%"></i></span><span class="v">61.8%</span></div><div class="sbar"><span class="l">프로그램이 계속되기를 바란다</span><span class="t"><i class="p5" style="width:39.3%"></i><i class="p4" style="width:31.8%"></i><i class="p3" style="width:21.0%"></i><i class="p2" style="width:5.6%"></i><i class="p1" style="width:2.3%"></i></span><span class="v">71.1%</span></div><p class="note">문항별 빈도 합계를 분모로 한 참고치. 붉은 글씨는 진로 의미와 참여를 묻는 문항.</p>
+  <div class="bx2">
+    <section class="bx"><h3>개선되었으면 하는 점</h3><ul>
+      <li><b>“시간이 좀 더 많았으면 좋겠고 직접 체험을 했으면 좋겠다.”</b></li>
+      <li><b>“실습을 더 많이 하고 이론 강의를 줄였으면 좋겠다.”</b></li>
+      <li><b>“영상만 보거나 강의만 들어서 흥미가 떨어지고 지루했다.”</b></li>
+      <li><b>“체험 직업이 좀 더 다양했으면 좋겠다.”</b></li></ul></section>
+    <section class="bx"><h3>운영 전반에 대한 말</h3><ul>
+      <li><b>“진로에 대해 도움이 된 것 같다.”</b></li><li><b>“내 진로를 찾아갈 수 있는 계기가 되었다.”</b></li>
+      <li><b>“체험 활동이었으면 더 좋겠다.”</b></li><li><b>“체험을 하면 더 좋을 것 같고 시간이 너무 짧다.”</b></li></ul></section>
+  </div>
+  <div class="tool t-g">
+    <h4>설명 · 직접 해 보기 · 학생 질문 — 2차시 90분 나누어 보기</h4>
+    <p class="note" style="margin-top:0">멘토링 전에 강사와 미리 협의할 시간 배분입니다(부록 2). 막대를 움직여 보세요.</p>
+    <label><span>설명 <output id="tv1">40</output>분</span><input type="range" id="ta1" min="0" max="90" step="5" value="40"></label>
+    <label><span>직접 해 보기 <output id="tv2">35</output>분</span><input type="range" id="ta2" min="0" max="90" step="5" value="35"></label>
+    <p style="margin:.2rem 0 0;font-size:.9rem">학생 질문 <b><span id="tv3">15</span>분</b></p>
+    <div class="tbar" id="tbar"><span class="s1"></span><span class="s2"></span><span class="s3"></span></div>
+    <p id="tmsg" style="margin:0;font-size:.9rem"></p>
+  </div>
+
+  <h2 class="bh"><small>다. 또래와 잇는 다리</small>나누면 이어진다</h2>
+  <p class="lede">체험 뒤 소감 나눔, 캠프의 발표·토론, 멘토링 다음 날의 소감문은 모두 경험을 또래와 잇는 장치로 계획되었다. 3학년 캠프에서는 모둠이 교실 앞에 나와 결과를 발표하는 장면이 사진으로 남았다. 다만 학급 간 공유회나 누적된 공유 기록은 확인되지 않아, 학급 게시판의 ‘다리 카드’처럼 적은 시간으로 나눔을 쌓는 방식을 다음 운영에 담았다.</p>
+  <h3 class="bh" style="font-size:1.1rem;margin-top:2rem">부록 2 · 직업인에게 묻는 질문 카드</h3>
+  <section class="sheet t-g"><div class="bar"><button class="pbtn" type="button" data-clear>지우기</button><button class="pbtn" type="button" data-print>이 양식 인쇄</button></div><h3>직업인에게 묻는 질문 카드</h3><p class="use">멘토링 1주 전 강사에게 전달</p><table><tr><th>구분</th><th>질문의 관점</th><th>내가 묻고 싶은 질문</th></tr><tr><th rowspan="4">만나기 전</th><td>이 분야를 고른 이유와 나의 경험</td><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>실제 하는 일 · 하루 일과</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>준비 과정과 필요한 배움</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>함께 일하는 사람과 협력</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th rowspan="3">만난 뒤</th><td>가장 기억에 남은 답</td><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>답을 듣고 달라진 생각</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>다음 걸음(자료 · 만날 사람)</th><td><textarea aria-label="기록 칸"></textarea></td></tr></table><table><tr><th>시간 배분(2차시 90분 기준)</th><th>설명</th><th>직접 해 보기</th><th>학생 질문</th></tr><tr><th>협의한 시간</th><td>분</td><td>분</td><td>분</td></tr><tr><th>실제 운영 시간(관찰 기록)</th><td>분</td><td>분</td><td>분</td></tr></table></section>
+  <nav class="pn"><a href="#j"><span>이전</span><b>작 나의 진로를 짓다</b></a><a href="#n"><span>다음</span><b>다음 다리</b></a></nav>
+</div>
+</section>
+
+<!-- ===================== 다음 ===================== -->
+<section class="view t-n" id="v-n" data-title="다음 다리">
+<div class="wrap room">
+  <header class="rh3"><div class="sq" aria-hidden="true"><small>다음 다리</small><b style="font-size:1.8rem">다음</b><i>다리</i></div><div class="panel">
+    <h1>평가·환류로 다시 오늘을 짓다 — 한 번으로 끝나지 않는 오작교</h1>
+    <p class="q">핵심 질문 : “무엇을 이어 가고, 무엇을 바꿀까?”</p>
+  </div></header>
+
+  <h2 class="bh"><small>가. 세 설문을 한 장에 놓고 보다</small>강사 평가는 언제나 진로 도움보다 높았다</h2>
+  <p class="lede">좋은 강사와 즐거운 활동이 곧바로 나의 진로가 되지는 않는다. 이 틈이 오작교가 다리를 놓아야 할 자리이다. 문항과 대상이 달라 프로그램 사이의 크기를 견줄 수는 없지만, 각 프로그램 안에서 두 점 사이의 거리가 그 틈이다.</p>
+  <div class="db"><div class="dbr"><span class="l">7월 진로캠프 2학년<br><small style="font-weight:400;color:#bc4035">틈 4.1%p</small><small class="mv">강사 친절·유익 99.2% · 향후 진로 선택 도움 95.1%</small></span><div class="dbt" role="img" aria-label="7월 진로캠프 2학년: 강사 친절·유익 99.2%, 향후 진로 선택 도움 95.1%"><span class="ax"></span><span class="seg" style="left:70.6%;width:5.3%"></span><span class="dot c" style="left:70.6%"></span><span class="dot k" style="left:75.9%"></span><span class="lb k" style="left:75.9%">강사 친절·유익 99.2%</span><span class="lb c" style="left:70.6%">향후 진로 선택 도움 95.1%</span></div></div><div class="dbr"><span class="l">7월 진로캠프 3학년<br><small style="font-weight:400;color:#bc4035">틈 4.3%p</small><small class="mv">강사 친절·유익 97.3% · 향후 진로 선택 도움 93%</small></span><div class="dbt" role="img" aria-label="7월 진로캠프 3학년: 강사 친절·유익 97.3%, 향후 진로 선택 도움 93.0%"><span class="ax"></span><span class="seg" style="left:67.9%;width:5.5%"></span><span class="dot c" style="left:67.9%"></span><span class="dot k" style="left:73.5%"></span><span class="lb k" style="left:73.5%">강사 친절·유익 97.3%</span><span class="lb c" style="left:67.9%">향후 진로 선택 도움 93%</span></div></div><div class="dbr"><span class="l">1학년 지역 체험<br><small style="font-weight:400;color:#bc4035">틈 14.0%p</small><small class="mv">강사의 친절·설명 약 74% · 진로탐색 도움 약 60%</small></span><div class="dbt" role="img" aria-label="1학년 지역 체험: 강사의 친절·설명 74.0%, 진로탐색 도움 60.0%"><span class="ax"></span><span class="seg" style="left:25.6%;width:17.9%"></span><span class="dot c" style="left:25.6%"></span><span class="dot k" style="left:43.6%"></span><span class="lb k" style="left:43.6%">강사의 친절·설명 약 74%</span><span class="lb c" style="left:25.6%">진로탐색 도움 약 60%</span></div></div><div class="dbr"><span class="l">직업인 멘토링<br><small style="font-weight:400;color:#bc4035">틈 18.4%p</small><small class="mv">강사의 친절한 안내 79% · 진로설계 도움 60.6%</small></span><div class="dbt" role="img" aria-label="직업인 멘토링: 강사의 친절한 안내 79.0%, 진로설계 도움 60.6%"><span class="ax"></span><span class="seg" style="left:26.4%;width:23.6%"></span><span class="dot c" style="left:26.4%"></span><span class="dot k" style="left:50.0%"></span><span class="lb k" style="left:50.0%">강사의 친절한 안내 79%</span><span class="lb c" style="left:26.4%">진로설계 도움 60.6%</span></div></div><div class="dbr" style="border:0;padding-top:.2rem"><span></span><div style="position:relative;height:1rem;font-size:.72rem;color:var(--muted)"><span style="position:absolute;left:12.8%;transform:translateX(-50%)">50%</span><span style="position:absolute;left:44.9%;transform:translateX(-50%)">75%</span><span style="position:absolute;left:76.9%;transform:translateX(-50%)">100%</span></div></div><div class="legend"><span><i style="background:#14304f;border-radius:50%"></i>강사 관련 평가</span><span><i style="background:#bc4035;border-radius:50%"></i>진로 도움 인식</span></div></div>
+
+  <h2 class="bh"><small>나. 현장에서 드러난 문제와 해결</small>세 가지 사례</h2>
+  <div class="bx3"><section class="bx"><h3>사례 1. 강의형으로 흐른 멘토링</h3><div class="bxb"><ol class="chain"><li><b>문제 현상</b>앉아서 설명을 듣는 장면이 많고, 흥미 참여·진로설계 도움이 60%대</li><li><b>원인</b>설명·실습·질문 시간을 강사와 미리 나누지 않았다</li><li><b>개선 방안</b>사전 질문 전달, 시간 배분 기준 협의, 실제 시간 기록</li></ol></div></section><section class="bx"><h3>사례 2. 즐거웠지만 남지 않은 체험</h3><div class="bxb"><ol class="chain"><li><b>문제 현상</b>다양성·참여 약 78%에 비해 진로를 생각할 기회는 약 57%</li><li><b>원인</b>체험 전 질문과 체험 후 선택 이유를 적는 기록이 없었다</li><li><b>개선 방안</b>활동 전 질문 카드, 체험 후 ‘더 몰입한 쪽과 이유’ 기록</li></ol></div></section><section class="bx"><h3>사례 3. 흩어진 기록</h3><div class="bxb"><ol class="chain"><li><b>문제 현상</b>검사·체험·캠프·멘토링 기록이 행사마다 따로 남았다</li><li><b>원인</b>한 학생의 기록을 잇는 공통 양식이 없었다</li><li><b>개선 방안</b>공통 활동 기록지(부록 1)와 익명 코드로 누적</li></ol></div></section></div>
+  <p class="prose">자료를 정리하는 과정에서도 과제가 드러났다. 멘토링 설문은 표기 인원과 문항별 빈도 합계가 달랐고, 캠프 3학년의 두 문항은 빈도 분포가 완전히 같아 원자료 확인이 필요했다. 다음 운영에서는 문항별 분모를 밝힌 통계표와 원자료 대조를 기본 절차로 삼는다.</p>
+
+  <h2 class="bh"><small>다. 다음 오작교에서 던질 세 질문</small>세 가지 실천 원리</h2>
+  <div class="bx3"><section class="bx t-o"><h3>하나의 행동을 정한다 (오늘)</h3><ul><li><b>이번 주에 확인할 한 가지는 무엇인가?</b></li><li><b>언제, 어떻게 확인할 것인가?</b></li><li><p style="margin-left:0">교사가 확인할 흔적 — 행동·기한·확인 방법과 2~4주 뒤 실행 여부</p></li></ul></section><section class="bx t-j"><h3>선택의 이유를 남긴다 (作)</h3><ul><li><b>왜 이 직업이나 학과를 골랐는가?</b></li><li><b>어떤 경험이 그렇게 생각하게 했는가?</b></li><li><p style="margin-left:0">교사가 확인할 흔적 — 활동지의 선택 이유와 이전 활동과의 연결</p></li></ul></section><section class="bx t-g"><h3>만남을 질문으로 잇는다 (橋)</h3><ul><li><b>이 일을 하는 사람에게 무엇을 묻고 싶은가?</b></li><li><b>답을 듣고 무엇이 달라졌는가?</b></li><li><p style="margin-left:0">교사가 확인할 흔적 — 사전 질문과 답변 메모</p></li></ul></section></div>
+
+  <h2 class="bh"><small>라. 다음 오늘을 위한 운영(안)</small>학기 초부터 학기 말까지</h2>
+  <ul class="ev"><li><time>학기 초 검사 후</time><p><b>검사 결과에서 생긴 질문 1개를 공통 기록지에 옮겨 적기</b></p><span class="st">활동별 기록의 분리</span></li><li><time>체험 전·후</time><p><b>알아보고 싶은 점과 체험 후 선택 이유 작성</b></p><span class="st">체험과 진로 의미의 연결</span></li><li><time>캠프 직후</time><p><b>관심 직무·학과를 멘토에게 할 질문으로 정리</b></p><span class="st">멘토링의 직접 참여</span></li><li><time>멘토링 전·중</time><p><b>사전 질문 전달, 설명·실습·질문 시간 협의와 실제 시간 기록</b></p><span class="st">멘토링의 직접 참여</span></li><li><time>2~4주 뒤</time><p><b>행동 실행 여부 점검, 상담 연결, 관계 경험 관찰</b></p><span class="st">관계역량 근거 부족</span></li><li><time>학기 말</time><p><b>전후 자기평가 비교, 문항별 분모를 밝힌 통계표 작성</b></p><span class="st">집계 오류와 표시 혼용</span></li></ul>
+  <div class="tool t-n">
+    <h4>2~4주 뒤, 언제 확인할까?</h4>
+    <p class="note" style="margin-top:0">활동한 날을 고르면 ‘오늘의 한 걸음’을 점검할 기간이 계산됩니다(부록 4).</p>
+    <label><span>활동한 날</span><input type="date" id="dcalc"></label>
+    <div class="win"><div><b>오늘의 한 걸음 실행</b><span id="dw1"></span></div><div><b>2~4주 뒤 점검 기간</b><span id="dw2"></span></div><div><b>지금은</b><span id="dw3"></span></div></div>
+  </div>
+  <nav class="pn"><a href="#g"><span>이전</span><b>교 사람과 세상에 다리를 놓다</b></a><a href="#data"><span>다음</span><b>실천 결과와 검증</b></a></nav>
+</div>
+</section>
+
+<!-- ===================== DATA ===================== -->
+<section class="view t-nv" id="v-data" data-title="실천 결과와 검증">
+<div class="wrap room">
+  <header class="rh3"><div class="sq"><small>결과</small><b>Ⅳ</b><i>검증</i></div><div class="panel">
+    <h1>실천 결과와 검증</h1>
+    <p class="q">캠프(2학년 247명·3학년 258명), 1학년 자유학기제(245명), 직업인 멘토링(509~520명) 설문과 수록 소감을 분석하였다.</p>
+  </div></header>
+
+  <h2 class="bh"><small>1. 학년별 진로캠프</small>문항별 응답 분포</h2>
+  <p class="lede">2학년은 여섯 문항 모두에서 부정 응답이 없었다. 3학년의 재참여 희망은 89.1%로 다른 문항보다 유보적 응답이 많아, 학과·과목 탐색을 더 개별화할 필요가 있다.</p>
+  <div data-tabs class="t-j">
+    <div class="seg" role="tablist"><button data-tab="k2">2학년 (247명)</button><button data-tab="k3">3학년 (258명)</button></div>
+    <div data-panel="k2"><div class="legend"><span><i style="background:var(--cx)"></i>매우 그렇다(5)</span><span><i style="background:var(--c)"></i>그렇다(4)</span><span><i style="background:#d7dee6"></i>보통(3)</span><span><i style="background:#e9b8b0"></i>그렇지 않다(2)</span><span><i style="background:#bc4035"></i>전혀(1)</span></div><div class="sbar"><span class="l">특기 · 적성 개발 도움</span><span class="t"><i class="p5" style="width:73.7%"></i><i class="p4" style="width:23.5%"></i><i class="p3" style="width:2.8%"></i><i class="p2" style="width:0.0%"></i><i class="p1" style="width:0.0%"></i></span><span class="v">97.2%</span></div><div class="sbar hl"><span class="l">향후 진로 선택 도움</span><span class="t"><i class="p5" style="width:73.7%"></i><i class="p4" style="width:21.5%"></i><i class="p3" style="width:4.9%"></i><i class="p2" style="width:0.0%"></i><i class="p1" style="width:0.0%"></i></span><span class="v">95.1%</span></div><div class="sbar"><span class="l">운영의 흥미</span><span class="t"><i class="p5" style="width:81.8%"></i><i class="p4" style="width:16.6%"></i><i class="p3" style="width:1.6%"></i><i class="p2" style="width:0.0%"></i><i class="p1" style="width:0.0%"></i></span><span class="v">98.4%</span></div><div class="sbar"><span class="l">강사 친절 · 유익</span><span class="t"><i class="p5" style="width:88.7%"></i><i class="p4" style="width:10.5%"></i><i class="p3" style="width:0.8%"></i><i class="p2" style="width:0.0%"></i><i class="p1" style="width:0.0%"></i></span><span class="v">99.2%</span></div><div class="sbar"><span class="l">전반적 만족</span><span class="t"><i class="p5" style="width:77.7%"></i><i class="p4" style="width:20.2%"></i><i class="p3" style="width:2.0%"></i><i class="p2" style="width:0.0%"></i><i class="p1" style="width:0.0%"></i></span><span class="v">98.0%</span></div><div class="sbar"><span class="l">재참여 희망</span><span class="t"><i class="p5" style="width:75.7%"></i><i class="p4" style="width:20.2%"></i><i class="p3" style="width:4.0%"></i><i class="p2" style="width:0.0%"></i><i class="p1" style="width:0.0%"></i></span><span class="v">96.0%</span></div></div><div data-panel="k3"><div class="legend"><span><i style="background:var(--cx)"></i>매우 그렇다(5)</span><span><i style="background:var(--c)"></i>그렇다(4)</span><span><i style="background:#d7dee6"></i>보통(3)</span><span><i style="background:#e9b8b0"></i>그렇지 않다(2)</span><span><i style="background:#bc4035"></i>전혀(1)</span></div><div class="sbar"><span class="l">특기 · 적성 개발 도움</span><span class="t"><i class="p5" style="width:72.9%"></i><i class="p4" style="width:20.2%"></i><i class="p3" style="width:6.6%"></i><i class="p2" style="width:0.4%"></i><i class="p1" style="width:0.0%"></i></span><span class="v">93.0%</span></div><div class="sbar hl"><span class="l">향후 진로 선택 도움</span><span class="t"><i class="p5" style="width:72.9%"></i><i class="p4" style="width:20.2%"></i><i class="p3" style="width:6.6%"></i><i class="p2" style="width:0.4%"></i><i class="p1" style="width:0.0%"></i></span><span class="v">93.0%</span></div><div class="sbar"><span class="l">운영의 흥미</span><span class="t"><i class="p5" style="width:74.0%"></i><i class="p4" style="width:17.4%"></i><i class="p3" style="width:8.5%"></i><i class="p2" style="width:0.0%"></i><i class="p1" style="width:0.0%"></i></span><span class="v">91.5%</span></div><div class="sbar"><span class="l">강사 친절 · 유익</span><span class="t"><i class="p5" style="width:83.7%"></i><i class="p4" style="width:13.6%"></i><i class="p3" style="width:2.7%"></i><i class="p2" style="width:0.0%"></i><i class="p1" style="width:0.0%"></i></span><span class="v">97.3%</span></div><div class="sbar"><span class="l">전반적 만족</span><span class="t"><i class="p5" style="width:74.8%"></i><i class="p4" style="width:20.5%"></i><i class="p3" style="width:4.7%"></i><i class="p2" style="width:0.0%"></i><i class="p1" style="width:0.0%"></i></span><span class="v">95.3%</span></div><div class="sbar"><span class="l">재참여 희망</span><span class="t"><i class="p5" style="width:74.4%"></i><i class="p4" style="width:14.7%"></i><i class="p3" style="width:10.9%"></i><i class="p2" style="width:0.0%"></i><i class="p1" style="width:0.0%"></i></span><span class="v">89.1%</span></div></div>
+  </div>
+  <p class="note">3학년의 특기·적성 개발 도움과 향후 진로 선택 도움은 다섯 범주의 빈도(188/52/17/1/0)가 완전히 같아 원자료 확인이 필요하며, 두 문항 사이의 차이는 해석하지 않았다.</p>
+
+  <h2 class="bh"><small>2. 1학년 자유학기제와 지역 체험</small>운영·만족은 높고, 진로 의미는 낮았다</h2>
+  <p class="lede">재적 267명 중 245명(91.8%)이 응답하였다. 붉은 글씨는 진로 의미를 묻는 문항이다.</p>
+  <div class="t-o"><div class="legend"><span><i style="background:var(--cx)"></i>매우 그렇다(5)</span><span><i style="background:var(--c)"></i>그렇다(4)</span><span><i style="background:#d7dee6"></i>보통(3)</span><span><i style="background:#e9b8b0"></i>그렇지 않다(2)</span><span><i style="background:#bc4035"></i>전혀(1)</span></div><p class="note">원문이 정수 백분율만 제시하여 긍정(4+5)·부정(1+2)은 근삿값이다.</p></div>
+
+  <h2 class="bh"><small>3. 직업인 멘토링</small>강사 평가와 진로 도움 인식</h2>
+  <p class="lede">표기 인원 519명과 일부 문항의 빈도 합계(509~520명)가 달라, 문항별 합계를 분모로 한 참고치로 보았다.</p>
+  <div class="t-g"><div class="legend"><span><i style="background:var(--cx)"></i>매우 그렇다(5)</span><span><i style="background:var(--c)"></i>그렇다(4)</span><span><i style="background:#d7dee6"></i>보통(3)</span><span><i style="background:#e9b8b0"></i>그렇지 않다(2)</span><span><i style="background:#bc4035"></i>전혀(1)</span></div><div class="sbar hl"><span class="l">진로설계에 도움이 된다</span><span class="t"><i class="p5" style="width:28.8%"></i><i class="p4" style="width:31.7%"></i><i class="p3" style="width:30.2%"></i><i class="p2" style="width:6.9%"></i><i class="p1" style="width:2.3%"></i></span><span class="v">60.6%</span></div><div class="sbar"><span class="l">강사가 친절하게 안내했다</span><span class="t"><i class="p5" style="width:39.3%"></i><i class="p4" style="width:39.7%"></i><i class="p3" style="width:18.7%"></i><i class="p2" style="width:1.3%"></i><i class="p1" style="width:1.0%"></i></span><span class="v">79.0%</span></div><div class="sbar"><span class="l">PPT 등 다양한 매체를 활용했다</span><span class="t"><i class="p5" style="width:38.9%"></i><i class="p4" style="width:38.5%"></i><i class="p3" style="width:20.0%"></i><i class="p2" style="width:2.0%"></i><i class="p1" style="width:0.6%"></i></span><span class="v">77.4%</span></div><div class="sbar"><span class="l">강의 내용에 만족한다</span><span class="t"><i class="p5" style="width:37.5%"></i><i class="p4" style="width:33.2%"></i><i class="p3" style="width:23.0%"></i><i class="p2" style="width:4.6%"></i><i class="p1" style="width:1.7%"></i></span><span class="v">70.7%</span></div><div class="sbar"><span class="l">강사의 직업 전문성에 만족한다</span><span class="t"><i class="p5" style="width:35.5%"></i><i class="p4" style="width:37.0%"></i><i class="p3" style="width:24.5%"></i><i class="p2" style="width:2.1%"></i><i class="p1" style="width:1.0%"></i></span><span class="v">72.4%</span></div><div class="sbar hl"><span class="l">흥미를 가지고 참여했다</span><span class="t"><i class="p5" style="width:33.4%"></i><i class="p4" style="width:28.4%"></i><i class="p3" style="width:30.1%"></i><i class="p2" style="width:6.6%"></i><i class="p1" style="width:1.5%"></i></span><span class="v">61.8%</span></div><div class="sbar"><span class="l">프로그램이 계속되기를 바란다</span><span class="t"><i class="p5" style="width:39.3%"></i><i class="p4" style="width:31.8%"></i><i class="p3" style="width:21.0%"></i><i class="p2" style="width:5.6%"></i><i class="p1" style="width:2.3%"></i></span><span class="v">71.1%</span></div><p class="note">문항별 빈도 합계를 분모로 한 참고치. 붉은 글씨는 진로 의미와 참여를 묻는 문항.</p></div>
+
+  <h2 class="bh"><small>4. 세 프로그램의 공통 양상</small>강사 관련 평가 vs 진로 도움</h2>
+  <div class="db"><div class="dbr"><span class="l">7월 진로캠프 2학년<br><small style="font-weight:400;color:#bc4035">틈 4.1%p</small><small class="mv">강사 친절·유익 99.2% · 향후 진로 선택 도움 95.1%</small></span><div class="dbt" role="img" aria-label="7월 진로캠프 2학년: 강사 친절·유익 99.2%, 향후 진로 선택 도움 95.1%"><span class="ax"></span><span class="seg" style="left:70.6%;width:5.3%"></span><span class="dot c" style="left:70.6%"></span><span class="dot k" style="left:75.9%"></span><span class="lb k" style="left:75.9%">강사 친절·유익 99.2%</span><span class="lb c" style="left:70.6%">향후 진로 선택 도움 95.1%</span></div></div><div class="dbr"><span class="l">7월 진로캠프 3학년<br><small style="font-weight:400;color:#bc4035">틈 4.3%p</small><small class="mv">강사 친절·유익 97.3% · 향후 진로 선택 도움 93%</small></span><div class="dbt" role="img" aria-label="7월 진로캠프 3학년: 강사 친절·유익 97.3%, 향후 진로 선택 도움 93.0%"><span class="ax"></span><span class="seg" style="left:67.9%;width:5.5%"></span><span class="dot c" style="left:67.9%"></span><span class="dot k" style="left:73.5%"></span><span class="lb k" style="left:73.5%">강사 친절·유익 97.3%</span><span class="lb c" style="left:67.9%">향후 진로 선택 도움 93%</span></div></div><div class="dbr"><span class="l">1학년 지역 체험<br><small style="font-weight:400;color:#bc4035">틈 14.0%p</small><small class="mv">강사의 친절·설명 약 74% · 진로탐색 도움 약 60%</small></span><div class="dbt" role="img" aria-label="1학년 지역 체험: 강사의 친절·설명 74.0%, 진로탐색 도움 60.0%"><span class="ax"></span><span class="seg" style="left:25.6%;width:17.9%"></span><span class="dot c" style="left:25.6%"></span><span class="dot k" style="left:43.6%"></span><span class="lb k" style="left:43.6%">강사의 친절·설명 약 74%</span><span class="lb c" style="left:25.6%">진로탐색 도움 약 60%</span></div></div><div class="dbr"><span class="l">직업인 멘토링<br><small style="font-weight:400;color:#bc4035">틈 18.4%p</small><small class="mv">강사의 친절한 안내 79% · 진로설계 도움 60.6%</small></span><div class="dbt" role="img" aria-label="직업인 멘토링: 강사의 친절한 안내 79.0%, 진로설계 도움 60.6%"><span class="ax"></span><span class="seg" style="left:26.4%;width:23.6%"></span><span class="dot c" style="left:26.4%"></span><span class="dot k" style="left:50.0%"></span><span class="lb k" style="left:50.0%">강사의 친절한 안내 79%</span><span class="lb c" style="left:26.4%">진로설계 도움 60.6%</span></div></div><div class="dbr" style="border:0;padding-top:.2rem"><span></span><div style="position:relative;height:1rem;font-size:.72rem;color:var(--muted)"><span style="position:absolute;left:12.8%;transform:translateX(-50%)">50%</span><span style="position:absolute;left:44.9%;transform:translateX(-50%)">75%</span><span style="position:absolute;left:76.9%;transform:translateX(-50%)">100%</span></div></div><div class="legend"><span><i style="background:#14304f;border-radius:50%"></i>강사 관련 평가</span><span><i style="background:#bc4035;border-radius:50%"></i>진로 도움 인식</span></div></div>
+
+  <h2 class="bh"><small>5. 학생 소감에 나타난 변화</small>다섯 범주</h2>
+  <div data-tabs class="pane t-j">
+    <div class="seg" role="tablist"><button data-tab="v1">자기이해의 언어화</button><button data-tab="v2">진로탐색 범위 확대</button><button data-tab="v3">설계의 구체화</button><button data-tab="v4">탐색 동기의 형성</button><button data-tab="v5">정서적 반응</button></div>
+    <div data-panel="v1" class="rupa-p"><div class="ex"><b>수록 진술의 예</b><blockquote>“수업 덕에 내 강점이 무엇인지 다시 확인할 수 있었다.”</blockquote></div><div><h3>흥미·강점을 설명하는 단서를 얻음</h3></div></div><div data-panel="v2" class="rupa-p"><div class="ex"><b>수록 진술의 예</b><blockquote>“세상에는 다양한 직업이 있다는 걸 알게 되었고”</blockquote></div><div><h3>알던 직업 밖으로 관심이 넓어짐</h3></div></div><div data-panel="v3" class="rupa-p"><div class="ex"><b>수록 진술의 예</b><blockquote>“고교학점제 선택 과목도 직접 설계해 보면서”</blockquote></div><div><h3>진로 관심을 학업 선택과 연결</h3></div></div><div data-panel="v4" class="rupa-p"><div class="ex"><b>수록 진술의 예</b><blockquote>“오늘부로 관심이 생긴 직업에 대해 더 진지하게 생각해볼 것 같다.”</blockquote></div><div><h3>추가 탐색의 의지를 표현</h3></div></div><div data-panel="v5" class="rupa-p"><div class="ex"><b>수록 진술의 예</b><blockquote>“진로로 인해 고민하면서 가지고 있던 부담이 한층 덜어진 것 같다.”</blockquote></div><div><h3>일부 학생의 탐색 부담 완화</h3></div></div>
+  </div>
+  <details class="fold"><summary>보고서에 실린 원본 그래프 보기</summary><div><div class="strip"><figure><a class="zoom" href="img/i39.jpg"><img src="img/i39.jpg" width="1600" height="1168" loading="lazy" decoding="async" alt="7월 진로캠프 문항별 긍정응답률"></a><figcaption>7월 진로캠프 문항별 긍정응답률</figcaption></figure><figure><a class="zoom" href="img/i40.jpg"><img src="img/i40.jpg" width="1600" height="1168" loading="lazy" decoding="async" alt="1학년 자유학기제·지역 체험 문항별 긍정 비율"></a><figcaption>1학년 자유학기제·지역 체험 문항별 긍정 비율</figcaption></figure><figure><a class="zoom" href="img/i41.jpg"><img src="img/i41.jpg" width="1600" height="1168" loading="lazy" decoding="async" alt="직업인 멘토링 문항별 참고 긍정률"></a><figcaption>직업인 멘토링 문항별 참고 긍정률</figcaption></figure><figure><a class="zoom" href="img/i42.jpg"><img src="img/i42.jpg" width="1600" height="1168" loading="lazy" decoding="async" alt="강사 관련 평가와 진로 도움 인식"></a><figcaption>강사 관련 평가와 진로 도움 인식</figcaption></figure></div></div></details>
+  <nav class="pn"><a href="#n"><span>이전</span><b>다음 다리</b></a><a href="#gen"><span>다음</span><b>결론 및 일반화</b></a></nav>
+</div>
+</section>
+
+<!-- ===================== GEN ===================== -->
+<section class="view t-nv" id="v-gen" data-title="결론 및 일반화">
+<div class="wrap room">
+  <header class="rh3"><div class="sq"><small>결론</small><b>Ⅴ</b><i>일반화</i></div><div class="panel">
+    <h1>결론, 일반화 그리고 제언</h1>
+    <p class="q">오작교는 미래의 직업을 지금 확정하라는 요구가 아니다. 학생이 오늘의 경험에서 출발하여 선택의 이유를 세워 스스로 진로를 짓고, 사람에게 묻고 도움을 받으며 다음 선택으로 건너가도록 돕는 과정이다.</p>
+  </div></header>
+  <h2 class="bh"><small>결론</small>세 글자와 다음 다리가 남긴 것</h2>
+  <div class="bx2"><section class="bx t-o"><h3>오(오늘)</h3><div class="bxb"><p style="margin:0">3월 검사에서 6월 교내 체험, 7월 지역 체험까지 1학년은 오늘 직접 해 보는 경험을 충분히 누렸다(다양성·참여 약 78%). 그러나 진로 의미 응답은 약 57~60%로, 해 본 일을 나의 근거로 바꾸는 기록이 필요함을 확인하였다.</p></div></section><section class="bx t-j"><h3>작(作)</h3><div class="bxb"><p style="margin:0">2학년은 직무 카드에서 새 직업을 창직하고, 3학년은 관심 학과에서 고교학점제 과목까지 설계하였다. 캠프의 전반적 만족(98.0%·95.3%)과 진로 선택 도움(95.1%·93.0%), 소감의 설계 진술은 학생이 스스로 짓는 활동을 의미 있게 받아들였음을 보여 준다.</p></div></section><section class="bx t-g"><h3>교(橋)</h3><div class="bxb"><p style="margin:0">희망한 두 분야의 직업인을 만나는 멘토링을 운영하였다. 학생들은 강사를 높이 평가하면서도(79.0%) 진로설계 도움은 60.6%로 답하고 실습 확대를 요청하였다. 만남은 묻고 해 보는 시간이 있을 때 다리가 된다.</p></div></section><section class="bx t-n"><h3>다음 다리</h3><div class="bxb"><p style="margin:0">세 프로그램 모두에서 강사 평가가 진로 도움 인식보다 높았다. 공통 활동 기록지, 활동 전 질문 카드, 설명·실습·질문 시간 기준은 이 틈을 잇는 다음 오작교의 설계이다.</p></div></section></div>
+  <p class="note">다만 사전·사후 대응자료와 관계역량 측정값이 없어 효과는 인과적으로 확정하지 않았으며, 결과는 운영의 실행과 학생의 사후 인식 수준에서 해석하였다.</p>
+
+  <h2 class="bh"><small>다른 학교가 그대로 쓸 수 있게 한 설계</small>오작교 기록지 한 장 — 어떤 활동이든 같은 다섯 칸</h2>
+  <p class="lede">오작교는 새 행사를 더하는 모형이 아니라, 학교가 이미 운영하는 검사·체험·캠프·멘토링 사이에 같은 질문과 기록을 놓는 모형이다. 그래서 일반화의 단위도 프로그램이 아니라 ‘절차’로 잡았다.</p>
+  <div class="tw"><table class="map4"><thead><tr><th>활동 전</th><th>활동 중</th><th>활동 후</th><th>오늘의 한 걸음</th><th>2~4주 뒤</th></tr></thead><tbody><tr><td>무엇을 알고 싶은가?</td><td>누구에게 무엇을 물었나?</td><td>왜 이것을 골랐나?</td><td>이번 주에 할 한 가지는?</td><td>해 보았나?<br>무엇이 달라졌나?</td></tr><tr><td>질문 카드</td><td>만남의 기록</td><td>선택의 이유(作)</td><td>오늘의 실천</td><td>담임 확인<br>상담 연결</td></tr></tbody></table></div>
+  <h3 class="bh" style="font-size:1.1rem;margin-top:2rem">학교 여건에 따라 고르는 세 가지 유형</h3>
+  <div data-tabs class="pane">
+    <div class="seg" role="tablist"><button data-tab="ty1">기본형</button><button data-tab="ty2">확대형</button><button data-tab="ty3">심화형</button></div>
+    <div data-panel="ty1"><h3>진로수업 + 교내 멘토링 + 공통 활동 기록지</h3><p style="margin:0"><b style="color:var(--chap)">필요한 여건</b> 진로 교사와 담임교사의 협력</p></div><div data-panel="ty2"><h3>기본형 + 지역 공방·체험센터 + 교과 연계</h3><p style="margin:0"><b style="color:var(--chap)">필요한 여건</b> 지역 체험처, 이동 지원, 교과 협의</p></div><div data-panel="ty3"><h3>확대형 + 또래·졸업생 멘토링 + 2~4주 뒤 실천 점검</h3><p style="margin:0"><b style="color:var(--chap)">필요한 여건</b> 지속적인 인적 지원, 기록 관리 체계</p></div>
+  </div>
+
+  <h2 class="bh"><small>개선을 위한 네 가지 제언</small>누가, 무엇을 바꾸면 되는가</h2>
+  <div data-tabs class="pane">
+    <div class="seg" role="tablist"><button data-tab="s1">① 교실</button><button data-tab="s2">② 단위학교</button><button data-tab="s3">③ 교육청 · 지역 기관</button><button data-tab="s4">④ 후속 연구</button></div>
+    <div data-panel="s1"><p class="meta">① 교실 (담임·교과)</p><h3>체험·캠프·멘토링을 같은 세 질문(왜 골랐니? 누구에게 물을까? 오늘 무엇을 할까?)으로 마무리한다</h3><p style="margin:0"><b style="color:var(--chap)">왜 필요한가?</b> 활동이 달라도 같은 질문이 되풀이될 때 경험이 한 학생의 기록으로 이어진다</p></div><div data-panel="s2"><p class="meta">② 단위학교</p><h3>검사·체험·캠프·멘토링 기록을 공통 기록지와 익명 코드로 누적하고, 설문은 문항별 분모를 밝힌다</h3><p style="margin:0"><b style="color:var(--chap)">왜 필요한가?</b> 이번 연구에서 기록 분리, 인원 표기 불일치, 표시 혼용이 확인되었다</p></div><div data-panel="s3"><p class="meta">③ 교육청 · 지역 기관</p><h3>체험처와 직업인 강사 정보를 학교 간에 공유하고, 설명·실습·질문 시간 배분 기준을 함께 마련한다</h3><p style="margin:0"><b style="color:var(--chap)">왜 필요한가?</b> 학생은 강사를 높이 평가하면서도 실습 확대를 요청하였다</p></div><div data-panel="s4"><p class="meta">④ 후속 연구</p><h3>익명 코드로 연결한 사전·사후 동일 문항과 관계 경험 기록으로 오작교의 효과를 검증한다</h3><p style="margin:0"><b style="color:var(--chap)">왜 필요한가?</b> 이번 연구는 사후 인식과 소감 수준의 해석에 머물렀다</p></div>
+  </div>
+  <nav class="pn"><a href="#data"><span>이전</span><b>실천 결과와 검증</b></a><a href="#arch"><span>다음</span><b>현장 기록</b></a></nav>
+</div>
+</section>
+
+<!-- ===================== ARCH ===================== -->
+<section class="view" id="v-arch" data-title="현장 기록">
+<div class="wrap room">
+  <header class="rh" style="grid-template-columns:1fr"><div>
+    <p class="lab" style="color:var(--chap)">현장 기록</p><h1>교실, 동네, 만남의 장면들</h1>
+    <p class="lede" style="margin:0">보고서에 실린 활동 사진 55장입니다. 사진 속 얼굴은 모자이크 처리하였습니다. 갈래를 고르면 해당 장면만 보이고, 사진을 누르면 크게 볼 수 있습니다.</p></div></header>
+  <div data-tabs data-active="all" class="archwrap">
+    <div class="filt" role="tablist"><button data-tab="all">전체</button><button data-tab="o">오 · 검사와 체험</button><button data-tab="j">작 · 진로캠프</button><button data-tab="g">교 · 직업인 멘토링</button></div>
+    <div class="arch"><figure data-t="o"><a class="zoom" href="img/i02.jpg"><img src="img/i02.jpg" width="960" height="701" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i03.jpg"><img src="img/i03.jpg" width="388" height="283" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i04.jpg"><img src="img/i04.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i05.jpg"><img src="img/i05.jpg" width="1400" height="1022" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i06.jpg"><img src="img/i06.jpg" width="1020" height="744" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i07.jpg"><img src="img/i07.jpg" width="960" height="701" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i08.jpg"><img src="img/i08.jpg" width="766" height="559" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i09.jpg"><img src="img/i09.jpg" width="1020" height="744" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i10.jpg"><img src="img/i10.jpg" width="960" height="701" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i11.jpg"><img src="img/i11.jpg" width="960" height="701" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i12.jpg"><img src="img/i12.jpg" width="1000" height="730" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i13.jpg"><img src="img/i13.jpg" width="1000" height="730" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i14.jpg"><img src="img/i14.jpg" width="1600" height="1168" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i15.jpg"><img src="img/i15.jpg" width="1004" height="733" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i16.jpg"><img src="img/i16.jpg" width="738" height="539" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i17.jpg"><img src="img/i17.jpg" width="990" height="722" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i18.jpg"><img src="img/i18.jpg" width="382" height="279" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i19.jpg"><img src="img/i19.jpg" width="385" height="281" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i20.jpg"><img src="img/i20.jpg" width="343" height="250" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i21.jpg"><img src="img/i21.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i22.jpg"><img src="img/i22.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i23.jpg"><img src="img/i23.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i24.jpg"><img src="img/i24.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i25.jpg"><img src="img/i25.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i26.jpg"><img src="img/i26.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i27.jpg"><img src="img/i27.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i28.jpg"><img src="img/i28.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i29.jpg"><img src="img/i29.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i30.jpg"><img src="img/i30.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i31.jpg"><img src="img/i31.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i32.jpg"><img src="img/i32.jpg" width="477" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i33.jpg"><img src="img/i33.jpg" width="1484" height="1083" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i34.jpg"><img src="img/i34.jpg" width="1575" height="1149" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i35.jpg"><img src="img/i35.jpg" width="1575" height="1149" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i36.jpg"><img src="img/i36.jpg" width="1575" height="1149" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i37.jpg"><img src="img/i37.jpg" width="1575" height="1149" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i38.jpg"><img src="img/i38.jpg" width="1182" height="863" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i43.jpg"><img src="img/i43.jpg" width="1200" height="900" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i44.jpg"><img src="img/i44.jpg" width="960" height="720" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i45.jpg"><img src="img/i45.jpg" width="1020" height="765" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i46.jpg"><img src="img/i46.jpg" width="1000" height="750" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i47.jpg"><img src="img/i47.jpg" width="960" height="720" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i48.jpg"><img src="img/i48.jpg" width="1020" height="765" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="o"><a class="zoom" href="img/i49.jpg"><img src="img/i49.jpg" width="389" height="291" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i50.jpg"><img src="img/i50.jpg" width="464" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i51.jpg"><img src="img/i51.jpg" width="464" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i52.jpg"><img src="img/i52.jpg" width="464" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i53.jpg"><img src="img/i53.jpg" width="464" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="j"><a class="zoom" href="img/i54.jpg"><img src="img/i54.jpg" width="464" height="348" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i55.jpg"><img src="img/i55.jpg" width="1200" height="900" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i56.jpg"><img src="img/i56.jpg" width="1200" height="900" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i57.jpg"><img src="img/i57.jpg" width="1200" height="900" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i58.jpg"><img src="img/i58.jpg" width="1200" height="900" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i59.jpg"><img src="img/i59.jpg" width="1200" height="900" loading="lazy" decoding="async" alt=""></a></figure><figure data-t="g"><a class="zoom" href="img/i60.jpg"><img src="img/i60.jpg" width="1200" height="900" loading="lazy" decoding="async" alt=""></a></figure></div>
+  </div>
+  <nav class="pn"><a href="#gen"><span>이전</span><b>결론 및 일반화</b></a><a href="#kit"><span>다음</span><b>자료실</b></a></nav>
+</div>
+</section>
+
+<!-- ===================== KIT ===================== -->
+<section class="view" id="v-kit" data-title="자료실">
+<div class="wrap room">
+  <header class="rh" style="grid-template-columns:1fr"><div>
+    <p class="lab" style="color:var(--chap)">자료실</p><h1>바로 쓰는 오작교 양식</h1>
+    <p class="lede" style="margin:0">부록 1~4는 본 연구에서 개발한 2학기 이후 적용 양식입니다. 칸에 직접 적거나 빈 양식 그대로 인쇄할 수 있습니다. 인쇄 버튼을 누르면 그 양식 한 장만 인쇄됩니다.</p></div></header>
+  <section class="sheet t-n"><div class="bar"><button class="pbtn" type="button" data-clear>지우기</button><button class="pbtn" type="button" data-print>이 양식 인쇄</button></div><h3>부록 1 · 오작교 공통 활동 기록지</h3><p class="use">어떤 활동이든 같은 다섯 칸을 쓴다(활동 전 2분, 직후 5분, 2~4주 뒤 3분). 익명 코드로 누적해 한 학생의 기록으로 잇는다.</p><table><tr><th>학년 · 반</th><td><textarea aria-label="기록 칸"></textarea></td><th>익명 코드</th><td><textarea aria-label="기록 칸"></textarea></td><th>활동일</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>활동명</th><td colspan="3"><textarea aria-label="기록 칸"></textarea></td><td>함께한 사람</td><td><textarea aria-label="기록 칸"></textarea></td></tr></table><table><tr><th>단계</th><th>나에게 묻는 질문</th><th>나의 기록</th></tr><tr><th>① 활동 전<br>(질문 카드)</th><td>이번 활동에서 알고 싶은 것은?<br>검사 결과 · 지난 활동과 비교할<br>점은?</td><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>② 활동 중<br>(만남 기록)</th><td>직접 해 본 일은 무엇인가?<br>누구에게 묻고 어떤 답을 들었나?</td><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>③ 활동 후<br>(선택의 이유)</th><td>더 끌린 쪽은 무엇이며 왜 골랐나?<br>그 이유의 근거가 된 경험은?</td><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>④ 오늘의<br>한 걸음</th><td>이번 주에 할 한 가지는?<br>기한과 확인 방법은?</td><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>⑤ 2~4주 뒤<br>(담임 확인)</th><td>해 보았는가? 무엇이 달라졌나?<br>도움이 더 필요한가?</td><td><textarea aria-label="기록 칸"></textarea></td></tr></table><table><tr><th>스스로 점검</th><th>그렇다</th><th>조금</th><th>아직</th></tr><tr><th>오 해 본 일을 나의 흥미 · 강점과 연결해 말할 수 있다</th><td>□</td><td>□</td><td>□</td></tr><tr><th>作 선택한 이유를 경험을 근거로 적었다</th><td>□</td><td>□</td><td>□</td></tr><tr><th>橋 다음에 물어볼 사람과 질문을 정했다</th><td>□</td><td>□</td><td>□</td></tr></table></section><section class="sheet t-g"><div class="bar"><button class="pbtn" type="button" data-clear>지우기</button><button class="pbtn" type="button" data-print>이 양식 인쇄</button></div><h3>부록 2 · 활동 전 질문 카드와 직업인 질문 카드</h3><h4 style="margin:1rem 0 .3rem;font-size:.95rem;color:var(--cx)">A 활동 전 질문 카드 — 체험 · 캠프 · 검사 해석 전에</h4><table><tr><th>질문</th><th>나의 답</th></tr><tr><th>오늘 나는 무엇에 끌릴 것 같은가?<br>그렇게 생각하는 이유는?</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>이 활동에서 꼭 확인하고 싶은<br>한 가지는?</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>검사 결과(흥미 · 강점 · 학습 방식)와<br>비교해 볼 점은?</th><td><textarea aria-label="기록 칸"></textarea></td></tr></table><h4 style="margin:1rem 0 .3rem;font-size:.95rem;color:var(--cx)">B 직업인에게 묻는 질문 카드 — 멘토링 1주 전 강사에게 전달</h4><table><tr><th>구분</th><th>질문의 관점</th><th>내가 묻고 싶은 질문</th></tr><tr><th rowspan="4">만나기 전</th><td>이 분야를 고른 이유와 나의 경험</td><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>실제 하는 일 · 하루 일과</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>준비 과정과 필요한 배움</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>함께 일하는 사람과 협력</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th rowspan="3">만난 뒤</th><td>가장 기억에 남은 답</td><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>답을 듣고 달라진 생각</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>다음 걸음(자료 · 만날 사람)</th><td><textarea aria-label="기록 칸"></textarea></td></tr></table><table><tr><th>시간 배분(2차시 90분 기준)</th><th>설명</th><th>직접 해 보기</th><th>학생 질문</th></tr><tr><th>협의한 시간</th><td>분</td><td>분</td><td>분</td></tr><tr><th>실제 운영 시간(관찰 기록)</th><td>분</td><td>분</td><td>분</td></tr></table></section><section class="sheet t-j"><div class="bar"><button class="pbtn" type="button" data-clear>지우기</button><button class="pbtn" type="button" data-print>이 양식 인쇄</button></div><h3>부록 3 · 나의 진로를 짓는 설계서</h3><h4 style="margin:1rem 0 .3rem;font-size:.95rem;color:var(--cx)">A 2학년 — 직무 카드에서 새 직업 짓기(창직 설계)</h4><table><tr><th>설계 칸</th><th>나의 설계</th></tr><tr><th>내가 고른 직무 카드 3장</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>누가(액터) · 어디서(장소)<br>무엇을 필요로 하는가</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>새 직업의 이름과 하는 일</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>필요한 역량과 나의 강점</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>이 직업을 지은 이유<br>(나의 경험 근거)</th><td><textarea aria-label="기록 칸"></textarea></td></tr></table><h4 style="margin:1rem 0 .3rem;font-size:.95rem;color:var(--cx)">B 3학년 — 관심 학과에서 고등학교 과목까지(학업 설계)</h4><table><tr><th>설계 칸</th><th>나의 설계</th></tr><tr><th>관심 계열 · 학과(1~2개)</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>그 학과에서 배우는 것</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>고등학교에서 들을 과목<br>(공통 · 일반 · 진로 · 융합)</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>확인한 자료와 날짜<br>(학과 사전 · 고교 편제표 등)</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>이 학과를 고른 이유와<br>더 물어볼 사람</th><td><textarea aria-label="기록 칸"></textarea></td></tr></table><p class="note" style="margin:.4rem 0">※ 7월 캠프의 창직 활동지와 과목 설계 책자를 이어 쓰는 양식이다. ‘이유’ 칸에는 정답이 아니라</p><p class="note" style="margin:.4rem 0">경험의 근거를 쓰고, 2학기 진로 수업에서 다시 고쳐 쓴다.</p></section><section class="sheet t-n"><div class="bar"><button class="pbtn" type="button" data-clear>지우기</button><button class="pbtn" type="button" data-print>이 양식 인쇄</button></div><h3>부록 4 · 2~4주 뒤 실행 점검표</h3><h4 style="margin:1rem 0 .3rem;font-size:.95rem;color:var(--cx)">A 학생 기록 — 활동 2~4주 뒤 조회 · 진로 시간</h4><table><tr><th>점검 항목</th><th>나의 기록</th></tr><tr><th>내가 정했던 한 걸음<br>(무엇을 · 언제까지)</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>실행 정도</th><td>□ 해 보았다 □ 일부 했다 □ 아직 못 했다</td></tr><tr><th>실제로 한 일과 남은 흔적<br>(자료 · 메모 · 사진)</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>도와준 사람 / 어려웠던 점</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>다음 한 걸음<br>(유지 · 바꿀 행동과 기한)</th><td><textarea aria-label="기록 칸"></textarea></td></tr></table><h4 style="margin:1rem 0 .3rem;font-size:.95rem;color:var(--cx)">B 담임 · 진로 교사 확인과 상담 연결</h4><table><tr><th>확인 내용</th><th>기록</th></tr><tr><th>학생이 요청한 도움</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>연결할 사람 · 자료<br>(진로 교사 · 직업인 · 선배 등)</th><td><textarea aria-label="기록 칸"></textarea></td></tr><tr><th>상담 연결 필요 여부</th><td>□ 필요(진로진학상담 신청) □ 불필요</td></tr><tr><th>다음 확인일 / 확인자</th><td><textarea aria-label="기록 칸"></textarea></td></tr></table><h4 style="margin:1rem 0 .3rem;font-size:.95rem;color:var(--cx)">C 학급 단위 집계(학기별)</h4><table><tr><th>구분</th><th>기록지 제출</th><th>해 보았다</th><th>일부 했다</th><th>아직 못 했다</th><th>상담 연결</th></tr><tr><th>인원(명)</th><td><textarea aria-label="기록 칸"></textarea></td><td><textarea aria-label="기록 칸"></textarea></td><td><textarea aria-label="기록 칸"></textarea></td><td><textarea aria-label="기록 칸"></textarea></td><td><textarea aria-label="기록 칸"></textarea></td></tr></table><p class="note" style="margin:.4rem 0">※ ‘아직 못 했다’는 실패가 아니라 시간 · 정보 · 관계 중 어떤 도움이 필요한지 찾는 신호로 본다.</p><p class="note" style="margin:.4rem 0">집계는 익명 코드 기준으로 하며, 상담 내용은 공개 자료와 분리하여 관리한다.</p></section>
+  <h2 class="bh">운영 자료와 결과 원자료</h2>
+  <p class="lede">부록 5~11은 학교 운영계획·결과보고서를, 부록 12~16은 설문과 소감 원자료를 정리한 것이다. 학생 이름과 개인 상담 내용은 싣지 않았다.</p>
+  <details class="fold"><summary>부록 5 · 2026 오작교 운영 일정</summary><div><div class="tw"><table class="map4"><thead><tr><th>시기</th><th>활동</th><th>대상</th><th>오작교</th><th>근거 자료</th><th>상태</th></tr></thead><tbody><tr><td>3. 18.</td><td>학년별 표준화 심리검사</td><td>1~3학년</td><td>오</td><td>실시 계획 ·<br>수정 공문</td><td>실시</td></tr><tr><td>1학기</td><td>진로활동 수요조사</td><td>전교생</td><td>오</td><td>설문 문항</td><td>실시</td></tr><tr><td>3~7월</td><td>진로진학상담 118건</td><td>희망 학생</td><td>오</td><td>상담표</td><td>실시</td></tr><tr><td>4. 29.</td><td>○○ 문화역사 체험(6개 주제 코스)</td><td>1학년</td><td>교</td><td>수정 운영계획</td><td>계획</td></tr><tr><td>4. 30.</td><td>미디어 문화 체험(9개 교과 연계)</td><td>1학년</td><td>교</td><td>수정 운영계획</td><td>계획</td></tr><tr><td>5. 18.~26.</td><td>직업체험 사전 안내 · 안전교육</td><td>1학년</td><td>오</td><td>운영계획</td><td>계획</td></tr><tr><td>6. 4.</td><td>찾아오는 진로직업체험(10개 분야)</td><td>1학년</td><td>오</td><td>결과보고서 ·<br>사진</td><td>실시</td></tr><tr><td>6. 12.</td><td>지역 체험처 사전답사</td><td>교사</td><td>오</td><td>답사 결과보고서</td><td>실시</td></tr><tr><td>7. 1.~2.</td><td>찾아가는 진로탐색(공방 ·<br>체험센터)</td><td>1학년</td><td>오</td><td>정산<br>보고 · 사진</td><td>실시</td></tr><tr><td>7. 7.</td><td>학년별 진로캠프(4차시)</td><td>2·3학년</td><td>작</td><td>결과보고서 ·<br>설문</td><td>실시</td></tr><tr><td>7. 7.</td><td>교과 연계 북콘서트</td><td>1학년</td><td>교</td><td>운영계획</td><td>계획</td></tr><tr><td>7. 15.~16.</td><td>자유학기제 운영 만족도 조사</td><td>1학년</td><td>다음</td><td>결과 공문</td><td>실시</td></tr><tr><td>8. 26.</td><td>직업인 진로멘토링(10개 직업군)</td><td>2·3학년</td><td>교</td><td>결과보고서 ·<br>설문</td><td>실시</td></tr><tr><td>8. 28.</td><td>학교로 찾아가는 진로탐색 강연</td><td>1학년</td><td>교</td><td>신청서 · 사진</td><td>실시</td></tr><tr><td>10.13.~11.6.</td><td>2학기 독서진흥 프로그램</td><td>전교생</td><td>교</td><td>운영계획</td><td>예정</td></tr><tr><td>12.10.(희망)</td><td>내일(Job)을 만나는 교실</td><td>3학년</td><td>오</td><td>사전 수요조사</td><td>예정</td></tr></tbody></table></div><p class="note">※ 실시: 결과보고서 · 설문 · 사진 등 실행 자료가 확인된 활동 / 계획: 운영계획만 확인된 활동 /</p><p class="note">예정: 10월 1일 이후 일정. 오작교 칸은 그 활동이 주로 잇는 다리를 표시하였다.</p></div></details><details class="fold"><summary>부록 6 · 검사 · 수요조사 · 진로상담 운영</summary><div><h4 style="margin:1rem 0 .3rem">1 학년별 표준화 심리검사(3. 18.)</h4><div class="tw"><table class="map4"><thead><tr><th>검사</th><th>대상</th><th>시간</th><th>시행</th><th>오작교에서 이어 묻는 질문</th></tr></thead><tbody><tr><td>학습종합검사(WISE)</td><td>1학년</td><td>45분</td><td>2교시</td><td>어떤 방식으로 배울 때<br>몰입하는가?</td></tr><tr><td>성격강점검사(CST-A)</td><td>2학년</td><td>45분</td><td>1교시</td><td>나의 강점은 어떤 일에서<br>드러나는가?</td></tr><tr><td>종합진로적성검사<br>(CATA 적성 +<br>Holland)</td><td>3학년</td><td>90분</td><td>1~2교시</td><td>나의 흥미 유형은 어떤<br>학과로 이어지는가?</td></tr><tr><td>진로(직업)심리검사</td><td>희망 학생</td><td>20~40분</td><td>수시·방학</td><td>커리어넷 · 워크넷 결과로<br>상담 신청</td></tr></tbody></table></div><h4 style="margin:1rem 0 .3rem">2 진로활동 수요조사 문항 구성</h4><div class="tw"><table class="map4"><thead><tr><th>문항</th><th>선택지</th></tr></thead><tbody><tr><td>희망 진로활동</td><td>심리검사 · 상담 · 정보 제공 · 직업 체험 · 창업가정신 교육 / 체험<br>방식(직업인 강의 · 캠프 · 학과 탐방 등)</td></tr><tr><td>체험 희망 분야</td><td>행정 · 보건의료 · 문화예술 · 법률 · IT · 요리 · 기계건설 ·<br>교육 · 신산업(로봇, AI) 등 12개</td></tr><tr><td>상담 희망 분야</td><td>검사 결과 해석 · 진학 정보 · 직업 정보 · 학습 고민 · 학교생활<br>고민(바라는 활동은 서술형)</td></tr></tbody></table></div><h4 style="margin:1rem 0 .3rem">3 1학기 진로진학상담 운영 현황(3. 9.~7. 20.)</h4><div class="tw"><table class="map4"><thead><tr><th>구분</th><th>1학년</th><th>2학년</th><th>3학년</th><th>합계</th><th>영역(진학 / 진로 / 기타)</th></tr></thead><tbody><tr><td>상담 건수</td><td>111</td><td>2</td><td>5</td><td>118</td><td>6 / 111 / 1</td></tr><tr><td>월별</td><td colspan="5">3월 5건 · 4월 28건 · 5월 26건 · 6월 39건 · 7월 20건</td></tr></tbody></table></div><p class="note">※ 상담표 쪽별 합계(20 · 20 · 20 · 20 · 20 · 18건)의 합은 연번과 같은 118건이다.</p></div></details><details class="fold"><summary>부록 7 · 찾아오는 진로직업체험 10개 분야</summary><div><div class="tw"><table class="map4"><thead><tr><th>구분</th><th>운영 내용</th></tr></thead><tbody><tr><td>일시 · 대상</td><td>2026. 6. 4.(목) 1~4교시 · 1학년 전체(계획 270명) · 교실 9곳과 컴퓨터실</td></tr><tr><td>방법</td><td>1인 2종목, 종목당 2시간(1차시 직업 탐색 · 2차시 직업 체험과 진로평가서<br>작성)</td></tr><tr><td>안전 · 사후</td><td>사전 안내 · 안전교육(5. 18.~26.), 당일 조회 안전교육, 체험 소감<br>나누기(6. 8.~12., 계획)</td></tr></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>분야</th><th>체험 직업</th><th>1차시 — 알아보기</th><th>2차시 — 직접 해 보기</th></tr></thead><tbody><tr><td>메디컬</td><td>의사 · 약사 ·<br>수의사 · 간호사</td><td>히포크라테스 선서, 의료<br>직업의 영역</td><td>진료 체험 · 처방전 작성</td></tr><tr><td>공무원</td><td>경찰 · 과학수사대</td><td>경찰 · 과학수사 ·<br>119구조대 이해</td><td>범죄 상황극 · 지문 채취</td></tr><tr><td>뷰티</td><td>조향사</td><td>향의 종류와 조향사의 일</td><td>향수 만들기</td></tr><tr><td>요식</td><td>쇼콜라티에</td><td>도구 소개와 사용법</td><td>수제 몰드 초콜릿</td></tr><tr><td>감성디자인</td><td>토탈공예</td><td>공예 분야와 자격</td><td>비누 · 감성조명 만들기</td></tr><tr><td>항공</td><td>조종사 · 승무원</td><td>항공 직업과 관련 학과</td><td>T50 훈련기 조립 ·<br>승무원 체험</td></tr><tr><td>연예</td><td>마술사</td><td>마술 도구와 공연의 원리</td><td>마술 체험 · 발표</td></tr><tr><td>건축</td><td>건축 ·<br>실내디자이너</td><td>공간을 만드는 직업 탐색</td><td>미니어처 가구 · 실내<br>디자인</td></tr><tr><td>요식</td><td>제과제빵사</td><td>도구와 재료 알아보기</td><td>머핀 만들기</td></tr><tr><td>4차산업</td><td>메타버스</td><td>메타버스 기술과 콘텐츠</td><td>VR 콘텐츠 만들기</td></tr></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>체험 후 만족도 조사 · 소감문 양식(운영계획 첨부)</th><th>응답 방식</th></tr></thead><tbody><tr><td>① 직업체험 프로그램 만족도 ② 강사 만족도 ③ 진로에 도움이<br>되었는가</td><td>5단계(매우 만족~매우<br>불만)</td></tr><tr><td>가장 좋았던 점 / 체험으로 알게 된 점과 느낀 점</td><td>서술형</td></tr></tbody></table></div><p class="note">※ 운영계획(5718)과 결과보고서(6. 4.) 요약. 종목마다 탐색 영상 → 관련 학과 안내 → 체험 →</p><p class="note">진로평가서 순으로 진행하였다.</p></div></details><details class="fold"><summary>부록 8 · 찾아가는 진로탐색과 교과 연계</summary><div><div class="tw"><table class="map4"><thead><tr><th>구분</th><th>7. 1.(수)</th><th>7. 2.(목)</th><th>운영</th></tr></thead><tbody><tr><td>○○ 문화의<br>거리 공방</td><td>1~4반</td><td>5~9반</td><td>공방 2종 체험, 진로 2시간 + 교과 연계<br>1시간</td></tr><tr><td>미래진로직업<br>체험센터</td><td>5~9반</td><td>1~4반</td><td>드론 · 3D 프린팅 · VR 등, 진로 2시간 +<br>교과 연계 1시간</td></tr></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>체험처</th><th>체험 내용</th></tr></thead><tbody><tr><td>문화의 거리 공방<br>10곳</td><td>우드아로마 디퓨저 · 캘리그라피 아크릴무드등 · 아로마발포 세라믹 ·<br>간식접시 · 은팔찌 · 타일도마 · 글라스아트 썬캐처 ·<br>가죽카드지갑 · 나만의 향수 · 민화탁상시계</td></tr><tr><td>미래진로직업<br>체험센터</td><td>드론축구 · 드론촬영 · 3D 프린팅 · VR · 크리에이터 · 로봇코딩 ·<br>메타버스</td></tr></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>교과</th><th>교과 연계 지도 내용(운영계획)</th><th>교과</th><th>교과 연계 지도 내용(운영계획)</th></tr></thead><tbody><tr><td>국어</td><td>생성형 AI 기술의 장단점 글쓰기</td><td>미술</td><td>지역 문화예술 현장 경험</td></tr><tr><td>영어</td><td>영어로 알아보는 미래 직업</td><td>정보</td><td>디지털 기술과 나의 진로 설계</td></tr><tr><td>과학</td><td>4차 산업혁명과 미래 직업 탐색</td><td>도덕</td><td>공동체 예절과 직업 윤리</td></tr><tr><td>사회</td><td>○○의 사회 · 문화 살펴보기</td><td>수학</td><td>원목 트레이 넓이 구하기</td></tr><tr><td>기술·가정</td><td>자립 실습, 기술 혁신과 문제 해결</td><td>진로와 직업</td><td>적성에 맞는 진로 · 직업 탐색</td></tr></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>답사 · 안전 · 사후</th><th>운영</th></tr></thead><tbody><tr><td>사전답사(6. 12.)</td><td>이동 시간(체험센터 약 30분, 문화의 거리 약 25분)과 15개 점검 항목<br>모두 적합</td></tr><tr><td>사전 안전교육</td><td>1차 6. 22. · 2차 6. 29. 조회 시간 담임 실시, 출발 당일 3차<br>안전교육과 인원 점검</td></tr><tr><td>사후 활동</td><td>담임교사의 체험 소감문 작성 지도, 교과 연계 1시간 수업, 7월 15~16일<br>만족도 조사(부록 13)</td></tr></tbody></table></div></div></details><details class="fold"><summary>부록 9 · 학년별 진로캠프 차시별 운영안</summary><div><div class="tw"><table class="map4"><thead><tr><th>운영</th><th>2026. 7. 7.(화) 1~4교시, 2·3학년 각 9학급. 전문업체 강사가 1학급씩 맡고<br>교과 교사가 함께 임장(학교 자율사업 예산)</th></tr></thead><tbody></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>차시</th><th>2학년 「놀이로 배우는 진로교실」</th><th>3학년 「미래를 준비하는 진로교실」</th></tr></thead><tbody><tr><td>1</td><td>액션카드 탐색 — 우리 반 홀랜드 유형<br>분석, 48종 직무 액션카드를 흥미와 적성에<br>따라 분류</td><td>계열과 학과 탐색 — 초성 퀴즈로 학과<br>사전의 7개 계열 · 128개 학과 특징 알기</td></tr><tr><td>2</td><td>액션카드 퀴즈 — 미션과 퀴즈로 홀랜드<br>유형과 직업 · 직무의 관계 익히기</td><td>학과사전 미션 · 나만의 대학교 — 학과<br>통계로 트렌드 읽기, 선호 학과로 대학<br>꾸리기</td></tr><tr><td>3</td><td>액션 네트워크 — 액터 카드 24종과 장소<br>카드 24장으로 사람들의 욕구와 직업의<br>생성 · 확산 이해</td><td>선택과목 소개 — 2022 개정 교육과정의<br>교과별 선택과목과 관련 학과 퀴즈</td></tr><tr><td>4</td><td>미래직업 창직 — 장소 · 키워드 ·<br>욕구 · 직무를 엮어 새 직업을 짓고<br>그림으로 표현</td><td>고교학점제 과목 설계 — 제도 이해, 선호<br>학과에 맞춘 선택과목 설계서 작성</td></tr></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>학년</th><th>결과보고서의 학습 목표</th></tr></thead><tbody><tr><td>2학년</td><td>홀랜드 이론의 특징을 알고, 직업 세계의 종류와 특성을 설명하며, 강점별 선호<br>직업을 찾고 창업 · 창작을 직접 해 본다.</td></tr><tr><td>3학년</td><td>7개 계열과 128개 학과의 특징을 이해하고, 고교학점제의 교육과정 · 평가 · 과목<br>선택을 알며, 선택과목 설계로 고교학점제를 대비하는 자신감을 얻는다.</td></tr></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>운영 지침(운영계획)</th><th>2학기에 더할 점(오작교)</th></tr></thead><tbody><tr><td>강사 1인 1학급 전담, 차시별 주제는 강사<br>재량으로 재배열 가능</td><td>차시마다 ‘선택의 이유’를 한 줄로 남기기</td></tr><tr><td>활동 전 사전교육으로 운영 취지와 안전 안내</td><td>활동 전 질문 카드(부록 2) 작성</td></tr><tr><td>활동 후 만족도 조사로 피드백 수집(6문항)</td><td>결과를 원자료로 다시 계산(부록 12)</td></tr></tbody></table></div><p class="note">※ 2학년의 창직 활동지와 3학년의 과목 설계 책자를 부록 3의 설계서로 이어 쓰게 하여, 캠프</p><p class="note">하루의 산출물이 2학기 진로 수업과 상담의 자료가 되게 한다.</p></div></details><details class="fold"><summary>부록 10 · 직업인 진로멘토링 10개 직업군</summary><div><div class="tw"><table class="map4"><thead><tr><th>운영</th><th>2026. 8. 26.(수) · 3학년 1~2교시, 2학년 3~4교시 · 희망한 2개 직업군에<br>1시간씩 참여 · 직업인 강사 10명 · 다음 날 조회 시간 소감문 작성(계획)</th></tr></thead><tbody></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>직업군</th><th>멘토링 내용(결과보고서 요약)</th><th>알아보는 역량</th></tr></thead><tbody><tr><td>AI 인공지능</td><td>생활과 산업 속 AI 사례, 개발자 · 데이터<br>전문가의 역할</td><td>디지털 역량</td></tr><tr><td>K-pop 댄스</td><td>K-POP 산업 구조, 댄서 · 안무가의 활동 분야</td><td>표현력 · 협업</td></tr><tr><td>게임개발자</td><td>기획부터 출시까지의 제작 과정과 관련 직무</td><td>논리적 사고 ·<br>창의력</td></tr><tr><td>레진공예가</td><td>레진공예의 활용 분야와 공예 창업</td><td>색채 감각 · 디자인</td></tr><tr><td>마술사</td><td>공연 준비 과정과 공연 콘텐츠 제작</td><td>소통 · 표현력 ·<br>집중력</td></tr><tr><td>바리스타</td><td>원두와 커피 제조, 매장 운영과 외식 산업</td><td>고객 서비스</td></tr><tr><td>쇼콜라티에</td><td>초콜릿 원료와 제조 과정, 제품 개발</td><td>섬세함 · 디자인</td></tr><tr><td>파티시에</td><td>제과 · 제빵 분야와 위생 관리, 디저트 산업</td><td>제품 개발 · 위생</td></tr><tr><td>퍼스널컬러전문가</td><td>피부톤 · 머리색에 맞는 색 분석과 상담</td><td>색채 분석 · 상담</td></tr><tr><td>퍼퓸디자이너</td><td>향의 종류와 조합, 향수 제품 기획</td><td>후각 감각 · 기획력</td></tr></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>단계</th><th>운영 방법</th></tr></thead><tbody><tr><td>직업군 섭외</td><td>학생의 진로 희망 수요를 바탕으로 가장 가까운 분야의 직업인에게 강연<br>의뢰(학교 진로교육 운영계획)</td></tr><tr><td>희망 분야 선택</td><td>10개 직업군 가운데 1 · 2희망을 신청, 학년별로 같은 교실 배치(3학년 2층,<br>2학년 3층, 퍼퓸디자이너는 진로활동실)</td></tr><tr><td>소감문 양식</td><td>만나 본 직업 1 · 2와 강연 내용, 배운 점 · 느낀 점, 나의 진로와 연결해<br>생각한 것</td></tr><tr><td>모니터링 설문</td><td>5점 척도 7문항과 개선점 · 운영 전반 의견(서술), 결과는 부록 14</td></tr></tbody></table></div></div></details><details class="fold"><summary>부록 11 · 1학년 교과 연계 체험과 북콘서트</summary><div><h4 style="margin:1rem 0 .3rem">1 ○○ 문화역사 체험(4. 29., 계획) — 6개 주제 코스</h4><div class="tw"><table class="map4"><thead><tr><th>주제</th><th>주요 코스(수정 운영계획)</th></tr></thead><tbody><tr><td>민주주의의 길</td><td>○○대 6월 항쟁 격전지 → 6월 항쟁비 → 김영철 열사 생가 → ○○YMCA</td></tr><tr><td>평화와 통일의 길</td><td>여순역사관 → 여순 10 · 19 평화공원 → 여순항쟁탑</td></tr><tr><td>자주독립의 길</td><td>충무사 → ○○왜성 → ○○ 정유재란 역사공원</td></tr><tr><td>근대도시의 길</td><td>○○역 → 철도관사마을 · 철도마을박물관 → 매산등 근대 유적</td></tr><tr><td>전통문화의 길</td><td>연자루 · 팔마비 → ○○부읍성 → ○○향교 → 옥천서원 → ○○대 박물관</td></tr><tr><td>문학의 길</td><td>○○고 문학비 → ○○문학관(정채봉관 · 김승옥관) → ○○가주제공원</td></tr></tbody></table></div><h4 style="margin:1rem 0 .3rem">2 미디어 문화 체험(4. 30., 계획) — 9개 교과 연계 과제</h4><div class="tw"><table class="map4"><thead><tr><th>교과</th><th>과제</th><th>교과</th><th>과제</th><th>교과</th><th>과제</th></tr></thead><tbody><tr><td>국어</td><td>인물의<br>아름다움을 시로</td><td>사회</td><td>영화 속 사회 문제</td><td>과학</td><td>과학 탐구 보고서</td></tr><tr><td>도덕</td><td>공동체 예절 탐구</td><td>정보</td><td>인물<br>정보(데이터) 탐구</td><td>수학</td><td>영화 속<br>수학 공식</td></tr><tr><td>미술</td><td>장면을 명화로<br>재해석</td><td>영어</td><td>영화로 익히는 단어</td><td>기술·가정</td><td>기술의 활용 사례</td></tr></tbody></table></div><h4 style="margin:1rem 0 .3rem">3 교과 연계 북콘서트(7. 7., 계획)와 진로탐색 강연(8. 28.)</h4><div class="tw"><table class="map4"><thead><tr><th>구분</th><th>내용</th></tr></thead><tbody><tr><td>북콘서트 구성</td><td>책노래 5곡(『시인 동주』 · 『아몬드』 등), 북퀴즈, 역할낭독극, 독서<br>스피드퀴즈, 권장 도서 소개</td></tr><tr><td>진로 토크</td><td>독서와 진로 – 책으로 이룬 나의 꿈: ① 독서와 학업 ② 사회 진출<br>③ 직업 창출</td></tr><tr><td>진로탐색 강연</td><td>교육지원청 프로그램 「내 꿈에 한걸음 더 가까이」 · 1학년 · 시청각실 ·<br>8월 28일 실시</td></tr></tbody></table></div></div></details><details class="fold"><summary>부록 12 · 진로캠프 만족도 원자료와 재계산</summary><div><h4 style="margin:1rem 0 .3rem">A 2학년(247명 응답) — 「놀이로 배우는 진로교실」</h4><div class="tw"><table class="map4"><thead><tr><th>문항</th><th>5</th><th>4</th><th>3</th><th>2</th><th>1</th><th>합계</th><th>긍정률</th><th>평균</th><th>환산값</th></tr></thead><tbody><tr><td>특기 · 적성<br>개발 도움</td><td>182</td><td>58</td><td>7</td><td>0</td><td>0</td><td>247</td><td>97.2%</td><td>4.71</td><td>94.2%</td></tr><tr><td>향후 진로 선택 도움</td><td>182</td><td>53</td><td>12</td><td>0</td><td>0</td><td>247</td><td>95.1%</td><td>4.69</td><td>93.8%</td></tr><tr><td>운영의 흥미</td><td>202</td><td>41</td><td>4</td><td>0</td><td>0</td><td>247</td><td>98.4%</td><td>4.80</td><td>96.0%</td></tr><tr><td>강사 친절 · 유익</td><td>219</td><td>26</td><td>2</td><td>0</td><td>0</td><td>247</td><td>99.2%</td><td>4.88</td><td>97.6%</td></tr><tr><td>전반적 만족</td><td>192</td><td>50</td><td>5</td><td>0</td><td>0</td><td>247</td><td>98.0%</td><td>4.76</td><td>95.1%</td></tr><tr><td>재참여 희망</td><td>187</td><td>50</td><td>10</td><td>0</td><td>0</td><td>247</td><td>96.0%</td><td>4.72</td><td>94.3%</td></tr></tbody></table></div><h4 style="margin:1rem 0 .3rem">B 3학년(258명 응답) — 「미래를 준비하는 진로교실」</h4><div class="tw"><table class="map4"><thead><tr><th>문항</th><th>5</th><th>4</th><th>3</th><th>2</th><th>1</th><th>합계</th><th>긍정률</th><th>평균</th><th>환산값</th></tr></thead><tbody><tr><td>특기 · 적성<br>개발 도움</td><td>188</td><td>52</td><td>17</td><td>1</td><td>0</td><td>258</td><td>93.0%</td><td>4.66</td><td>93.1%</td></tr><tr><td>향후 진로 선택 도움</td><td>188</td><td>52</td><td>17</td><td>1</td><td>0</td><td>258</td><td>93.0%</td><td>4.66</td><td>93.1%</td></tr><tr><td>운영의 흥미</td><td>191</td><td>45</td><td>22</td><td>0</td><td>0</td><td>258</td><td>91.5%</td><td>4.66</td><td>93.1%</td></tr><tr><td>강사 친절 · 유익</td><td>216</td><td>35</td><td>7</td><td>0</td><td>0</td><td>258</td><td>97.3%</td><td>4.81</td><td>96.2%</td></tr><tr><td>전반적 만족</td><td>193</td><td>53</td><td>12</td><td>0</td><td>0</td><td>258</td><td>95.3%</td><td>4.70</td><td>94.0%</td></tr><tr><td>재참여 희망</td><td>192</td><td>38</td><td>28</td><td>0</td><td>0</td><td>258</td><td>89.1%</td><td>4.64</td><td>92.7%</td></tr></tbody></table></div><p class="note">※ 5 = 매우 그렇다(매우 만족) … 1 = 매우 그렇지 않다. 긍정률 = (5점 + 4점) ÷ 합계, 평균</p><p class="note">= 점수 × 빈도의 합 ÷ 합계. 결과보고서의 ‘만족도 백분위 환산’은 5점 평균을 100점으로 바꾼</p><p class="note">값이다(예: 2학년 전반적 만족 4.76 ÷ 5 = 95.1%). 3학년 1 · 2번 문항은 빈도 분포가 같아 원자료</p><p class="note">확인이 필요하다. 두 학년 모두 강사 친절 · 유익과 전반적 만족이 가장 높았고, 3학년 재참여</p><p class="note">희망(89.1%, 보통 28명)이 상대적으로 낮아 2학기에는 학과 · 과목 탐색을 관심별 상담(부록 3)으로</p><p class="note">잇는다.</p></div></details><details class="fold"><summary>부록 13 · 1학년 자유학기제 만족도 조사 결과</summary><div><div class="tw"><table class="map4"><thead><tr><th>조사</th><th>2026. 7. 15.~16. · 네이버 폼 · 1학년 재적 267명 중 245명 응답(91.8%) ·<br>5점 척도 8문항, 원문은 정수 백분율</th></tr></thead><tbody></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>번호</th><th>문항</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>긍정</th><th>부정</th></tr></thead><tbody><tr><td>1</td><td>학교의 프로그램이나 활동이<br>다양하다</td><td>2</td><td>4</td><td>16</td><td>27</td><td>51</td><td>약 78%</td><td>6%</td></tr><tr><td>2</td><td>학교 교육을 통해 나의 진로를<br>생각해 볼 수 있었다</td><td>6</td><td>10</td><td>27</td><td>23</td><td>34</td><td>약 57%</td><td>16%</td></tr><tr><td>3</td><td>수업 시간에 적극적으로 참여하였다</td><td>2</td><td>2</td><td>18</td><td>24</td><td>54</td><td>약 78%</td><td>4%</td></tr><tr><td>4</td><td>시험 부담에서 벗어나 하고 싶은<br>활동을 할 시간이 있었다</td><td>5</td><td>5</td><td>21</td><td>20</td><td>49</td><td>약 69%</td><td>10%</td></tr><tr><td>5</td><td>찾아가는 진로탐색에서 체험한<br>프로그램에 만족한다</td><td>5</td><td>6</td><td>22</td><td>24</td><td>43</td><td>약 67%</td><td>11%</td></tr><tr><td>6</td><td>강사는 친절하고 이해하기 쉽게<br>설명하였다</td><td>2</td><td>4</td><td>20</td><td>26</td><td>48</td><td>약 74%</td><td>6%</td></tr><tr><td>7</td><td>탑승한 버스는 안전하고 깨끗했다</td><td>2</td><td>3</td><td>12</td><td>20</td><td>63</td><td>약 83%</td><td>5%</td></tr><tr><td>8</td><td>찾아가는 진로탐색은 나의 진로<br>탐색에 도움이 되었다</td><td>5</td><td>8</td><td>27</td><td>18</td><td>42</td><td>약 60%</td><td>13%</td></tr></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>학교 종합 평가(결과 공문 요지)</th><th>연구자의 해석(오작교 관점)</th></tr></thead><tbody><tr><td>만족도가 전반적으로 높고, 참여형 · 체험 중심<br>활동과 시험 부담 완화에 대한 긍정적 의견이<br>많았다.</td><td>진로 의미 문항(2번 약 57%, 8번 약 60%)이<br>운영 · 만족 문항보다 낮고 부정 응답도 가장<br>많았다(16%, 13%).</td></tr></tbody></table></div><p class="note">※ 1 = 전혀 그렇지 않다, 2 = 그렇지 않다, 3 = 보통이다, 4 = 그렇다, 5 = 매우 그렇다(단위</p><p class="note">%). 원문이 정수 백분율만 제시하여 긍정(4 + 5) · 부정(1 + 2)은 근삿값이며 인원으로 역산하지</p><p class="note">않았다. 음영은 진로 의미를 묻는 문항이다.</p></div></details><details class="fold"><summary>부록 14 · 직업인 멘토링 만족도와 학생 의견</summary><div><div class="tw"><table class="map4"><thead><tr><th>번호</th><th>문항</th><th>5</th><th>4</th><th>3</th><th>2</th><th>1</th><th>합계</th><th>긍정률</th><th>평균</th></tr></thead><tbody><tr><td>1</td><td>진로설계에 도움이 된다</td><td>150</td><td>165</td><td>157</td><td>36</td><td>12</td><td>520</td><td>60.6%</td><td>3.78</td></tr><tr><td>2</td><td>강사가 친절하게 안내했다</td><td>204</td><td>206</td><td>97</td><td>7</td><td>5</td><td>519</td><td>79.0%</td><td>4.15</td></tr><tr><td>3</td><td>PPT 등 다양한 매체를 활용했다</td><td>198</td><td>196</td><td>102</td><td>10</td><td>3</td><td>509</td><td>77.4%</td><td>4.13</td></tr><tr><td>4</td><td>강의 내용에 만족한다</td><td>194</td><td>172</td><td>119</td><td>24</td><td>9</td><td>518</td><td>70.7%</td><td>4.00</td></tr><tr><td>5</td><td>강사의 직업 전문성에 만족한다</td><td>184</td><td>192</td><td>127</td><td>11</td><td>5</td><td>519</td><td>72.4%</td><td>4.04</td></tr><tr><td>6</td><td>흥미를 가지고 참여했다</td><td>173</td><td>147</td><td>156</td><td>34</td><td>8</td><td>518</td><td>61.8%</td><td>3.86</td></tr><tr><td>7</td><td>프로그램이 계속되기를 바란다</td><td>204</td><td>165</td><td>109</td><td>29</td><td>12</td><td>519</td><td>71.1%</td><td>4.00</td></tr></tbody></table></div><p class="note">※ 결과표의 표기 응답자는 519명이나 1번(520명), 3번(509명), 4 · 6번(518명) 문항의 빈도 합계가</p><p class="note">달라 문항별 합계를 분모로 한 참고치로 계산하였다. 음영은 진로 의미와 참여를 묻는 문항이다.</p><div class="tw"><table class="map4"><thead><tr><th>구분</th><th>학생 의견(결과표 원문)</th></tr></thead><tbody><tr><td>개선되었으면<br>하는 점</td><td>“시간이 좀 더 많았으면 좋겠고 직접 체험을 했으면 좋겠다.”<br>“실습을 더 많이 하고 이론 강의를 줄였으면 좋겠다.”<br>“영상만 보거나 강의만 들어서 흥미가 떨어지고 지루했다.”<br>“체험 직업이 좀 더 다양했으면 좋겠다.”<br>(결과표 정리: 대부분의 학생들이 직접 참여하고 체험하기를 원함)</td></tr><tr><td>운영 전반에<br>대한 말</td><td>“진로에 대해 도움이 된 것 같다.” “내 진로를 찾아갈 수 있는 계기가 되었다.”<br>“체험 활동이었으면 더 좋겠다.” “체험을 하면 더 좋을 것 같고 시간이 너무<br>짧다.”</td></tr></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>오작교의 개선</th><th>반영한 도구</th></tr></thead><tbody><tr><td>듣는 만남 → 묻고 해 보는 만남</td><td>사전 질문 전달, 설명 · 실습 · 질문 시간 협의와 실제 시간<br>기록(부록 2)</td></tr><tr><td>만족 → 진로설계로 잇기</td><td>만남 뒤 ‘달라진 생각과 다음 걸음’ 기록, 2~4주 뒤<br>점검(부록 1 · 4)</td></tr></tbody></table></div></div></details><details class="fold"><summary>부록 15 · 학생 소감 ① 2학년 진로캠프</summary><div><div class="tw"><table class="map4"><thead><tr><th>출처</th><th>7월 7일 2학년 진로캠프 결과보고서의 ‘특히 좋았거나 유익했던 내용’ 서술(수록<br>소감)에서 발췌하였다. 맞춤법은 원문을 따르고, 긴 문장은 ‘…’로 줄였다.</th></tr></thead><tbody></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>범주</th><th>학생 소감(원문 발췌)</th></tr></thead><tbody><tr><td>나를<br>설명하는 말</td><td>“홀랜드 유형을 파악해봄으로써 나의 성격과 관심 분야에는 어떤 직업이 더 잘<br>맞는지 알게 되어서 뜻깊었다.”<br>“진로 탐색을 통해 내가 진취형, 관습형이라는 것을 알았고, 내가 하고 싶은<br>직업에서 필요한 능력들을 알게 되어서 부족한 부분을 채우기 위해 더<br>노력해야겠다고 생각했다.”<br>“내가 진로 탐색 유형에서 관습형인 걸 알았고 평소 관심 있었던 직업과는<br>다른 유형이 나와서 이 역량을 더 키워야겠다고 생각했다.”</td></tr><tr><td>넓어진<br>직업 세계</td><td>“이 세상엔 내 생각보다 많은 직업들이 있다는 것을 알게 되었고, 나의 진로<br>선택지가 다양한 생각이 들었다.”<br>“시대가 변하면서 일자리 수가 증가하는 직업과 감소하는 직업이 예상과 달라<br>신기했고 …”<br>“기술이 발전하면서 직업도 함께 변한다는 것을 알게 됐다.”</td></tr><tr><td>직업을<br>짓는 경험</td><td>“새로운 직업을 만들어 보니 내가 만든 직업이 실제로 생겼으면 좋겠다고<br>생각했다.”<br>“… 창작 직업 미션으로 미래에 생길 수 있는 직업의 가능성까지 본 점이 정말<br>유익했다.”</td></tr><tr><td>진로를<br>대하는 마음</td><td>“진로로 인해 고민하면서 가지고 있던 부담이 한층 덜어진 것 같다.”<br>“진로를 정하지도 못했었고 나중에 알아서 되겠지 라고 생각했었는데 …<br>오늘부로 관심이 생긴 직업에 대해 더 진지하게 생각해볼 것 같다.”<br>“평소 관심이 없었던 나의 10년 후 미래를 생각해보니 마음이 복잡했다. 이번<br>프로그램으로 인해 나의 진로에 대해서 고민하게 되는 계기가 되었다.”</td></tr></tbody></table></div><p class="note">※ 해석: 홀랜드 유형이 ‘나를 설명하는 말’이 되었고(오), 창직 활동이 직업을 받아들이는 것에서</p><p class="note">짓는 것으로 옮겨 갔다(作). 다만 유형을 정답처럼 받아들인 진술도 있어, 검사 결과와 실제 경험을</p><p class="note">견주는 질문(부록 1 · 2)을 함께 쓰도록 설계하였다.</p></div></details><details class="fold"><summary>부록 16 · 학생 소감 ② 3학년 진로캠프</summary><div><div class="tw"><table class="map4"><thead><tr><th>출처</th><th>7월 7일 3학년 진로캠프 결과보고서의 서술 응답(수록 소감)에서 발췌하였다. 긴<br>문장은 ‘…’로 줄였다.</th></tr></thead><tbody></tbody></table></div><div class="tw"><table class="map4"><thead><tr><th>범주</th><th>학생 소감(원문 발췌)</th></tr></thead><tbody><tr><td>학과를<br>알게 되다</td><td>“사실 학과 이름을 거의 모르고 있었는데 초성 퀴즈와 키워드 퀴즈 등<br>재미있는 프로그램으로 각 학과가 어떤 것이 있고, 무엇을 배우는지를 알게<br>되어 재미있었다.”<br>“… 사람들에게 사회를 가르치고 올바른 시민의식을 기르는 일에 관심이<br>많다는 것을 알게 되어 사회교육과를 희망하게 되었다.”</td></tr><tr><td>과목을 설계하다</td><td>“나는 약학과에 관심이 있어 교육과정과 진로를 찾아보았고 … 화학과<br>생명과학 과목이 약학과 진학에 중요하다는 것을 알게 되었고, 앞으로 진로에<br>맞는 과목을 계획적으로 선택해야겠다고 다짐했다.”<br>“여러 가지 학과를 알아보고 고교학점제 선택 과목도 직접 설계해 보면서 대학<br>진학이 생각보다 가까워졌다는 느낌이 들었다.”</td></tr><tr><td>선택의<br>기준을 세우다</td><td>“… 단순히 성적에 맞춰 학교를 선택하는 것이 아니라, 내가 좋아하는 것과<br>잘하는 것, 그리고 앞으로 이루고 싶은 꿈을 함께 고려해야 한다는 점을<br>배웠다.”<br>“… 특성화고에 진학해 실무를 더 배우고 싶다는 생각이 들었고, 앞으로의<br>진로를 계획하는 데 도움이 된 뜻깊은 시간이었다.”</td></tr><tr><td>걱정이 줄다</td><td>“입시 제도와 고교학점제에 대해 잘 설명해주셔서 조금은 걱정이 덜어질 것<br>같습니다.”<br>“최근 들어 내 장래와 미래에 나의 모습에 대한 고민과 걱정이 정말 많았는데,<br>이번 기회를 통해 내가 관심을 가지던 직업에 대한 정보를 많이 알게 되어서<br>좋았다.”</td></tr></tbody></table></div><p class="note">※ 해석: 3학년의 진술은 직업명에서 학과와 고교 과목으로, 다시 자신의 선택 기준으로 옮겨</p><p class="note">갔다(作). 등급 · 입시 정보에 머문 진술도 있어, 2학기에는 설계서(부록 3)의 ‘선택의 이유’와 ‘더</p><p class="note">물어볼 사람’ 칸을 상담과 연결한다.</p></div></details>
+  <h2 class="bh">보고서</h2>
+  <p><a class="go" href="report.html">보고서 전문 보기</a> <a class="go ghost" href="report.html#summary">요약서 보기</a></p>
+  <details class="fold"><summary>참고문헌</summary><div><ol class="refs"><li>김형국. (2025). 생성형 AI 기반 음악창작 수업의 효과 분석 : MusiaOne과 Suno 비교를 중심으로 [석사학위논문, 서울대학교].</li><li>박선영, 추영선. (2026). Exploring Interactions with AI-Based Music Composition Tools Across Different Levels of Musical Expertise. 음악교육연구, 55(2), 131-165.</li><li>박송이, 권혜근. (2026). AI 바이브 코딩 기반 초등 음악학습 웹앱 설계 및 개발. 음악교육연구, 55(2), 167-191.</li><li>박은승. (2025). AI 음악 생성기 사운드로우(Soundraw)를 활용한 음악 창작 수업의 효과에 관한 질적 연구. 차세대융합기술학회논문지, 9(10), 2669-2679.</li><li>박현진, 남상봉. (2023). ASSURE 모형을 적용한 에듀테크 초등 음악 창작 프로그램 개발. 음악교육공학, 55, 33-62.</li><li>서대환, 이미선. (2025). 음악 수업에서 생성형 AI의 활용이 자기효능감과 학습지속의도에 미치는 영향: 디지털 리터러시 조절 효과를 중심으로. 한국웰니스학회지, 20(3), 371-377.</li><li>서대환, 이미선. (2026). 생성형 AI 기반 음악 및 영상 창작에서의 의미 구성: 고등학생의 정서 변화, 판단 형성, 창작 정체성 경험에 대한 단일사례연구. 음악교육연구, 55(1), 165-204.</li><li>신기호. (2026). 폐쇄 로컬 구조 OSS 기반 음악교육 서술형 LLM AI 평가도구 개발. 음악교육연구, 55(3), 191-215.</li><li>오한경. (2025). AI 음악 생성기의 작동 원리 탐색 : 중학교 음악 수업에서의 Udio 활용 사례 [석사학위논문, 부산교육대학교].</li></ol></div></details>
+  <nav class="pn"><a href="#arch"><span>이전</span><b>현장 기록</b></a><a href="#home"><span>처음으로</span><b>홈</b></a></nav>
+</div>
+</section>
+
+</main><footer class="mag-footer"><a href="#home">오작교</a><p>오늘의 경험을 내일의 가능성으로.<br><small>2026 · 오늘을 짓는(作) 다리, 오작교 프로젝트</small></p><a href="report.html">연구보고서 읽기 ↗</a></footer>
+<footer><div class="wrap"><p style="margin:0 0 .4rem"><b>오작교 프로젝트</b> — 2026. 진로교육 실천사례 연구대회 「오늘을 짓는(作) 다리, 오작교 프로젝트」</p><p style="margin:0"><a href="report.html">보고서 전문</a> · <a href="report.html#summary">요약서</a></p></div></footer>
+<dialog class="lb" id="lb" aria-label="사진 크게 보기"><div class="lb-in"><img alt=""><p class="lb-cap"></p></div><button class="lb-btn lb-prev" type="button" aria-label="이전 사진">‹</button><button class="lb-btn lb-next" type="button" aria-label="다음 사진">›</button><button class="lb-btn lb-x" type="button" aria-label="닫기">×</button></dialog>
+<script>
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+
+  /* ---------- router ---------- */
+  var views=$$('.view'), tiles=$$('.tile'), baseTitle='오작교 프로젝트';
+  function route(){
+    var k=(location.hash||'#home').slice(1).split('/')[0];
+    var v=$('#v-'+k); if(!v){k='home';v=$('#v-home');}
+    views.forEach(function(x){ if(x!==v && x.classList.contains('on')) stopMedia(x); x.classList.toggle('on',x===v)});
+    tiles.forEach(function(t){var on=t.dataset.r===k; t.classList.toggle('on',on); if(on) t.setAttribute('aria-current','page'); else t.removeAttribute('aria-current');});
+    var on=tiles.filter(function(t){return t.classList.contains('on')})[0];
+    if(on&&on.scrollIntoView&&window.innerWidth<=860) on.scrollIntoView({inline:'center',block:'nearest'});
+    document.title=(k==='home'?'':v.dataset.title+' | ')+baseTitle;
+    var tt=$('#toptitle'); if(tt) tt.textContent=k==='home'?'':v.dataset.title;
+    window.scrollTo(0,0);
+    if(k==='b4'||k==='b1') lyricInit();
+  }
+  window.addEventListener('hashchange',route);
+
+  /* ---------- generic tabs ---------- */
+  $$('[data-tabs]').forEach(function(root){
+    var own=function(el){return el.closest('[data-tabs]')===root};
+    var btns=$$('[data-tab]',root).filter(own), panels=$$('[data-panel]',root).filter(own);
+    function sel(k){
+      root.dataset.active=k;
+      btns.forEach(function(b){var on=b.dataset.tab===k; b.classList.toggle('on',on); b.setAttribute('aria-selected',on); b.setAttribute('role','tab');});
+      panels.forEach(function(p){p.hidden=p.dataset.panel!==k});
+    }
+    btns.forEach(function(b){b.addEventListener('click',function(){sel(b.dataset.tab)})});
+    $$('[data-step]',root).filter(own).forEach(function(s){s.addEventListener('click',function(){
+      var keys=btns.map(function(b){return b.dataset.tab}), i=keys.indexOf(root.dataset.active)+parseInt(s.dataset.step,10);
+      if(i>=0&&i<keys.length) sel(keys[i]);
+    })});
+    var start=root.dataset.active&&btns.some(function(b){return b.dataset.tab===root.dataset.active})?root.dataset.active:(btns[0]&&btns[0].dataset.tab);
+    if(start) sel(start);
+  });
+
+  /* ---------- lightbox ---------- */
+  var dlg=$('#lb'), limg=$('img',dlg), lcap=$('.lb-cap',dlg), list=[], idx=0;
+  function show(i){idx=(i+list.length)%list.length; var a=list[idx]; limg.src=a.getAttribute('href'); limg.alt=$('img',a).alt||'';
+    var fc=a.closest('figure')&&$('figcaption',a.closest('figure')); lcap.textContent=fc?fc.textContent:'';
+    $('.lb-prev',dlg).hidden=$('.lb-next',dlg).hidden=list.length<2;}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a.zoom'); if(!a||!dlg.showModal) return; e.preventDefault();
+    var g=a.closest('.strip,.arch,.grid')||a.parentNode;
+    list=$$('a.zoom',g).filter(function(x){return x.offsetParent!==null}); if(list.indexOf(a)<0) list=[a];
+    show(list.indexOf(a)); dlg.showModal();
+  });
+  $('.lb-prev',dlg).onclick=function(){show(idx-1)}; $('.lb-next',dlg).onclick=function(){show(idx+1)}; $('.lb-x',dlg).onclick=function(){dlg.close()};
+  dlg.addEventListener('click',function(e){if(e.target===dlg) dlg.close()});
+  document.addEventListener('keydown',function(e){if(!dlg.open) return; if(e.key==='ArrowLeft') show(idx-1); if(e.key==='ArrowRight') show(idx+1);});
+  dlg.addEventListener('close',function(){limg.removeAttribute('src')});
+
+  /* ---------- youtube lite ---------- */
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('button.yt,button.ifr-lite'); if(!b) return;
+    var f=document.createElement('iframe'); f.title=b.dataset.title||'영상';
+    if(b.classList.contains('yt')){
+      f.className='ytf'; f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&rel=0';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    } else { f.className='pf'; f.src=b.dataset.src; f.allow='autoplay; fullscreen'; }
+    f.allowFullscreen=true; f.dataset.orig=b.outerHTML;
+    b.replaceWith(f);
+  });
+  // stop media in views that are being hidden
+  function stopMedia(v){
+    $$('video',v).forEach(function(x){ if(!x.paused) x.pause(); });
+    $$('iframe[data-orig]',v).forEach(function(f){ var t=document.createElement('div'); t.innerHTML=f.dataset.orig; f.replaceWith(t.firstChild); });
+  }
+
+  /* ---------- QR flip ---------- */
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.qrb'); if(!b) return;
+    var card=b.closest('.plat'); var on=!card.classList.contains('flip');
+    card.classList.toggle('flip',on); $$('.qrb',card).forEach(function(x){x.setAttribute('aria-pressed',on)});
+  });
+
+  /* ---------- prompt builder ---------- */
+  function josa(w,a,b){var c=w.charCodeAt(w.length-1); if(c<0xAC00||c>0xD7A3) return w+b; var j=(c-0xAC00)%28; return w+(j?a:b);}
+  function ro(w){var c=w.charCodeAt(w.length-1); if(c<0xAC00||c>0xD7A3) return w+'로'; var j=(c-0xAC00)%28; return w+((j&&j!==8)?'으로':'로');}
+  var form=$('#bform');
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  var TERMS=['셈여림','짜임새','악기 편성','편성','빠르기','템포','BPM','조성','장조','단조','화성','음색','리듬','후렴','Verse','Chorus','악기 수','드럼','기타','피아노','멜로디','음정','형식'];
+  function build(){
+    if(!form) return;
+    var f=form.elements, insts=$$('input[name=inst]:checked',form).map(function(x){return x.value});
+    var ban=f.ban.value.split(/[,，]/).map(function(s){return s.trim()}).filter(Boolean);
+    var key=$('input[name=key]:checked',form).value;
+    $('#bpmv').textContent=f.bpm.value;
+    var p1='너는 '+(f.genre.value||'')+' 전문 작사가야. '+(f.tone.value.trim()? f.tone.value.trim()+' 써 줘.':'');
+    var p2='나의 이야기는 ‘'+f.story.value.trim()+'’이야. 후렴은 '+ro(f.chorus.value.trim()||'응원')+' 써 줘.'+(ban.length?' '+ban.map(function(w){return '‘'+w+'’'}).join('·')+' 같은 말은 넣지 마.':'');
+    var p3='빠르기 ♩='+f.bpm.value+', '+key+'로 '+(key==='장조'?'밝게':'애잔하게')+'. '+(insts.length?'악기는 '+insts.join('·')+'. ':'')+'Verse는 '+f.vt.value+', Chorus는 '+f.ct.value+'.';
+    var p4='이 조건으로 2종을 만든다 — 2번은 '+f.vary.value+'만 바꾼다.';
+    $('#pbox').innerHTML='<p><b>①</b>'+esc(p1)+'</p><p><b>②</b>'+esc(p2)+'</p><p><b>③</b>'+esc(p3)+'</p><p style="opacity:.75"><b>④</b>'+esc(p4)+'</p>';
+    $('#pbox').dataset.copy=[p1,p2,p3].join('\n');
+    // meter
+    var w=f.why.value.trim(), found=TERMS.filter(function(t){return w.indexOf(t)>=0});
+    found=found.filter(function(t){return !(t==='편성'&&found.indexOf('악기 편성')>=0)});
+    var cmp=/1번|2번|보다|반면|달리|대신|비교/.test(w), cause=/때문|그래서|니까|므로|덕분|해서|어서|아서|기에/.test(w);
+    var lv,why;
+    if(w.length<6||!cmp){lv='하';why=w.length<6?'아직 선택 근거가 비어 있습니다. 두 곡을 비교해 왜 하나를 골랐는지 적어 보세요.':'두 곡을 비교하는 말(1번·2번, ~보다, 반면)이 보이지 않습니다.';}
+    else if(found.length>=2&&cause){lv='상';why='두 곡을 음악 용어로 비교하고, 고른 이유를 인과(때문에·그래서)로 설명했습니다.';}
+    else{lv='중';why=found.length<2?'비교는 했지만 음악 용어가 부족합니다. 셈여림·짜임새·악기 편성처럼 소리를 가리키는 말로 바꿔 보세요.':'비교와 음악 용어는 있습니다. “~때문에”처럼 고른 이유를 원인으로 이어 보세요.';}
+    $$('#meter .lv3 span').forEach(function(s){s.classList.toggle('on',s.dataset.l===lv)});
+    $('#mwhy').textContent=why;
+    $('#mfound').innerHTML=found.map(function(t){return '<span>'+esc(t)+'</span>'}).join('');
+  }
+  if(form){form.addEventListener('input',build); form.addEventListener('change',build); build();
+    $('#pcopy').addEventListener('click',function(){var t=$('#pbox').dataset.copy, b=this;
+      (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='복사했습니다';setTimeout(function(){b.textContent='프롬프트 복사'},1600)},function(){b.textContent='복사하지 못했습니다';});});}
+
+  /* ---------- lyric demo ---------- */
+  var LY=window.LYRIC||[], ltimer=null, lt=0, LEN=24, linit=false;
+  function lyricInit(){
+    if(linit||!$('#lyric')) return; linit=true;
+    var tr=$('#ltrack');
+    LY.forEach(function(l){var m=document.createElement('span'); m.className='mk'; m.style.left=(l.t/LEN*100)+'%'; tr.appendChild(m);});
+    tr.addEventListener('click',function(e){var r=tr.getBoundingClientRect(); lt=Math.max(0,Math.min(LEN,(e.clientX-r.left)/r.width*LEN)); draw();});
+    $('#lplay').addEventListener('click',function(){ if(ltimer){stop()} else {if(lt>=LEN) lt=0; ltimer=setInterval(function(){lt+=.1; if(lt>=LEN){lt=LEN;stop()} draw()},100); this.textContent='일시정지';} });
+    draw();
+  }
+  function stop(){clearInterval(ltimer);ltimer=null;$('#lplay').textContent='재생';}
+  function draw(){
+    var cur=0; LY.forEach(function(l,i){if(lt>=l.t) cur=i});
+    $$('#lyric .lv img').forEach(function(im,i){im.classList.toggle('on',i===cur)});
+    $('#ltrack .fill').style.width=(lt/LEN*100)+'%';
+    $('#ltime').textContent=lt.toFixed(1)+'초';
+    var rows=LY.map(function(l,i){
+      var s='  { <span class="k">"time"</span>: <span class="n">'+l.t.toFixed(1)+'</span>, <span class="k">"image"</span>: <span class="s">"'+l.file+'"</span>,\n    <span class="k">"lyric"</span>: <span class="s">"'+l.line+'"</span> }'+(i<LY.length-1?',':'');
+      return i===cur?'<span class="cur">'+s+'</span>':s;});
+    $('#ljson').innerHTML='[\n'+rows.join('\n')+'\n]';
+  }
+
+  /* ---------- presentation time calculator ---------- */
+  var cnr=$('#cnr'), cmr=$('#cmr');
+  function calc(){ if(!cnr) return; var n=+cnr.value, m=+cmr.value, t=n*m; $('#cn').textContent=n; $('#cm').textContent=m;
+    $('#ctot').textContent=Math.floor(t/60)+'시간 '+(t%60)+'분'; var max=Math.max(t,60);
+    $('#cb1').style.width=(t/max*100)+'%'; $('#cb2').style.width=(60/max*100)+'%'; }
+  if(cnr){cnr.addEventListener('input',calc); cmr.addEventListener('input',calc); calc();}
+
+  /* ---------- timeline: today + status ---------- */
+  (function(){
+    var s=new Date(2026,2,1), e=new Date(2026,11,31), now=new Date(), today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    var tl=$('#today'); if(!tl) return;
+    var r=(today-s)/(e-s);
+    if(r<0||r>1){tl.style.display='none'} else {tl.style.left=(r*100)+'%'; tl.textContent='오늘 '+(today.getMonth()+1)+'. '+today.getDate()+'.';}
+    $$('#ev li').forEach(function(li){
+      var p=li.dataset.d.split('-'), d=new Date(+p[0],+p[1]-1,+p[2]), diff=Math.round((d-today)/864e5);
+      var st=document.createElement('span'); st.className='st'+(diff>0?' up':'');
+      st.textContent=diff>0?'D-'+diff:(diff===0?'오늘':'완료'); li.appendChild(st);
+    });
+  })();
+
+  /* ---------- config demo ---------- */
+  var cs=$('#cf-s'), cg=$('#cf-g'), cc=$('#cf-c');
+  function cfg(){ if(!cs) return;
+    var h=function(v){return '<span class="hl">'+esc(v)+'</span>'};
+    $('#cf-out').innerHTML='<span class="c">// config.js — 고치는 곳은 두 군데뿐</span>\nconst CONFIG = {\n  <span class="c">// ① 로그인 허용 도메인</span>\n  allowedDomain: <span class="s">"ai.jne.kr"</span>,\n\n  <span class="c">// ② 학교 · 학년 · 학급 정보</span>\n  school: <span class="s">"'+h(cs.value||'')+'"</span>,\n  grade: <span class="n">'+h(cg.value||'')+'</span>,\n  classes: <span class="n">'+h(cc.value||'')+'</span>\n};';
+  }
+  if(cs){[cs,cg,cc].forEach(function(x){x.addEventListener('input',cfg)}); cfg();}
+
+  /* ---------- archive counts ---------- */
+  var arch=$('.arch');
+  if(arch){ $$('.filt button').forEach(function(b){ var k=b.dataset.tab, n=k==='all'?$$('figure',arch).length:$$('figure[data-t~="'+k+'"]',arch).length; var s=document.createElement('span'); s.textContent=n; b.appendChild(s); }); }
+
+  route();
+})();
+
+/* ===== 오작교 tools ===== */
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  // print a single sheet
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-print]'); if(!b) return;
+    var sh=b.closest('.sheet'); if(!sh) return;
+    $$('.sheet.pr').forEach(function(x){x.classList.remove('pr')});
+    sh.classList.add('pr'); document.body.classList.add('printing');
+    setTimeout(function(){ window.print(); },50);
+  });
+  window.addEventListener('afterprint',function(){ document.body.classList.remove('printing'); $$('.sheet.pr').forEach(function(x){x.classList.remove('pr')}); });
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-clear]'); if(!b) return;
+    $$('textarea,input[type=text]',b.closest('.sheet')).forEach(function(t){t.value=''});
+  });
+  // 2~4 weeks check window
+  var dc=$('#dcalc');
+  function fmt(d){var w='일월화수목금토'[d.getDay()]; return (d.getMonth()+1)+'월 '+d.getDate()+'일('+w+')';}
+  function calc(){
+    if(!dc) return; var v=dc.value; if(!v) return; var p=v.split('-'), d=new Date(+p[0],+p[1]-1,+p[2]);
+    var a=new Date(d), b=new Date(d), c=new Date(d); a.setDate(a.getDate()+7); b.setDate(b.getDate()+14); c.setDate(c.getDate()+28);
+    $('#dw1').textContent=fmt(a)+'까지'; $('#dw2').textContent=fmt(b)+' ~ '+fmt(c); 
+    var t=new Date(); t=new Date(t.getFullYear(),t.getMonth(),t.getDate());
+    var diff=Math.round((b-t)/864e5), diff2=Math.round((c-t)/864e5);
+    $('#dw3').textContent= diff>0 ? '점검 시작까지 '+diff+'일' : (diff2>=0 ? '지금이 점검할 때입니다' : '점검 기간이 지났습니다');
+  }
+  if(dc){ var t=new Date(); dc.value=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0'); dc.addEventListener('input',calc); calc(); }
+  // time allocation (90 min)
+  var r1=$('#ta1'), r2=$('#ta2');
+  function ta(){
+    if(!r1) return; var a=+r1.value, b=+r2.value; if(a+b>90){ b=90-a; r2.value=b; } var c=90-a-b;
+    $('#tv1').textContent=a; $('#tv2').textContent=b; $('#tv3').textContent=c;
+    var s=$$('#tbar span'); s[0].style.flex=a; s[1].style.flex=b; s[2].style.flex=c;
+    s[0].textContent=a?('설명 '+a+'분'):''; s[1].textContent=b?('해 보기 '+b+'분'):''; s[2].textContent=c?('질문 '+c+'분'):'';
+    var msg = (b+c) >= a ? '해 보기와 질문 시간이 설명 시간보다 깁니다. 학생이 요청한 ‘묻고 해 보는 만남’에 가깝습니다.' : '설명이 절반을 넘습니다. 학생들은 실습 확대와 이론 강의 축소를 요청했습니다.';
+    $('#tmsg').textContent=msg;
+  }
+  if(r1){ r1.addEventListener('input',ta); r2.addEventListener('input',ta); ta(); }
+})();
+
+</script>
+</body>
+</html>
