@@ -31,3 +31,15 @@ main{margin:0;padding-bottom:0}.wrap{max-width:1280px;padding:0 52px}.room{paddi
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 }
 @media print{.masthead,.mag-skip,.mag-footer,.issue-line,.mag-stories,.editor-note{display:none}.mag-cover{display:block}.cover-photo{display:none}}
+/* Soft corners for the journal's photos, panels and controls. */
+@media screen {
+  :root { --radius-large: 20px; --radius-card: 16px; --radius-control: 10px; }
+  .cover-photo, .editor-note { border-radius: var(--radius-large); }
+  .story-img, .brk, .bar3, .pane, .bx, details.info, .namep,
+  .proc .steps, .sheet { border-radius: var(--radius-card); }
+  .bx > h3 { border-radius: 15px 15px 0 0; }
+  .strip img, .grid img, .arch img { border-radius: 12px; }
+  .cover-cta, .go, .seg button, .pbtn, .stepnav button,
+  input, textarea, select { border-radius: var(--radius-control); }
+  .chips li, .story-img > span { border-radius: 999px; }
+}
